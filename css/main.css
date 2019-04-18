@@ -5,32 +5,38 @@ body {
  
 }
 
+.container {
+	max-width: 1200px;
+	box-sizing: border-box;
+	background-color: #ffffff;
+	margin: 0;
+}
 
 header {
-    background-image: url('../img/back-desktop.jpg'), url('../img/text-sedona.png');
+	background-image: url('../img/header.png');
+	background-position: bottom;
+	background-repeat: no-repeat;
 				
     height: 360px;
 	max-width: 1200px;
-	
-	
-	
 }
-
 
 
 ul {
 	list-style: none;
-	margin: 0;
-	padding: 0;
-	
-	
+	margin: 0;	padding: 0;
+	text-transform: uppercase;
 }
 
 nav {
 	background-color: #ffffff;
 	margin: 0;
 	padding: 0;
-	
+}
+
+nav a {
+	text-decoration: none;
+	margin: 0;
 	
 }
 
@@ -46,12 +52,7 @@ li {
 	
 }
 
-nav a {
-	text-decoration: none;
-	margin: 0;
-	
-	
-}
+
 
 .logo {
 	display: inline-block;
@@ -64,3 +65,59 @@ li:nth-child(3) {
 	
 }
 
+h1 {
+	text-align: center;
+	margin-top: 0;
+	padding-top: 40px;
+}
+
+.opinion, h2 {
+	text-transform: uppercase;
+	text-align: center;
+	padding-bottom: 20px;
+	
+}
+
+
+
+.half-width {
+	display: inline-block;
+	margin: auto;
+	margin-top: 0;
+	width: 600px;
+}
+
+label {
+	display: block;
+	
+}
+
+input[type=radio] {
+	display: none;
+}
+
+input[type=radio] + label::before {
+	content: "";
+  display: inline-block;
+  width: 37px;
+  height: 37px;
+  margin-right: 8px;
+  vertical-align: middle;
+  
+  
+  border-radius: 50%;
+  background-color: #f2f2f2;
+
+}
+
+input[type=radio] + label {
+	font-weight: bold;
+	padding: 10px;
+}
+
+input[type=radio]:checked + label:before {
+	background-color: #000000;
+	border: 10px solid #f2f2f2;
+	width: 22px;
+  	height: 22px;
+}

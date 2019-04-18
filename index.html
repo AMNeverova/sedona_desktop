@@ -8,7 +8,7 @@
 <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/53D83D02-DE49-A144-BE77-5069E20448B5/main.js" charset="UTF-8"></script></head>
 
 <body>
-    <header class="sedona triangle">
+    <header>
         <img src="img/logotype-desktop.png" alt="City of Sedona" class="logo">
 		<nav>
             <ul class="top_menu">
@@ -17,10 +17,42 @@
                 <li><a href="#">Форма отзыва</a></li>
                 <li><a href="#">Html academy</a></li>
             </ul>
-           </nav>
-        
+        </nav>   
     </header>
-    <div></div>
+    <div>
+        <div class="container">
+            <h1>Оставьте свой отзыв</h1>
+            <p class="opinion">Помогите нашим отелям стать лучше! Оставьте отзыв о них.<br>
+            А также о посещенных вами достопримечательностях.</p>
+        </div>
+    </div>
+    <form>
+        <div>
+            <div class="container half-width">
+                 <h2>Ваше общее впечатление:</h2>
+                 <input type="radio" name="impression" value="pos" id="variant-1" checked>
+                 <label for="variant-1">Скорее положительное</label>
+                 <input type="radio" name="impression" value="pos" id="variant-2">
+                 <label for="variant-2">Скорее отрицательное</label>
+                 <input type="radio" name="impression" value="pos" id="variant-3">
+                 <label for="variant-3">Затрудняюсь ответить</label>
+
+            </div>
+        </div>
+        
+            <div class="container half-width">
+                <h2>Представьтесь</h2>
+                <label for="input_name">Имя</label>
+                <input type="text" value="Петр" id="input_name">
+                <label for="input_surname">Фамилия</label>
+                <input type="text" value="Иванов" id="input_surname">
+                <label for="patronym">Отчество</label>
+                <input type="text" value="Александрович" id="patronym">
+
+
+            </div>
+        
+    </form>
     <footer></footer>
     
 </body>
