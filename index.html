@@ -3,32 +3,34 @@
 
 <head>
     <title>Visit Sedona</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/53D83D02-DE49-A144-BE77-5069E20448B5/main.js" charset="UTF-8"></script>
+    <script type="text/javascript"
+        src="https://gc.kis.v2.scr.kaspersky-labs.com/53D83D02-DE49-A144-BE77-5069E20448B5/main.js" charset="UTF-8">
+    </script>
 </head>
 
 <body>
     <header>
         <img src="img/logotype-desktop.png" alt="City of Sedona" class="logo">
-		<nav>
+        <nav>
             <ul class="top_menu">
                 <li><a href="#">Главная</a></li>
                 <li><a href="#">Фото и видео</a></li>
                 <li><a href="#">Форма отзыва</a></li>
                 <li><a href="#">Html academy</a></li>
             </ul>
-        </nav>   
+        </nav>
     </header>
 
     <div>
         <div class="container">
             <h1>Оставьте свой отзыв</h1>
             <p class="opinion">Помогите нашим отелям стать лучше! Оставьте отзыв о них.<br>
-            А также о посещенных вами достопримечательностях.</p>
+                А также о посещенных вами достопримечательностях.</p>
         </div>
     </div>
-
     <form>
         <div class="container half-width">
             <h2>Ваше общее впечатление:</h2>
@@ -43,8 +45,9 @@
             <div class="impression">
                 <input type="radio" name="impression" value="pos" id="variant-3">
                 <label for="variant-3">Затрудняюсь ответить</label>
-            </div> 
-        </div><div class="container half-width">
+            </div>
+        </div>
+        <div class="container half-width">
             <h2>Представьтесь</h2>
             <div class="present">
                 <label for="input_name">Имя*</label>
@@ -59,53 +62,47 @@
                 <input type="text" value="Александрович" id="patronym">
             </div>
         </div>
-
         <div class="container">
-            <h2> Контактная информация </h2>
-            <div class="half-width">
+            <div class="title-lines">
+                <h2> Контактная информация </h2>
+            </div>
+            <div class="tel half-width">
                 <p class="error">Ошибка, перепроверьте номер</p>
-                <div class="tel">      
-                    <label for="telnumber">Телефон*</label>
-                    <input type=tel value="Введите телефон" id="telnumber">
-                </div>                 
-                <div class="mail">
-                    <label for="email">Электронная почта*</label>
-                    <input type=email value="Введите e-mail" id="email">  
-                </div>
+                <label for="telnumber">Телефон*</label>
+                <input type=tel value="Введите телефон" id="telnumber">
+            </div>
+            <div class="mail half-width">
+                <label for="email">Электронная почта*</label>
+                <input type=email value="Введите e-mail" id="email">
             </div>
         </div>
-
         <div class="container">
-            <h2> Посещенные <br> достопримечательности </h2>
-            <div class="sights"></div>
-                <div class="bridge">
-                    <input type="checkbox" id="bridge" checked>
-                    <label for="bridge">Мост Дьявола</label>
-                </div>
-                <div class="mountain">
-                    <input type="checkbox" id="mountain" checked>
-                    <label for="mountain">Гора-Колокол</label>
-                </div>
-                <div class="park">
-                    <input type="checkbox" id="park" checked>
-                    <label for="park">Слайд-парк</label>
-                </div>
-                <div class="cliff">
-                    <input type="checkbox" id="cliff">
-                    <label for="cliff">Красные скалы</label>
-                </div>
+            <h2 class="sights-heading"> Посещенные <br> достопримечательности </h2>
+            <div class="bridge">
+                <input type="checkbox" id="bridge" checked>
+                <label for="bridge">Мост Дьявола</label>
+            </div>
+            <div class="mountain">
+                <input type="checkbox" id="mountain" checked>
+                <label for="mountain">Гора-Колокол</label>
+            </div>
+            <div class="park">
+                <input type="checkbox" id="park" checked>
+                <label for="park">Слайд-парк</label>
+            </div>
+            <div class="cliff">
+                <input type="checkbox" id="cliff">
+                <label for="cliff">Красные скалы</label>
             </div>
         </div>
-
         <div class="container">
             <h2>Опишите свои эмоции:</h2>
-            <textarea rows=5 name="emotions">Опишите подробно все свои восторги</textarea> 
+            <textarea rows=5 name="emotions">Опишите подробно все свои восторги</textarea>
         </div>
-        <div class="container">
+        <div class="container last">
             <button type="submit">Отправить отзыв</button>
             <p class="obligatory">*-обязательные поля</p>
         </div>
-        
     </form>
 
     <footer class="container">
@@ -127,6 +124,6 @@
             <p>разработано</p>
         </div>
     </footer>
-    
 </body>
+
 </html>

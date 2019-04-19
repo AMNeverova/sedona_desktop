@@ -1,7 +1,8 @@
 body {
-    background-color: #f2f2f2;
-    font-family: 'PT Sans', sans-serif;
-    margin: 0;
+	background-color: #f2f2f2;
+	font-family: 'PT Sans', sans-serif;
+	margin: 0;
+	padding: 0 40px;
 }
 
 .container {
@@ -9,14 +10,15 @@ body {
 	box-sizing: border-box;
 	background-color: #ffffff;
 	margin: 0;
+	padding: 0;
 }
 
 header {
 	background-image: url('../img/header.png');
 	background-position: bottom;
 	background-repeat: no-repeat;
-				
-  height: 360px;
+
+	height: 360px;
 	max-width: 1200px;
 }
 
@@ -36,6 +38,7 @@ nav {
 nav a {
 	text-decoration: none;
 	margin: 0;
+	color: #000000;
 }
 
 li {
@@ -43,7 +46,6 @@ li {
 	width: 250px;
 	text-align: center;
 	height: 40px;
-	color: #000000;
 	box-sizing: border-box;
 	padding-top: 10px;
 	background-color: #ffffff;
@@ -51,7 +53,7 @@ li {
 
 li:nth-child(3) {
 	margin-left: 185px;
-	
+
 }
 
 .logo {
@@ -66,70 +68,103 @@ h1 {
 	padding-top: 40px;
 }
 
-.opinion, h2 {
+.opinion,
+h2 {
 	text-transform: uppercase;
 	text-align: center;
 	padding-bottom: 20px;
-	
+
 }
 
 .half-width {
 	display: inline-block;
-	margin: auto;
 	margin-top: 0;
 	width: 600px;
 	box-sizing: border-box;
 }
 
-input[type=radio] + label, .present, .mail {
+.tel {
+	float: left;
+}
+
+.mail {
+	float: right;
+	padding-top: 35px;
+}
+
+.sights-heading {
+	clear: both;
+	padding-top: 20px;
+
+}
+
+input[type=radio]+label,
+.present,
+.mail {
 	display: block;
 }
 
-* {
+/* * {
 	border: 2px solid red;
-}
+}  */
 
-input[type=radio], input[type=checkbox] {
+input[type=radio],
+input[type=checkbox] {
 	display: none;
 }
 
-input[type=radio] + label::before {
+input[type=radio]+label::before {
 	content: "";
-  display: inline-block;
-  width: 37px;
-  height: 37px;
-  margin-right: 8px;
-  vertical-align: middle;
-  border-radius: 50%;
-  background-color: #f2f2f2;
+	display: inline-block;
+	width: 37px;
+	height: 37px;
+	margin-right: 10px;
+	vertical-align: middle;
+	border-radius: 50%;
+	background-color: #f2f2f2;
 }
 
-input[type=radio] + label, input[type=checkbox]+label {
+input[type=radio]+label,
+input[type=checkbox]+label {
 	font-weight: bold;
 	padding: 20px;
+
 }
 
-input[type=radio]:checked + label:before {
+input[type=radio]:checked+label:before {
 	background-color: #000000;
 	border: 10px solid #f2f2f2;
 	width: 22px;
-  height: 22px;
+	height: 22px;
 }
 
-.present label, .mail label, .tel label {
+.present label,
+.mail label,
+.tel label {
 	text-transform: uppercase;
 }
 
-input[type=text], input[type=tel], input[type=email] {
+
+
+input[type=text],
+input[type=tel],
+input[type=email] {
 	font-weight: bold;
 	background-color: #f2f2f2;
-	border: none; 
+	border: none;
 	height: 30px;
 	padding: 3px;
 }
 
-.present {
-	padding: 10px;
+.present,
+.impression {
+	padding-left: 25px;
+	height: 90px;
+	box-sizing: border-box;
+}
+
+.tel {
+	padding-left: 40px;
 }
 
 .tel::after {
@@ -152,10 +187,6 @@ input[type=text], input[type=tel], input[type=email] {
 	text-align: center;
 }
 
-.tel, .present, .impression {
-	margin-left: 40px;
-}
-
 .mail::after {
 	content: "";
 	width: 35px;
@@ -170,13 +201,17 @@ input[type=text], input[type=tel], input[type=email] {
 	border-radius: 3px;
 }
 
-.bridge, .mountain, .park, .cliff {
-	display: block;
-	width: 300px;
+.bridge,
+.mountain,
+.park,
+.cliff {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 280px;
 	padding: 20px;
 }
 
-input[type=checkbox] + label:before {
+input[type=checkbox]+label:before {
 	content: "";
 	width: 55px;
 	height: 55px;
@@ -186,7 +221,7 @@ input[type=checkbox] + label:before {
 	border-radius: 3px;
 }
 
-input[type=checkbox]:checked + label:before {
+input[type=checkbox]:checked+label:before {
 	background-image: url(../img/tick.png);
 	background-repeat: no-repeat;
 	background-position: center;
@@ -213,32 +248,66 @@ button {
 }
 
 .obligatory {
-	text-align: right;
+	display: block;
+	float: right;
+	text-align: center;
+	padding-top: 20px;
+	width: 250px;
+	height: 50px;
+	margin-top: 60px;
+	box-sizing: border-box;
 	text-transform: uppercase;
+
 }
 
-.visit p, .academy p {
+.visit p,
+.academy p {
 	text-transform: uppercase;
 	text-align: center;
 }
 
- .visit, .links, .academy {
+.visit,
+.links,
+.academy {
+	display: block;
+	min-height: 90px;
 	width: 400px;
 	box-sizing: border-box;
+	float: left;
+	background-color: #ffffff;
+	padding-top: 30px;
+
 }
 
- .twitter, .facebook, .youtube {
+.academy p::after {
+	content: "";
+	background-image: url(../img/htmlacademy.png);
+	width: 35px;
+	height: 35px;
+	background-color: #ffffff;
+	display: inline-block;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+
+}
+
+.twitter,
+.facebook,
+.youtube {
+
+	display: inline-block;
 	background-color: #90b2d0;
 	width: 50px;
 	height: 50px;
 
-} 
+}
 
 .twitter {
+	margin-left: 110px;
 	background-image: url("../img/icon-twitter.png");
 	background-repeat: no-repeat;
 	background-position: center;
-} 
+}
 
 .facebook {
 	background-image: url("../img/icon-facebook.png");
