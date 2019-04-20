@@ -2,7 +2,13 @@ body {
 	background-color: #f2f2f2;
 	font-family: 'PT Sans', sans-serif;
 	margin: 0;
-	padding: 0 40px;
+	padding: 0;
+}
+
+.wrapper {
+	width: 1200px;
+	margin: 0 auto;
+	background-color: #ffffff;
 }
 
 .container {
@@ -17,16 +23,23 @@ header {
 	background-image: url('../img/header.png');
 	background-position: bottom;
 	background-repeat: no-repeat;
-
 	height: 360px;
 	max-width: 1200px;
 }
 
-ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+.heading-text {
+	color: #ffffff;
 	text-transform: uppercase;
+	font-size: 5em;
+	font-weight: 800;
+	text-align: center;
+	position: relative;
+	top: 1em;
+	
+}
+
+.empty {
+	clear: both;
 }
 
 nav {
@@ -35,52 +48,66 @@ nav {
 	padding: 0;
 }
 
-nav a {
+.top-menu div a {
 	text-decoration: none;
-	margin: 0;
 	color: #000000;
+	text-transform: uppercase;
 }
 
-li {
-	display: inline-block;
-	width: 250px;
+.top-menu div {
+	width: 20%;
+	float: left;
 	text-align: center;
-	height: 40px;
+	height: 3em;
 	box-sizing: border-box;
-	padding-top: 10px;
 	background-color: #ffffff;
-}
-
-li:nth-child(3) {
-	margin-left: 185px;
-
+	padding-top: 1em;
 }
 
 .logo {
-	display: inline-block;
+	display: block;
 	position: absolute;
-	left: 505px;
+	left: 50%;
+	margin-left: -8.5%; 96b2ce
 }
 
-h1 {
+.heading-1 {
 	text-align: center;
 	margin-top: 0;
 	padding-top: 40px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 2em;
 }
 
-.opinion,
-h2 {
+.opinion {
 	text-transform: uppercase;
 	text-align: center;
-	padding-bottom: 20px;
+	margin: 0;
 
+}
+
+.heading-2 {
+	font-size: 1em;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 2em;
+	clear: both;
+}
+
+.present {
+	padding: 20px;
 }
 
 .half-width {
-	display: inline-block;
 	margin-top: 0;
 	width: 600px;
 	box-sizing: border-box;
+}
+
+.container.half-width {
+	float: left;
 }
 
 .tel {
@@ -92,21 +119,15 @@ h2 {
 	padding-top: 35px;
 }
 
-.sights-heading {
-	clear: both;
-	padding-top: 20px;
-
-}
-
 input[type=radio]+label,
 .present,
 .mail {
 	display: block;
 }
 
-/* * {
-	border: 2px solid red;
-}  */
+div.present:not(:nth-child(3)) label::after, .tel label::after, .mail label::after {
+	content: '*';
+}
 
 input[type=radio],
 input[type=checkbox] {
@@ -143,8 +164,6 @@ input[type=radio]:checked+label:before {
 .tel label {
 	text-transform: uppercase;
 }
-
-
 
 input[type=text],
 input[type=tel],
@@ -184,7 +203,7 @@ input[type=email] {
 .error {
 	color: #cc0000;
 	font-size: 10px;
-	text-align: center;
+	padding-left: 18%;
 }
 
 .mail::after {
@@ -201,14 +220,25 @@ input[type=email] {
 	border-radius: 3px;
 }
 
+.heading-3 {
+	width: 20%;
+	clear: both;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 1em 0;
+}
+
 .bridge,
 .mountain,
 .park,
 .cliff {
-	display: inline-block;
+	display: block;
+	float: left;
 	box-sizing: border-box;
-	width: 280px;
-	padding: 20px;
+	width: 300px;
+	overflow: hidden;
 }
 
 input[type=checkbox]+label:before {
@@ -248,15 +278,14 @@ button {
 }
 
 .obligatory {
-	display: block;
+	
 	float: right;
 	text-align: center;
-	padding-top: 20px;
-	width: 250px;
-	height: 50px;
-	margin-top: 60px;
 	box-sizing: border-box;
 	text-transform: uppercase;
+	position: relative;
+	top: 4em;
+	right: 10%;
 
 }
 
@@ -264,19 +293,19 @@ button {
 .academy p {
 	text-transform: uppercase;
 	text-align: center;
+	position: relative;
+	top: 3em;
+	
 }
 
 .visit,
 .links,
 .academy {
-	display: block;
-	min-height: 90px;
+	height: 8em;
 	width: 400px;
 	box-sizing: border-box;
 	float: left;
 	background-color: #ffffff;
-	padding-top: 30px;
-
 }
 
 .academy p::after {
@@ -294,28 +323,32 @@ button {
 .twitter,
 .facebook,
 .youtube {
-
-	display: inline-block;
+	position: relative;
 	background-color: #90b2d0;
-	width: 50px;
-	height: 50px;
+	width: 2em;
+	height: 2em;
 
 }
 
 .twitter {
-	margin-left: 110px;
+	top: 2em;
+	left: 6em;
 	background-image: url("../img/icon-twitter.png");
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
 .facebook {
+	top: -2em;
+	left: 10.5em;
 	background-image: url("../img/icon-facebook.png");
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
 .youtube {
+	left: 15em;
+	top: -6em;
 	background-image: url("../img/icon-youtube.png");
 	background-repeat: no-repeat;
 	background-position: center;
