@@ -35,7 +35,7 @@ header {
 	text-align: center;
 	position: relative;
 	top: 1em;
-	
+
 }
 
 .empty {
@@ -54,6 +54,10 @@ nav {
 	text-transform: uppercase;
 }
 
+.top-menu div a:hover {
+	color: #91b2d0;
+}
+
 .top-menu div {
 	width: 20%;
 	float: left;
@@ -64,11 +68,14 @@ nav {
 	padding-top: 1em;
 }
 
+
+
 .logo {
 	display: block;
 	position: absolute;
 	left: 50%;
-	margin-left: -8.5%; 96b2ce
+	margin-left: -8.5%;
+	96b2ce
 }
 
 .heading-1 {
@@ -102,7 +109,7 @@ nav {
 
 .half-width {
 	margin-top: 0;
-	width: 600px;
+	width: 50%;
 	box-sizing: border-box;
 }
 
@@ -125,7 +132,9 @@ input[type=radio]+label,
 	display: block;
 }
 
-div.present:not(:nth-child(3)) label::after, .tel label::after, .mail label::after {
+div.present:not(:nth-child(3)) label::after,
+.tel label::after,
+.mail label::after {
 	content: '*';
 }
 
@@ -136,27 +145,31 @@ input[type=checkbox] {
 
 input[type=radio]+label::before {
 	content: "";
-	display: inline-block;
-	width: 37px;
-	height: 37px;
-	margin-right: 10px;
+	display: block;
+	width: 3em;
+	height: 3em;
 	vertical-align: middle;
 	border-radius: 50%;
 	background-color: #f2f2f2;
+	float: left;
 }
 
-input[type=radio]+label,
-input[type=checkbox]+label {
-	font-weight: bold;
-	padding: 20px;
 
+
+input[type=radio]+label,
+input[type=checkbox]+label,
+.impression label p {
+	float: left;
+	font-weight: bold;
 }
 
 input[type=radio]:checked+label:before {
+	display: block;
+	box-sizing: border-box;
 	background-color: #000000;
-	border: 10px solid #f2f2f2;
-	width: 22px;
-	height: 22px;
+	border: 1em solid #f2f2f2;
+	width: 3em;
+	height: 3em;
 }
 
 .present label,
@@ -177,8 +190,9 @@ input[type=email] {
 
 .present,
 .impression {
-	padding-left: 25px;
-	height: 90px;
+	padding-left: 4em;
+	height: 5em;
+	padding-top: 2em;
 	box-sizing: border-box;
 }
 
@@ -251,10 +265,48 @@ input[type=checkbox]+label:before {
 	border-radius: 3px;
 }
 
+input[type=checkbox]+label:hover:before, 
+input[type=checkbox]:checked+label:hover:before,
+input[type=tel]:hover, input[type=email]:hover,
+input[type=text]:hover,
+input[type=radio]+label:hover::before,
+textarea:hover {
+	background-color: #e4e4e4;
+	
+}
+
+input[type=radio]+label:active:before {
+	background-color: #d4d4d4;
+}
+
+input[type=checkbox]:checked+label:active:before {
+	background-color: #d4d4d4;
+	background-image: url("../img/tick-active.png");
+
+}
+
+input[type=radio]:checked+label:hover:before {
+	border: 1em solid #e4e4e4;
+	background-color: #000000;
+}
+
+input[type=radio]:checked+label:active:before {
+	background-color: #a4a4a4;
+	border: 1em solid #d4d4d4;
+}
+
 input[type=checkbox]:checked+label:before {
 	background-image: url(../img/tick.png);
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+input[type=email]:active,
+input[type=tel]:active,
+input[type=text]:active,
+textarea:active {
+	background-color: #ffffff;
+	border: 0.3em solid e4e4e4;
 }
 
 textarea {
@@ -278,7 +330,7 @@ button {
 }
 
 .obligatory {
-	
+
 	float: right;
 	text-align: center;
 	box-sizing: border-box;
@@ -295,7 +347,7 @@ button {
 	text-align: center;
 	position: relative;
 	top: 3em;
-	
+
 }
 
 .visit,
@@ -311,13 +363,22 @@ button {
 .academy p::after {
 	content: "";
 	background-image: url(../img/htmlacademy.png);
-	width: 35px;
-	height: 35px;
+	width: 2em;
+	height: 2em;
 	background-color: #ffffff;
-	display: inline-block;
+	display: block;
 	background-repeat: no-repeat;
 	vertical-align: middle;
+	background-position: center;
+	position: relative;
+	left: 17em;
+	bottom: 2em;
+	box-sizing: border-box;
 
+}
+
+.academy p:hover::after {
+	background-image: url('../img/academy-hover.png');
 }
 
 .twitter,
@@ -331,25 +392,57 @@ button {
 }
 
 .twitter {
-	top: 2em;
-	left: 6em;
+	top: 3.5em;
+	left: 7em;
 	background-image: url("../img/icon-twitter.png");
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
 .facebook {
-	top: -2em;
-	left: 10.5em;
+	top: 1.5em;
+	left: 9.5em;
 	background-image: url("../img/icon-facebook.png");
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
 .youtube {
-	left: 15em;
-	top: -6em;
+	left: 12em;
+	top: -0.5em;
 	background-image: url("../img/icon-youtube.png");
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+.twitter:hover,
+.facebook:hover,
+.youtube:hover,
+button:hover {
+	background-color: #799cbd;
+}
+
+.twitter:active {
+	background-color: #6c94ba;
+	background-image: url("../img/twitter-active.png")
+}
+
+.facebook:active {
+	background-color: #6c94ba;
+	background-image: url("../img/facebook-active.png")
+}
+
+.youtube:active {
+	background-color: #6c94ba;
+	background-image: url("../img/youtube-active.png")
+}
+
+button:active {
+	background-color: #6c94ba;
+	color: #98b4cf;
+}
+
+.academy p:active::after {
+	background-image: url('../img/academy-active.png');
+
 }
