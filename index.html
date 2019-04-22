@@ -13,37 +13,58 @@
             <img src="img/logotype-desktop.png" alt="City of Sedona" class="logo" />
             <nav>
                 <div class="top-menu">
-                    <div><a href="#">Главная</a></div>
-                    <div><a href="#">Фото и видео</a></div>
+                    <div class="item-1"><a href="#">Главная</a></div>
+                    <div class="column-1">
+                        <div class="subitem-1"><a href="#">Карта города</a></div>
+                        <div class="subitem-1"><a href="#">Карта штата</a></div>
+                    </div>
+                    <div class="item-2"><a href="#">Фото и видео</a></div>
+                    <div class="column-2">
+                        <div class="subitem-2"><a href="#">Фото города</a></div>
+                        <div class="subitem-2"><a href="#">Видео города</a></div>
+                    </div>
                     <div></div>
-                    <div><a href="#">Форма отзыва</a></div>
-                    <div><a href="#">Html academy</a></div>
+                    <div class="item-3"><a href="#">Форма отзыва</a></div>
+                    <div class="column-3">
+                        <div class="subitem-3"><a href="#">Оставить отзыв</a></div>
+                        <div class="subitem-3"><a href="#">Оставить жалобу</a></div>
+                    </div>
+                    <div class="item-4"><a href="#">Html academy</a></div>
+                    <div class="column-4">
+                        <div class="subitem-4"><a href="#">Посетить Html academy</a></div>
+                        <div class="subitem-4"><a href="#">Заказать сайт</a></div>
+                    </div>
                 </div>
-            <div class="empty"></div>
+                <div class="empty"></div>
             </nav>
             <div class="heading-text">sedona</div>
         </header>
-
         <div>
             <div class="container">
                 <div class="heading-1">Оставьте свой отзыв</div>
                 <p class="opinion">Помогите нашим отелям стать лучше! Оставьте отзыв о них.</p>
-                    <p class="opinion">А также о посещенных вами достопримечательностях.</p>
+                <p class="opinion">А также о посещенных вами достопримечательностях.</p>
             </div>
         </div>
         <div class="container half-width">
             <div class="heading-2">Ваше общее впечатление:</div>
             <div class="impression">
                 <input type="radio" name="impression" value="pos" id="variant-1" checked=true>
-                <label for="variant-1"><p>Скорее положительное</p></label>
+                <label for="variant-1">
+                    <p>Скорее положительное</p>
+                </label>
             </div>
             <div class="impression">
                 <input type="radio" name="impression" value="pos" id="variant-2">
-                <label for="variant-2"><p>Скорее отрицательное</p></label>
+                <label for="variant-2">
+                    <p>Скорее отрицательное</p>
+                </label>
             </div>
             <div class="impression">
                 <input type="radio" name="impression" value="pos" id="variant-3">
-                <label for="variant-3"><p>Затрудняюсь ответить</p></label>
+                <label for="variant-3">
+                    <p>Затрудняюсь ответить</p>
+                </label>
             </div>
         </div>
         <div class="container half-width">
@@ -73,35 +94,32 @@
                 <input type=email value="Введите e-mail" id="e-mail" required=true>
             </div>
         </div>
-        
-            <div class="heading-3">Посещенные достопримечательности </div>
-            
-            <div class="bridge">
-                <input type="checkbox" id="bridge" checked=true>
-                <label for="bridge">Мост Дьявола</label>
-            </div>
-            <div class="mountain">
-                <input type="checkbox" id="mountain" checked=true>
-                <label for="mountain">Гора-Колокол</label>
-            </div>
-            <div class="park">
-                <input type="checkbox" id="park" checked=true>
-                <label for="park">Слайд-парк</label>
-            </div>
-            <div class="cliff">
-                <input type="checkbox" id="cliff">
-                <label for="cliff">Красные скалы</label>
-            </div>
-        
+        <div class="heading-3">Посещенные достопримечательности </div>
+
+        <div class="bridge">
+            <input type="checkbox" id="bridge" checked=true>
+            <label for="bridge">Мост Дьявола</label>
+        </div>
+        <div class="mountain">
+            <input type="checkbox" id="mountain" checked=true>
+            <label for="mountain">Гора-Колокол</label>
+        </div>
+        <div class="park">
+            <input type="checkbox" id="park" checked=true>
+            <label for="park">Слайд-парк</label>
+        </div>
+        <div class="cliff">
+            <input type="checkbox" id="cliff">
+            <label for="cliff">Красные скалы</label>
+        </div>
         <div class="container">
             <div class="heading-2">Опишите свои эмоции:</div>
             <textarea rows=5 name="emotions">Опишите подробно все свои восторги</textarea>
-         </div>
+        </div>
         <div class="container last">
             <button type="submit">Отправить отзыв</button>
             <p class="obligatory">*-обязательные поля</p>
         </div>
-
         <footer>
             <div class="visit">
                 <p>#visitsedona</p>
