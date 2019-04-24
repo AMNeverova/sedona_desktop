@@ -22,46 +22,31 @@ body {
 .heading-text {
 	color: #ffffff;
 	text-transform: uppercase;
-	font-size: 5rem;
+	font-size: 5em;
 	font-weight: 800;
 	text-align: center;
 	position: relative;
-	top: 3rem;
+	top: 1em;
+	height: 0;
 }
-
 
 .logo {
 	display: block;
 	position: relative;
 	left: 50%;
-	transform: translateX(-94px)
+	transform: translateX(calc(-50%));
 	
-}
-
-.item {
-	background-color: #ffffff;
-	height: 3rem;
-	width: 20%;
-	float: left;
-	text-align: center;
-	text-transform: uppercase;
-	padding-top: 1rem;
-	box-sizing: border-box;
-}
-
-.item-3 {
-	padding-top: 0;
 }
 
 .container {
 	background-color: #ffffff;
-	margin: 0 110px;
+	margin: 0 7rem;
 }
 
 .main {
 	text-align: center;
 	margin-top: 0;
-	padding-top: 40px;
+	padding-top: 2.5rem;
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 2rem;
@@ -72,14 +57,13 @@ body {
 	text-align: center;
 	margin: 0;
 	padding-bottom: 1rem;
-
 }
 
 .impression {
-	border-right: 2px solid #f2f2f2;
+	border-right: 0.15rem solid #f2f2f2;
 }
 
-input[type=radio], input[type=checkbox] {
+.input-radio, .input-checkbox {
 	display: none;
 }
 
@@ -118,7 +102,7 @@ input[type=radio], input[type=checkbox] {
 	box-sizing: border-box;
 }
 
-#narrow {
+.text .narrow {
 	width: 3rem;
 }
 
@@ -126,7 +110,7 @@ input[type=radio], input[type=checkbox] {
 	width: 12rem;
 }
 
-#input-name {
+.input-name {
 	width: 14rem;
 }
 
@@ -148,7 +132,7 @@ input[type=radio], input[type=checkbox] {
 	width: 50%;
 	text-align: center;
 	font-weight: bold;
-	padding-top: 1rem;
+	padding-top: 3rem;
 }
 
 .impression, .present {
@@ -179,7 +163,7 @@ input[type=radio], input[type=checkbox] {
 	width: 33.33%;
 	box-sizing: border-box;
 	float: left;
-	height: 5rem;
+	height: 7rem;
 	background-color: #ffffff;
 }
 
@@ -190,13 +174,13 @@ input[type=radio], input[type=checkbox] {
 	height: 2rem;
 	text-align: center;
 	font-weight: bold;
-	padding-top: 2rem;
+	padding-top: 3rem;
 }
 
 .stripe::before {
 	content: "";
 	background-color: #f2f2f2;
-	height: 2px;
+	height: 0.15rem;
 	width: 100%;
 	display: block;
 	position: relative;
@@ -237,15 +221,15 @@ input[type=radio], input[type=checkbox] {
 	background-image: url(../img/phone.png);
 	background-repeat: no-repeat;
 	background-position: center;
-	border-radius: 3px;
+	border-radius: 0.2rem;
 	position: relative;
-	left: 49%;
+	left: 50%;
 	top: -78%;
 }
 
 .mail::after {
 	background-image: url(../img/mail.png);
-	left: 64%;
+	left: 65%;
 	top: -104%;
 }
 
@@ -253,7 +237,7 @@ input[type=radio], input[type=checkbox] {
 	content: '*';
 }
 
-#sights {
+.sights {
 	padding-top: 1.5rem;
 }
 
@@ -297,6 +281,16 @@ input[type=radio], input[type=checkbox] {
 	text-indent: 1rem;
 }
 
+.input-text, .input-phone, .input-email {
+	height: 3rem;
+}
+
+
+::placeholder { 
+	color: #000000;
+	opacity: 1;
+  }
+
 .text-describe {
 	background-color: #f2f2f2;
 	border: none;
@@ -305,6 +299,7 @@ input[type=radio], input[type=checkbox] {
 	margin: 0 auto;
 	font-weight: bold;
 	color: #000000;
+	height: 5rem;
 }
 
 .button-review {
@@ -412,34 +407,58 @@ input[type=radio], input[type=checkbox] {
 .item a {
 	text-decoration: none;
 	color: #000000;
-}
-
-.subitem div div:active,
-.menu .item:hover,
-.subitem div div:hover {
-	color: #91b2d0;
-}
-
-.menu .item:active,
-.subitem div div:active {
-	color: #d6d0cc;
-}
-
- .subitem {
-	display: none;
 } 
 
-.subitem div div {
+.item:hover .subitem {
+	display: block;
+}
+
+.item {
+	background-color: #ffffff;
+	height: 3rem;
+	width: 20%;
+	float: left;
 	text-align: center;
 	text-transform: uppercase;
 	padding-top: 1rem;
 	box-sizing: border-box;
+}
 
+.item-3 {
+	padding-top: 0;
+}
 
+.item a:hover {
+	color: #90b1d0;
+	cursor: pointer;
+}
+
+.subitem div a:hover {
+	color: #5c4f46;
+}
+
+.item a:active {
+	color: #b2b2b2;
 } 
-.item:hover div {
-	display: block;
-	background-color: #ffffff;
+
+.subitem div a:active {
+	color: #d4d0cd;
+}
+
+ .subitem {
+	display: none;
+    background-color: #ffffff;
+	text-align: center;
+	text-transform: uppercase;
+	padding-top: 1rem;
+	box-sizing: border-box;
+} 
+
+.subitem div {
+	box-sizing: border-box;
+	height: 3rem;
+	padding-top: 1rem;
+
 }
 
 
@@ -474,10 +493,18 @@ input[type=radio], input[type=checkbox] {
 	border: 1rem solid #d4d4d4;
 }
 
-.input-email:active,
-.input-phone:active,
-.input-text:active,
-.text-describe:active {
+.input-email:focus,
+.input-phone:focus,
+.input-text:focus {
+	background-color: #ffffff;
+	border: 0.3rem solid #e4e4e4;
+	box-sizing: border-box;
+	outline: none;
+}
+
+.text-describe:focus {
+	box-sizing: border-box;
+	outline: none;
 	background-color: #ffffff;
 	border: 0.3rem solid #e4e4e4;
 }
