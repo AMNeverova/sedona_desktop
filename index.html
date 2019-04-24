@@ -4,126 +4,187 @@
 <head>
     <title>Visit Sedona</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-    <script type="text/javascript"
-        src="https://gc.kis.v2.scr.kaspersky-labs.com/53D83D02-DE49-A144-BE77-5069E20448B5/main.js" charset="UTF-8">
-    </script>
+    <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
-    <header>
-        <img src="img/logotype-desktop.png" alt="City of Sedona" class="logo">
-        <nav>
-            <ul class="top_menu">
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">Фото и видео</a></li>
-                <li><a href="#">Форма отзыва</a></li>
-                <li><a href="#">Html academy</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="wrapper">
+        <div class="header">
+            <div class="menu">
+                <div class="item">
+                    <a href="#">главная</a>
+                    <div class="subitem">
+                            <div><a>Подпукт 1.1</a></div>
+                            <div><a>Подпукт 1.2</a></div>
+                            <div><a>Подпукт 1.3</a></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <a>фото и видео</a>
+                    <div class="subitem">
+                            <div><a>Подпукт 1.1</a></div>
+                            <div><a>Подпукт 1.2</a></div>
+                            <div><a>Подпукт 1.3</a></div>
+                    </div>
+                </div>
+                <div class="item item-3">
+                    <img src="img/logotype-desktop.png" alt="City of Sedona" class="logo" />
+                </div>
+                <div class="item">
+                    <a>форма отзыва</a>
+                    <div class="subitem">
+                            <div><a>Подпукт 1.1</a></div>
+                            <div><a>Подпукт 1.2</a></div>
+                            <div><a>Подпукт 1.3</a></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <a>html academy</a>
+                    <div class="subitem">
+                            <div><a>Подпукт 1.1</a></div>
+                            <div><a>Подпукт 1.2</a></div>
+                            <div><a>Подпукт 1.3</a></div>
+                    </div>
+                </div>
+                <div class="heading-text">sedona</div>
 
-    <div>
-        <div class="container">
-            <h1>Оставьте свой отзыв</h1>
-            <p class="opinion">Помогите нашим отелям стать лучше! Оставьте отзыв о них.<br>
-                А также о посещенных вами достопримечательностях.</p>
-        </div>
-    </div>
-    <form>
-        <div class="container half-width">
-            <h2>Ваше общее впечатление:</h2>
-            <div class="impression">
-                <input type="radio" name="impression" value="pos" id="variant-1" checked>
-                <label for="variant-1">Скорее положительное</label>
-            </div>
-            <div class="impression">
-                <input type="radio" name="impression" value="pos" id="variant-2">
-                <label for="variant-2">Скорее отрицательное</label>
-            </div>
-            <div class="impression">
-                <input type="radio" name="impression" value="pos" id="variant-3">
-                <label for="variant-3">Затрудняюсь ответить</label>
-            </div>
-        </div>
-        <div class="container half-width">
-            <h2>Представьтесь</h2>
-            <div class="present">
-                <label for="input_name">Имя*</label>
-                <input type="text" value="Петр" id="input_name">
-            </div>
-            <div class="present">
-                <label for="input_surname">Фамилия*</label>
-                <input type="text" value="Иванов" id="input_surname">
-            </div>
-            <div class="present">
-                <label for="patronym">Отчество</label>
-                <input type="text" value="Александрович" id="patronym">
             </div>
         </div>
         <div class="container">
-            <div class="title-lines">
-                <h2> Контактная информация </h2>
+            <div class="heading-1">
+                <p class="main">оставьте свой отзыв</p>
+                <p class="secondary">Помогите нашим отелям стать лучше! Оставьте отзыв о них.</p>
+                <p class="secondary">А также о посещенных вами достопримечательностях.</p>
             </div>
-            <div class="tel half-width">
-                <p class="error">Ошибка, перепроверьте номер</p>
-                <label for="telnumber">Телефон*</label>
-                <input type=tel value="Введите телефон" id="telnumber">
+            <div class="headings">
+                <div class="heading-2">ваше общее впечатление:</div>
+                <div class="heading-3">представьтесь:</div>
             </div>
-            <div class="mail half-width">
-                <label for="email">Электронная почта*</label>
-                <input type=email value="Введите e-mail" id="email">
+            <div class="row-1">
+                <div class="impression">
+                    <div class="radio">
+                        <input class="input-radio" type="radio" name="impression" value="pos" id="variant-1"
+                            checked="true">
+                        <label for="variant-1">
+                            <p>Скорее положительное</p>
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <input class="input-radio" type="radio" name="impression" value="pos" id="variant-2">
+                        <label for="variant-2">
+                            <p>Скорее отрицательное</p>
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <input class="input-radio" type="radio" name="impression" value="pos" id="variant-3">
+                        <label for="variant-3">
+                            <p>Затрудняюсь ответить</p>
+                        </label>
+                    </div>
+                </div>
+                <div class="present">
+                    <div class="text">
+                        <label for="input-name" class="required narrow">Имя</label>
+                        <input type="text" class="input-text input-name" placeholder="Петр" id="input-name" required="true">
+                    </div>
+                    <div class="text">
+                        <label for="input-surname" class="required">Фамилия</label>
+                        <input class="input-text" type="text" placeholder="Иванов" id="input-surname" required="true">
+                    </div>
+                    <div class="text">
+                        <label for="patronym">Отчество</label>
+                        <input type="text" class="input-text" placeholder="Александрович" id="patronym">
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="container">
-            <h2 class="sights-heading"> Посещенные <br> достопримечательности </h2>
-            <div class="bridge">
-                <input type="checkbox" id="bridge" checked>
-                <label for="bridge">Мост Дьявола</label>
+            <div class="row-2">
+                <div class="stripe"></div>
+                <div class="heading-4">контактная информация</div>
+                <div class="stripe"></div>
             </div>
-            <div class="mountain">
-                <input type="checkbox" id="mountain" checked>
-                <label for="mountain">Гора-Колокол</label>
-            </div>
-            <div class="park">
-                <input type="checkbox" id="park" checked>
-                <label for="park">Слайд-парк</label>
-            </div>
-            <div class="cliff">
-                <input type="checkbox" id="cliff">
-                <label for="cliff">Красные скалы</label>
-            </div>
-        </div>
-        <div class="container">
-            <h2>Опишите свои эмоции:</h2>
-            <textarea rows=5 name="emotions">Опишите подробно все свои восторги</textarea>
-        </div>
-        <div class="container last">
-            <button type="submit">Отправить отзыв</button>
-            <p class="obligatory">*-обязательные поля</p>
-        </div>
-    </form>
+            <div class="row-3">
+                <div class="phone">
+                    <p class="error">Ошибка, перепроверьте номер</p>
+                    <label for="phone-number" class="required">Телефон</label>
+                    <input type="tel" class="input-phone" placeholder="Введите телефон" id="phone-number"
+                        required="true">
+                </div>
+                <div class="mail">
+                    <label for="e-mail" class="required">Электронная почта</label>
+                    <input type="email" class="input-email" placeholder="Введите e-mail" id="e-mail" required="true">
 
-    <footer class="container">
-        <div class="visit">
-            <p>#visitsedona</p>
-        </div>
-        <div class="links">
-            <div class="twitter">
-                <a href="#"></a>
+                </div>
             </div>
-            <div class="facebook">
-                <a href="#"></a>
+            <div class="row-2">
+                <div class="stripe"></div>
+                <div class="heading-4 sights">посещенные достопримечательности:</div>
+                <div class="stripe"></div>
             </div>
-            <div class="youtube">
-                <a href="#"></a>
+            <div class="row-4">
+                <div class="checkbox">
+                    <input class="input-checkbox" type="checkbox" id="bridge" checked="true">
+                    <label for="bridge">
+                        <p>Мост Дьявола</p>
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <input class="input-checkbox" type="checkbox" id="mountain" checked="true">
+                    <label for="mountain">
+                        <p>Гора-Колокол</p>
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <input class="input-checkbox" type="checkbox" id="park" checked="true">
+                    <label for="park">
+                        <p>Слайд-парк</p>
+                    </label>
+                </div>
+                <div class="checkbox">
+
+                    <input class="input-checkbox" type="checkbox" id="cliff">
+                    <label for="cliff">
+                        <p>Красные скалы</p>
+                    </label>
+                </div>
+            </div>
+            <div class="row-2">
+                <div class="stripe"></div>
+                <div class="heading-4">опишите свои эмоции</div>
+                <div class="stripe"></div>
+            </div>
+
+            <div class="textarea">
+                <textarea rows=5 class="text-describe" placeholder="Опишите подробно все свои восторги"
+                    name="emotions"></textarea>
+            </div>
+            <div class="row-5">
+                <div class="button">
+                    <button type="submit" class="button-review">Отправить отзыв</button>
+                </div>
+                <div class="obligatory">
+                    <p class="obligatory-field">* &ndash; обязательные поля</p>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="visit">
+                    <p>#visitsedona</p>
+                </div>
+                <div class="links">
+                    <div class="twitter">
+                        <a href="#"></a>
+                    </div>
+                    <div class="facebook">
+                        <a href="#"></a>
+                    </div>
+                    <div class="youtube">
+                        <a href="#"></a>
+                    </div>
+                </div>
+                <div class="academy">
+                    <p>разработано</p>
+                </div>
             </div>
         </div>
-        <div class="academy">
-            <p>разработано</p>
-        </div>
-    </footer>
 </body>
 
 </html>
