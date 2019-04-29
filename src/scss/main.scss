@@ -1,30 +1,66 @@
+@mixin text {
+	text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+}
+
+@mixin footer-texts {
+    text-transform: uppercase;
+	text-align: left;
+	position: relative;
+	top: 2rem;
+	margin: 0;
+}
+@mixin footer-links {
+    position: relative;
+	background-color: #90b2d0;
+	width: 2rem;
+	height: 2rem;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@mixin background {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@mixin size ($width, $height) {
+    width: $width;
+    height: $height;
+}
+
 body {
 	background-color: #f2f2f2;
 	font-family: 'PT Sans', sans-serif;
 	margin: 0;
-	padding: 0;
-}
-
-.wrapper {
-	width: 1200px;
-	margin: 0 auto;
-	background-color: #ffffff;
+    padding: 0;
+    .wrapper {
+        width: 1200px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        .container {
+            margin: 0 7rem;
+        }
+    }   
 }
 
 .header {
-	background-image: url('../img/header.png');
+    @include background;
+	background-image: url('../../img/header.png');
 	background-position: bottom;
-	background-repeat: no-repeat;
 	height: 360px;
 	max-width: 1200px;
 }
 
+[class^="heading"] {
+    @include text;
+}
+
 .heading-text {
 	color: #ffffff;
-	text-transform: uppercase;
 	font-size: 5em;
 	font-weight: 800;
-	text-align: center;
 	position: relative;
 	top: 1em;
 	height: 0;
@@ -35,28 +71,19 @@ body {
 	position: relative;
 	left: 50%;
 	transform: translateX(calc(-50%));
-	
 }
 
-.container {
-	background-color: #ffffff;
-	margin: 0 7rem;
-}
-
-.main {
-	text-align: center;
-	margin-top: 0;
-	padding-top: 2.5rem;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 2rem;
-}
-
-.secondary {
-	text-transform: uppercase;
-	text-align: center;
-	margin: 0;
-	padding-bottom: 1rem;
+.heading-1 {
+    .main {
+	    margin-top: 0;
+	    padding-top: 2.5rem;
+	    font-size: 2rem;
+    }
+    .secondary {
+        font-weight: normal;
+        margin: 0;
+        padding-bottom: 1rem;
+    }
 }
 
 .impression {
@@ -68,36 +95,30 @@ body {
 }
 
 .radio label::before{
+    @include size (3rem, 3rem);
 	content: "";
 	display: block;
-	width: 3rem;
-	height: 3rem;
-	vertical-align: middle;
 	border-radius: 50%;
 	background-color: #f2f2f2;
 	float: left;
 }
 
 .input-radio:checked+label:before {
+    @include size (3rem, 3rem);
 	display: block;
 	box-sizing: border-box;
 	background-color: #000000;
 	border: 1rem solid #f2f2f2;
-	width: 3rem;
-	height: 3rem;
 }
 
 .radio label {
-	display: block;
 	float: left;
 	width: 70%;
 }
 
 .text label {
-	display: block;
+    @include size (5rem, 2rem);
 	float: left;
-	width: 5rem;
-	height: 2rem;
 	padding-top: 1rem;
 	box-sizing: border-box;
 }
@@ -124,21 +145,14 @@ body {
 }
 
 .heading-2, .heading-3 {
-	text-transform: uppercase;
+    @include size (50%, 2rem);
 	float: left;
 	font-size: 1rem;
-	background-color: #ffffff;
-	height: 2rem;
-	width: 50%;
-	text-align: center;
-	font-weight: bold;
 	padding-top: 3rem;
 }
 
 .impression, .present {
-	width: 50%;
-	height: 16rem;
-	background-color: #ffffff;
+    @include size (50%, 16rem);
 	float: left;
 	box-sizing: border-box;
 }
@@ -148,7 +162,7 @@ body {
 }
 
 .radio, .text {
-	height: 33%;
+	height: 33.33%;
 }
 
 .radio label p, .checkbox label p {
@@ -160,68 +174,54 @@ body {
 }
 
 .row-2 div {
-	width: 33.33%;
+    @include size (100%/3, 7rem);
 	box-sizing: border-box;
 	float: left;
-	height: 7rem;
-	background-color: #ffffff;
 }
 
 .heading-4 {
-	text-transform: uppercase;
 	font-size: 1rem;
-	background-color: #ffffff;
 	height: 2rem;
-	text-align: center;
-	font-weight: bold;
 	padding-top: 3rem;
 }
 
 .stripe::before {
+    @include size (100%, 0.15rem);
 	content: "";
 	background-color: #f2f2f2;
-	height: 0.15rem;
-	width: 100%;
 	display: block;
 	position: relative;
 	top: 50%;
-
 }
 
-.phone, .mail {
-	width: 50%;
+.phone {
+    @include size (50%, 4rem);
 	float: left;
-	height: 4rem;
 	box-sizing: border-box;
-	background-color: #ffffff;
-	margin-bottom: 1rem;
-}
-
-.phone p {
-	margin: 0;
-	width: 100%;
-	height: 1rem;
-	font-size: 0.7rem;
-	color: #cc0000;
-	text-align: left;
-	padding-left: 5rem;
+    margin-bottom: 1rem;
+    .phone p {
+        @include size (100%, 1rem);
+        margin: 0;
+        font-size: 0.7rem;
+        color: #cc0000;
+        text-align: left;
+        padding-left: 5rem;
+    }
 }
 
 .mail {
+    @extend .phone;
 	padding-top: 1rem;
 }
 
 .phone::after, .mail::after {
+    @include background;
+    @include size (3rem, 3rem);
 	content: "";
-	width: 3rem;
-	height: 3rem;
 	background-color: #f2f2f2;
 	display: block;
-	vertical-align: middle;
 	margin-left: 0;
-	background-image: url(../img/phone.png);
-	background-repeat: no-repeat;
-	background-position: center;
+	background-image: url(../../img/phone.png);
 	border-radius: 0.2rem;
 	position: relative;
 	left: 50%;
@@ -229,7 +229,7 @@ body {
 }
 
 .mail::after {
-	background-image: url(../img/mail.png);
+	background-image: url(../../img/mail.png);
 	left: 65%;
 	top: -104%;
 }
@@ -243,25 +243,19 @@ body {
 }
 
 .row-4 {
-	height: 7rem;
-	width: 100%;
-	background-color: #ffffff;
-}
-
-.checkbox {
-	width: 25%;
-	box-sizing: border-box;
-	float: left;
-	background-color: #ffffff;
+    @include size (100%, 7rem);
+    .checkbox {
+        width: 25%;
+        box-sizing: border-box;
+        float: left;
+    }
 }
 
 .checkbox label:before {
-	content: "";
-	width: 3rem;
-	height: 3rem;
+    content: "";
+    @include size (3rem, 3rem);
 	background-color: #f2f2f2;
 	display: block;
-	vertical-align: middle;
 	border-radius: 0.3rem;
 	float: left;
 }
@@ -272,9 +266,8 @@ body {
 }
 
 .input-checkbox:checked+label:before {
-	background-image: url(../img/tick.png);
-	background-repeat: no-repeat;
-	background-position: center;
+	background-image: url(../../img/tick.png);
+    @include background;
 }
 
 .input-text, .input-phone, .input-email, .text-describe {
@@ -286,124 +279,98 @@ body {
 	height: 3rem;
 }
 
-
 ::placeholder { 
 	color: #000000;
 	opacity: 1;
   }
 
 .text-describe {
+    @include size (100%, 5rem);
 	background-color: #f2f2f2;
 	border: none;
-	width: 100%;
 	display: block;
 	margin: 0 auto;
 	font-weight: bold;
 	color: #000000;
-	height: 5rem;
 	padding-top: 1rem;
 }
 
 .button-review {
+    @include text;
+    @include size (100%, 4rem);
 	background-color: #90b2d0;
-	width: 100%;
-	height: 4rem;
-	text-transform: uppercase;
 	color: #ffffff;
-	font-weight: bold;
 	margin-top: 3rem;
 	padding: 0;
 	border: none;
 }
 
 .row-5 div {
-	width: 50%;
+    @include size (50%, 10rem);
 	float: left;
-	height: 10rem;
-	background-color: #ffffff;
 }
 
 .obligatory-field {
+    @include text;
 	float: right;
-	text-align: center;
 	box-sizing: border-box;
-	text-transform: uppercase;
 	position: relative;
 	top: 4.5rem;
 	margin: 0;
-	font-size: 0.9rem;
+    font-size: 0.9rem;
+    font-weight: normal;
 }
 
 .visit, .links, .academy {
-	width: 33.33%;
+	width: 100%/3;
 	float: left;
 }
 
 .footer {
-	width: 100%;
-	height: 6rem;
-	clear: both;
-}
-
-.visit p,
-.academy p {
-	text-transform: uppercase;
-	text-align: left;
-	position: relative;
-	top: 2rem;
-	margin: 0;
+    @include size (100%, 6rem);
+    clear: both;
 }
 
 .visit p {
+    @include footer-texts;
 	font-weight: bold;
 	font-size: 1.2rem;
 }
 
 .academy p {
+    @include footer-texts;
 	font-size: 0.9rem;
 	text-align: right;
 	padding-right: 1.5rem;
 }
 
-.twitter,
-.facebook,
-.youtube {
-	position: relative;
-	background-color: #90b2d0;
-	width: 2rem;
-	height: 2rem;
-	background-repeat: no-repeat;
-	background-position: center;
-
-}
-
 .twitter {
+    @include footer-links;
 	top: 1.5rem;
 	left: 7rem;
-	background-image: url("../img/icon-twitter.png");
+	background-image: url("../../img/icon-twitter.png");
 }
 
 .facebook {
+    @include footer-links;
 	top: -0.5rem;
 	left: 9.5rem;
-	background-image: url("../img/icon-facebook.png");
+	background-image: url("../../img/icon-facebook.png");
 }
 
 .youtube {
+    @include footer-links;
 	left: 12rem;
 	top: -2.5rem;
-	background-image: url("../img/icon-youtube.png");
+	background-image: url("../../img/icon-youtube.png");
 }
 
 .academy p::after {
+    @include background;
+    @include size (2rem, 2rem);
 	content: "";
-	background-image: url(../img/htmlacademy.png);
-	width: 2rem;
-	height: 2rem;
-	background-color: #ffffff;
+	background-image: url(../../img/htmlacademy.png);
 	display: block;
-	background-repeat: no-repeat;
-	background-position: center;
 	position: relative;
 	left: 19rem;
 	bottom: 1.5rem;
@@ -412,24 +379,33 @@ body {
 
 /* menu */
 
-.item a {
-	text-decoration: none;
-	color: #000000;
-} 
-
 .item:hover .subitem {
 	display: block;
 }
 
 .item {
+    @include size (20%, 3rem);
+    @include text;
+    font-weight: normal;
 	background-color: #ffffff;
-	height: 3rem;
-	width: 20%;
 	float: left;
-	text-align: center;
-	text-transform: uppercase;
 	padding-top: 1rem;
-	box-sizing: border-box;
+    box-sizing: border-box;
+    a {
+        text-decoration: none;
+        color: #000000;
+    }
+    .subitem {
+        @include text;
+        display: none;
+        padding-top: 1rem;
+        box-sizing: border-box;
+        div {
+            box-sizing: border-box;
+            height: 3rem;
+            padding-top: 1rem;
+        }
+    }     
 }
 
 .item-3 {
@@ -450,23 +426,6 @@ body {
 	color: #d4d0cd;
 }
 
- .subitem {
-	display: none;
-    background-color: #ffffff;
-	text-align: center;
-	text-transform: uppercase;
-	padding-top: 1rem;
-	box-sizing: border-box;
-} 
-
-.subitem div {
-	box-sizing: border-box;
-	height: 3rem;
-	padding-top: 1rem;
-
-}
-
-
 /* hover, active */
 
 .checkbox label:hover:before, 
@@ -485,7 +444,7 @@ body {
 
 .input-checkbox:checked+label:active:before {
 	background-color: #d4d4d4;
-	background-image: url("../img/tick-active.png");
+	background-image: url("../../img/tick-active.png");
 }
 
 .input-radio:checked+label:hover:before {
@@ -511,38 +470,37 @@ body {
 }
 
 .academy p:hover::after {
-	background-image: url('../img/academy-hover.png');
+	background-image: url('../../img/academy-hover.png');
 }
 
-.twitter:hover,
-.facebook:hover,
-.youtube:hover,
-.button-review:hover {
+.twitter:hover, .facebook:hover,
+.youtube:hover, .button-review:hover {
 	background-color: #799cbd;
 	cursor: pointer;
 }
 
+.twitter:active, .facebook:active, 
+.youtube:active, .button-review:active {
+    background-color: #6c94ba;
+}
+
 .twitter:active {
-	background-color: #6c94ba;
-	background-image: url("../img/twitter-active.png")
+	background-image: url("../../img/twitter-active.png")
 }
 
 .facebook:active {
-	background-color: #6c94ba;
-	background-image: url("../img/facebook-active.png")
+	background-image: url("../../img/facebook-active.png")
 }
 
 .youtube:active {
-	background-color: #6c94ba;
-	background-image: url("../img/youtube-active.png")
+	background-image: url("../../img/youtube-active.png")
 }
 
 .button-review:active {
-	background-color: #6c94ba;
 	color: #98b4cf;
 	cursor: pointer;
 }
 
 .academy p:active::after {
-	background-image: url('../img/academy-active.png');
+	background-image: url('../../img/academy-active.png');
 }
