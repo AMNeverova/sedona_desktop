@@ -13,7 +13,7 @@ body {
 .header {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url(img/header.png);
+  background-image: url("img/header.png");
   background-position: bottom;
   height: 360px;
   max-width: 1200px; }
@@ -314,7 +314,7 @@ body {
   background-position: center;
   top: 1.5rem;
   left: 7rem;
-  background-image: url(img/icon-twitter.png); }
+  background-image: url("img/icon-twitter.png"); }
 
 .facebook {
   position: relative;
@@ -325,7 +325,7 @@ body {
   background-position: center;
   top: -0.5rem;
   left: 9.5rem;
-  background-image: url(img/icon-facebook.png); }
+  background-image: url("img/icon-facebook.png"); }
 
 .youtube {
   position: relative;
@@ -336,7 +336,7 @@ body {
   background-position: center;
   left: 12rem;
   top: -2.5rem;
-  background-image: url(img/icon-youtube.png); }
+  background-image: url("img/icon-youtube.png"); }
 
 .academy p::after {
   background-position: center;
@@ -411,7 +411,7 @@ body {
 
 .input-checkbox:checked + label:active:before {
   background-color: #d4d4d4;
-  background-image: url(img/tick-active.png); }
+  background-image: url("img/tick-active.png"); }
 
 .input-radio:checked + label:hover:before {
   border: 1rem solid #e4e4e4;
@@ -432,7 +432,7 @@ body {
   background-color: #ffffff; }
 
 .academy p:hover::after {
-  background-image: url(img/academy-hover.png); }
+  background-image: url("img/academy-hover.png"); }
 
 .twitter:hover,
 .facebook:hover,
@@ -448,18 +448,17 @@ body {
   background-color: #6c94ba; }
 
 .twitter:active {
-  background-image: url(img/twitter-active.png); }
+  background-image: url("img/twitter-active.png"); }
 
 .facebook:active {
-  background-image: url(img/facebook-active.png); }
+  background-image: url("img/facebook-active.png"); }
 
 .youtube:active {
-  background-image: url(img/youtube-active.png); }
+  background-image: url("img/youtube-active.png"); }
 
 .button-review:active {
   color: #98b4cf;
   cursor: pointer; }
 
 .academy p:active::after {
-  background-image: url(img/academy-active.png); }
-
+  background-image: url("img/academy-active.png"); }

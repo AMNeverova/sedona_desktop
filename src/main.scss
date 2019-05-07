@@ -65,7 +65,7 @@ body {
 
 .header {
 	@include background;
-	background-image: url('../../img/header.png');
+	background-image: url('img/header.png');
 	background-position: bottom;
 	height: 360px;
 	max-width: 1200px;
@@ -247,7 +247,7 @@ body {
 	background-color: $grey;
 	display: block;
 	margin-left: 0;
-	background-image: url(../../img/phone.png);
+	background-image: url(img/phone.png);
 	border-radius: 0.2rem;
 	position: relative;
 	left: 50%;
@@ -255,7 +255,7 @@ body {
 }
 
 .mail::after {
-	background-image: url(../../img/mail.png);
+	background-image: url(img/mail.png);
 	left: 65%;
 	top: -104%;
 }
@@ -293,7 +293,7 @@ body {
 }
 
 .input-checkbox:checked+label:before {
-	background-image: url(../../img/tick.png);
+	background-image: url(img/tick.png);
 	@include background;
 }
 
@@ -382,28 +382,28 @@ body {
 	@include footer-links;
 	top: 1.5rem;
 	left: 7rem;
-	background-image: url("../../img/icon-twitter.png");
+	background-image: url("img/icon-twitter.png");
 }
 
 .facebook {
 	@include footer-links;
 	top: -0.5rem;
 	left: 9.5rem;
-	background-image: url("../../img/icon-facebook.png");
+	background-image: url("img/icon-facebook.png");
 }
 
 .youtube {
 	@include footer-links;
 	left: 12rem;
 	top: -2.5rem;
-	background-image: url("../../img/icon-youtube.png");
+	background-image: url("img/icon-youtube.png");
 }
 
 .academy p::after {
 	@include background;
 	@include size (2rem, 2rem);
 	content: "";
-	background-image: url(../../img/htmlacademy.png);
+	background-image: url(img/htmlacademy.png);
 	display: block;
 	position: relative;
 	left: 19rem;
@@ -482,7 +482,7 @@ body {
 
 .input-checkbox:checked+label:active:before {
 	background-color: $input-active;
-	background-image: url("../../img/tick-active.png");
+	background-image: url("img/tick-active.png");
 }
 
 .input-radio:checked+label:hover:before {
@@ -508,7 +508,7 @@ body {
 }
 
 .academy p:hover::after {
-	background-image: url('../../img/academy-hover.png');
+	background-image: url('img/academy-hover.png');
 }
 
 .twitter:hover,
@@ -527,15 +527,15 @@ body {
 }
 
 .twitter:active {
-	background-image: url("../../img/twitter-active.png")
+	background-image: url("img/twitter-active.png")
 }
 
 .facebook:active {
-	background-image: url("../../img/facebook-active.png")
+	background-image: url("img/facebook-active.png")
 }
 
 .youtube:active {
-	background-image: url("../../img/youtube-active.png")
+	background-image: url("img/youtube-active.png")
 }
 
 .button-review:active {
@@ -544,5 +544,5 @@ body {
 }
 
 .academy p:active::after {
-	background-image: url('../../img/academy-active.png');
+	background-image: url('img/academy-active.png');
 }

@@ -8,23 +8,34 @@ module.exports = {
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "./public"),
-        publicPath: "/public"
+        publicPath: ""
     },
     module: {
       rules: [{
           test: /\.scss$/,
           use: [
-            'style-loader',
             MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
-              options: { sourceMap: true }
+              options: { sourceMap: true, url: true }
+            },
+            {
+              loader: "resolve-url-loader"
             },
             {
               loader: 'sass-loader',
-              options: { sourceMap: false }
+              options: { sourceMap: true }
             }
           ]
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {name: 'img/[name].[ext]'}  
+          }
+        ]
       },
       {
           test: /\.css$/,
@@ -32,12 +43,8 @@ module.exports = {
             MiniCssExtractPlugin.loader,
             'css-loader'
           ]
-      },
-      {
-        test: /\.(jpg|png|gif)$/,
-        include: /img/,
-        loader: 'url-loader'
-    }]
+      }
+  ]
   },
   devServer: {
       overlay: true
