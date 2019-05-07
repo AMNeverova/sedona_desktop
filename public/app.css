@@ -373,11 +373,12 @@ body {
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
+    font-weight: normal;
     display: none;
-    padding-top: 1rem;
     box-sizing: border-box; }
     .item .subitem div {
       box-sizing: border-box;
+      background-color: #ffffff;
       height: 3rem;
       padding-top: 1rem; }
 

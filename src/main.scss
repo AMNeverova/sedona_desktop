@@ -331,7 +331,7 @@ body {
 	@include text;
 	@include size (100%, 4rem);
 	background-color: $button;
-	color: #ffffff;
+	color: $white;
 	margin-top: 3rem;
 	padding: 0;
 	border: none;
@@ -421,7 +421,7 @@ body {
 	@include size (20%, 3rem);
 	@include text;
 	font-weight: normal;
-	background-color: #ffffff;
+	background-color: $white;
 	float: left;
 	padding-top: 1rem;
 	box-sizing: border-box;
@@ -433,12 +433,13 @@ body {
 
 	.subitem {
 		@include text;
+		font-weight: normal;
 		display: none;
-		padding-top: 1rem;
 		box-sizing: border-box;
 
 		div {
 			box-sizing: border-box;
+			background-color: $white;
 			height: 3rem;
 			padding-top: 1rem;
 		}
