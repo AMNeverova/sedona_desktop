@@ -23,32 +23,51 @@ body {
   text-align: center;
   font-weight: bold; }
 
-.heading-text {
-  color: #ffffff;
-  font-size: 5em;
-  font-weight: 800;
-  position: relative;
-  top: 1em;
-  height: 0; }
-
 .logo {
   display: block;
   position: relative;
   left: 50%;
   transform: translateX(calc(-50%)); }
 
-.heading-1 .main {
-  margin-top: 0;
-  padding-top: 2.5rem;
-  font-size: 2rem; }
+.heading-1 {
+  display: flex;
+  flex-wrap: wrap; }
+  .heading-1 .main {
+    width: 100%;
+    margin-top: 0;
+    padding-top: 2.5rem;
+    font-size: 2rem; }
+  .heading-1 .secondary {
+    width: 100%;
+    font-weight: normal;
+    margin: 0;
+    padding-bottom: 1rem; }
 
-.heading-1 .secondary {
-  font-weight: normal;
-  margin: 0;
-  padding-bottom: 1rem; }
+.row-1 {
+  display: flex; }
+  .row-1 .impression {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.15rem solid #f2f2f2; }
+  .row-1 .present {
+    padding-left: 8rem;
+    box-sizing: border-box;
+    width: 50%;
+    display: flex;
+    flex-direction: column; }
 
-.impression {
-  border-right: 0.15rem solid #f2f2f2; }
+.heading-2,
+.radio,
+.heading-3,
+.text {
+  flex-grow: 1;
+  height: 5rem;
+  box-sizing: border-box; }
+
+.heading-2,
+.heading-3 {
+  padding-top: 2rem; }
 
 .input-radio,
 .input-checkbox {
@@ -71,14 +90,12 @@ body {
   background-color: #000000;
   border: 1rem solid #f2f2f2; }
 
-.radio label {
-  float: left;
-  width: 70%; }
+.radio label p {
+  padding-left: 4rem; }
 
 .text label {
   width: 5rem;
   height: 2rem;
-  float: left;
   padding-top: 1rem;
   box-sizing: border-box; }
 
@@ -99,125 +116,9 @@ body {
   border: none;
   height: 3rem; }
 
-.heading-2,
-.heading-3 {
-  width: 50%;
-  height: 2rem;
-  float: left;
-  font-size: 1rem;
-  padding-top: 3rem; }
-
-.impression,
-.present {
-  width: 50%;
-  height: 16rem;
-  float: left;
-  box-sizing: border-box; }
-
-.present {
-  padding-left: 5rem; }
-
-.radio,
-.text {
-  height: 33.33%; }
-
-.radio label p,
-.checkbox label p {
-  padding-left: 4rem; }
-
-.checkbox label p {
-  padding-top: 1rem; }
-
-.row-2 div {
-  width: 33.33333%;
-  height: 7rem;
-  box-sizing: border-box;
-  float: left; }
-
-.heading-4 {
-  font-size: 1rem;
-  height: 2rem;
-  padding-top: 3rem; }
-
-.stripe::before {
-  width: 100%;
-  height: 0.15rem;
-  content: "";
-  background-color: #f2f2f2;
-  display: block;
-  position: relative;
-  top: 50%; }
-
-.phone, .mail {
-  width: 50%;
-  height: 4rem;
-  float: left;
-  box-sizing: border-box;
-  margin-bottom: 1rem; }
-  .phone .error, .mail .error {
-    width: 100%;
-    height: 1rem;
-    margin: 0;
-    font-size: 0.7rem;
-    color: #cc0000;
-    text-align: left;
-    padding-left: 5rem; }
-
-.mail {
-  padding-top: 1rem; }
-
-.phone::after, .mail::after,
-.mail::after {
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 3rem;
-  height: 3rem;
-  content: "";
-  background-color: #f2f2f2;
-  display: block;
-  margin-left: 0;
-  background-image: url(img/phone.png);
-  border-radius: 0.2rem;
-  position: relative;
-  left: 50%;
-  top: -78%; }
-
-.mail::after {
-  background-image: url(img/mail.png);
-  left: 65%;
-  top: -104%; }
-
-.required::after {
-  content: '*'; }
-
-.sights {
-  padding-top: 1.5rem; }
-
-.row-4 {
-  width: 100%;
-  height: 7rem; }
-  .row-4 .checkbox {
-    width: 25%;
-    box-sizing: border-box;
-    float: left; }
-
-.checkbox label:before {
-  content: "";
-  width: 3rem;
-  height: 3rem;
-  background-color: #f2f2f2;
-  display: block;
-  border-radius: 0.3rem;
-  float: left; }
-
-.checkbox label {
-  display: block;
-  margin-top: 1rem; }
-
-.input-checkbox:checked + label:before {
-  background-image: url(img/tick.png);
-  background-position: center;
-  background-repeat: no-repeat; }
+::placeholder {
+  color: #000000;
+  opacity: 1; }
 
 .input-text,
 .input-phone,
@@ -226,15 +127,95 @@ body {
   font-family: 'PT Sans', sans-serif;
   text-indent: 1rem; }
 
-.input-text,
-.input-phone,
-.input-email {
-  height: 3rem; }
+/*row-2*/
+.row-2 {
+  display: flex; }
+  .row-2 div {
+    width: 33.33333%;
+    height: 7rem;
+    box-sizing: border-box; }
+  .row-2 .heading-4 {
+    font-size: 1rem;
+    height: 2rem;
+    padding-top: 3rem; }
+  .row-2 .stripe::before {
+    width: 100%;
+    height: 0.15rem;
+    content: "";
+    background-color: #f2f2f2;
+    display: block;
+    position: relative;
+    top: 50%; }
 
-::placeholder {
-  color: #000000;
-  opacity: 1; }
+/* row-3 */
+.row-3 {
+  display: flex; }
+  .row-3 .phone, .row-3 .mail {
+    width: 50%;
+    height: 4rem;
+    float: left;
+    box-sizing: border-box;
+    margin-bottom: 1rem; }
+    .row-3 .phone .error, .row-3 .mail .error {
+      width: 100%;
+      height: 1rem;
+      margin: 0;
+      font-size: 0.7rem;
+      color: #cc0000;
+      text-align: left;
+      padding-left: 5rem; }
+  .row-3 .mail {
+    padding-top: 1rem; }
+  .row-3 .phone::after, .row-3 .mail::after,
+  .row-3 .mail::after {
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 3rem;
+    height: 3rem;
+    content: "";
+    background-color: #f2f2f2;
+    display: block;
+    margin-left: 0;
+    background-image: url(img/phone.png);
+    border-radius: 0.2rem;
+    position: relative;
+    left: 50%;
+    top: -78%; }
+  .row-3 .mail::after {
+    background-image: url(img/mail.png);
+    left: 65%;
+    top: -104%; }
 
+.required::after {
+  content: '*'; }
+
+/* row-4  checkbox*/
+.row-4 {
+  display: flex; }
+  .row-4 .checkbox {
+    width: 25%;
+    box-sizing: border-box; }
+
+.checkbox label:before {
+  content: "";
+  width: 3rem;
+  height: 3rem;
+  background-color: #f2f2f2;
+  display: block;
+  border-radius: 0.3rem;
+  margin: 0; }
+
+.checkbox label {
+  display: block;
+  margin-top: 1rem;
+  display: flex; }
+
+.input-checkbox:checked + label:before {
+  background-image: url(img/tick.png);
+  background-position: center;
+  background-repeat: no-repeat; }
+
+/* textarea */
 .text-describe {
   width: 100%;
   height: 5rem;
@@ -245,6 +226,13 @@ body {
   font-weight: bold;
   color: #000000;
   padding-top: 1rem; }
+
+/* row-5 button*/
+.row-5 {
+  display: flex; }
+  .row-5 div {
+    width: 50%;
+    height: 10rem; }
 
 .button-review {
   text-transform: uppercase;
@@ -258,16 +246,11 @@ body {
   padding: 0;
   border: none; }
 
-.row-5 div {
-  width: 50%;
-  height: 10rem;
-  float: left; }
-
 .obligatory-field {
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
-  float: right;
+  text-align: end;
   box-sizing: border-box;
   position: relative;
   top: 4.5rem;
@@ -275,16 +258,14 @@ body {
   font-size: 0.9rem;
   font-weight: normal; }
 
+/* footer */
+.footer {
+  display: flex; }
+
 .visit,
 .links,
 .academy {
-  width: 33.33333%;
-  float: left; }
-
-.footer {
-  width: 100%;
-  height: 6rem;
-  clear: both; }
+  width: 33.33333%; }
 
 .visit p {
   text-transform: uppercase;
@@ -352,38 +333,45 @@ body {
   box-sizing: border-box; }
 
 /* menu */
-.item:hover .subitem {
-  display: block; }
-
-.item {
-  width: 20%;
-  height: 3rem;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: bold;
-  font-weight: normal;
-  background-color: #ffffff;
-  float: left;
-  padding-top: 1rem;
-  box-sizing: border-box; }
-  .item a {
-    text-decoration: none;
-    color: #000000; }
-  .item .subitem {
+.menu {
+  display: flex;
+  flex-wrap: wrap; }
+  .menu .item {
+    flex-grow: 1;
+    width: 20%;
+    height: 3rem;
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
     font-weight: normal;
-    display: none;
+    background-color: #ffffff;
+    padding-top: 1rem;
     box-sizing: border-box; }
-    .item .subitem div {
-      box-sizing: border-box;
-      background-color: #ffffff;
-      height: 3rem;
-      padding-top: 1rem; }
+    .menu .item .subitem {
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      font-weight: normal;
+      display: none; }
+      .menu .item .subitem div {
+        background-color: #ffffff;
+        height: 3rem;
+        padding-top: 1rem; }
+  .menu .item-3 {
+    padding-top: 0; }
 
-.item-3 {
-  padding-top: 0; }
+.item:hover .subitem {
+  display: block; }
+
+.heading-text {
+  color: #ffffff;
+  font-size: 5em;
+  font-weight: 800;
+  height: 0;
+  position: relative;
+  left: 50%;
+  top: 19%;
+  transform: translateX(calc(-50%)); }
 
 .item a:hover,
 .subitem div a:hover {

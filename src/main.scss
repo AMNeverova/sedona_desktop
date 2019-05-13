@@ -75,15 +75,6 @@ body {
 	@include text;
 }
 
-.heading-text {
-	color: #ffffff;
-	font-size: 5em;
-	font-weight: 800;
-	position: relative;
-	top: 1em;
-	height: 0;
-}
-
 .logo {
 	display: block;
 	position: relative;
@@ -92,21 +83,55 @@ body {
 }
 
 .heading-1 {
+	display: flex;
+	flex-wrap: wrap;
+
 	.main {
+		width: 100%;
 		margin-top: 0;
 		padding-top: 2.5rem;
 		font-size: 2rem;
 	}
 
 	.secondary {
+		width: 100%;
 		font-weight: normal;
 		margin: 0;
 		padding-bottom: 1rem;
 	}
 }
 
-.impression {
-	border-right: 0.15rem solid $grey;
+.row-1 {
+	display: flex;
+
+	.impression {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		border-right: 0.15rem solid $grey;
+	}
+
+	.present {
+		padding-left: 8rem;
+		box-sizing: border-box;
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.heading-2,
+.radio,
+.heading-3,
+.text {
+	flex-grow: 1;
+	height: 5rem;
+	box-sizing: border-box;
+}
+
+.heading-2,
+.heading-3 {
+	padding-top: 2rem;
 }
 
 .input-radio,
@@ -131,14 +156,12 @@ body {
 	border: 1rem solid $grey;
 }
 
-.radio label {
-	float: left;
-	width: 70%;
+.radio label p {
+	padding-left: 4rem;
 }
 
 .text label {
 	@include size (5rem, 2rem);
-	float: left;
 	padding-top: 1rem;
 	box-sizing: border-box;
 }
@@ -164,138 +187,11 @@ body {
 	height: 3rem;
 }
 
-.heading-2,
-.heading-3 {
-	@include size (50%, 2rem);
-	float: left;
-	font-size: 1rem;
-	padding-top: 3rem;
+::placeholder {
+	color: $black;
+	opacity: 1;
 }
 
-.impression,
-.present {
-	@include size (50%, 16rem);
-	float: left;
-	box-sizing: border-box;
-}
-
-.present {
-	padding-left: 5rem;
-}
-
-.radio,
-.text {
-	height: 33.33%;
-}
-
-.radio label p,
-.checkbox label p {
-	padding-left: 4rem;
-}
-
-.checkbox label p {
-	padding-top: 1rem;
-}
-
-.row-2 div {
-	@include size (100%/3, 7rem);
-	box-sizing: border-box;
-	float: left;
-}
-
-.heading-4 {
-	font-size: 1rem;
-	height: 2rem;
-	padding-top: 3rem;
-}
-
-.stripe::before {
-	@include size (100%, 0.15rem);
-	content: "";
-	background-color: $grey;
-	display: block;
-	position: relative;
-	top: 50%;
-}
-
-.phone {
-	@include size (50%, 4rem);
-	float: left;
-	box-sizing: border-box;
-	margin-bottom: 1rem;
-
-	.error {
-		@include size (100%, 1rem);
-		margin: 0;
-		font-size: 0.7rem;
-		color: $red;
-		text-align: left;
-		padding-left: 5rem;
-	}
-}
-
-.mail {
-	@extend .phone;
-	padding-top: 1rem;
-}
-
-.phone::after,
-.mail::after {
-	@include background;
-	@include size (3rem, 3rem);
-	content: "";
-	background-color: $grey;
-	display: block;
-	margin-left: 0;
-	background-image: url(img/phone.png);
-	border-radius: 0.2rem;
-	position: relative;
-	left: 50%;
-	top: -78%;
-}
-
-.mail::after {
-	background-image: url(img/mail.png);
-	left: 65%;
-	top: -104%;
-}
-
-.required::after {
-	content: '*';
-}
-
-.sights {
-	padding-top: 1.5rem;
-}
-
-.row-4 {
-	@include size (100%, 7rem);
-
-	.checkbox {
-		width: 25%;
-		box-sizing: border-box;
-		float: left;
-	}
-}
-
-.checkbox label:before {
-	content: "";
-	@include size (3rem, 3rem);
-	background-color: $grey;
-	display: block;
-	border-radius: 0.3rem;
-	float: left;
-}
-
-.checkbox label {
-	display: block;
-	margin-top: 1rem;
-}
-
-.input-checkbox:checked+label:before {
-	background-image: url(img/tick.png);
-	@include background;
-}
 
 .input-text,
 .input-phone,
@@ -305,16 +201,119 @@ body {
 	text-indent: 1rem;
 }
 
-.input-text,
-.input-phone,
-.input-email {
-	height: 3rem;
+/*row-2*/
+
+.row-2 {
+
+	display: flex;
+
+	div {
+		@include size (100%/3, 7rem);
+		box-sizing: border-box;
+
+	}
+
+	.heading-4 {
+		font-size: 1rem;
+		height: 2rem;
+		padding-top: 3rem;
+	}
+
+	.stripe::before {
+		@include size (100%, 0.15rem);
+		content: "";
+		background-color: $grey;
+		display: block;
+		position: relative;
+		top: 50%;
+	}
 }
 
-::placeholder {
-	color: $black;
-	opacity: 1;
+/* row-3 */
+
+.row-3 {
+	display: flex;
+
+	.phone {
+		@include size (50%, 4rem);
+		float: left;
+		box-sizing: border-box;
+		margin-bottom: 1rem;
+
+		.error {
+			@include size (100%, 1rem);
+			margin: 0;
+			font-size: 0.7rem;
+			color: $red;
+			text-align: left;
+			padding-left: 5rem;
+		}
+	}
+
+	.mail {
+		@extend .phone;
+		padding-top: 1rem;
+	}
+
+	.phone::after,
+	.mail::after {
+		@include background;
+		@include size (3rem, 3rem);
+		content: "";
+		background-color: $grey;
+		display: block;
+		margin-left: 0;
+		background-image: url(img/phone.png);
+		border-radius: 0.2rem;
+		position: relative;
+		left: 50%;
+		top: -78%;
+	}
+
+	.mail::after {
+		background-image: url(img/mail.png);
+		left: 65%;
+		top: -104%;
+	}
+
 }
+
+.required::after {
+	content: '*';
+}
+
+/* row-4  checkbox*/
+
+.row-4 {
+	display: flex;
+	.checkbox {
+		width: 25%;
+		box-sizing: border-box;
+	}
+
+}
+
+.checkbox label:before {
+	content: "";
+	@include size (3rem, 3rem);
+	background-color: $grey;
+	display: block;
+	border-radius: 0.3rem;
+	margin: 0;
+}
+
+.checkbox label {
+	display: block;
+	margin-top: 1rem;
+	display: flex;
+}
+
+.input-checkbox:checked+label:before {
+	background-image: url(img/tick.png);
+	@include background;
+}
+
+/* textarea */
 
 .text-describe {
 	@include size (100%, 5rem);
@@ -327,6 +326,15 @@ body {
 	padding-top: 1rem;
 }
 
+/* row-5 button*/
+
+.row-5 {
+	display: flex;
+	div {
+		@include size (50%, 10rem);
+	}
+}
+
 .button-review {
 	@include text;
 	@include size (100%, 4rem);
@@ -337,14 +345,9 @@ body {
 	border: none;
 }
 
-.row-5 div {
-	@include size (50%, 10rem);
-	float: left;
-}
-
 .obligatory-field {
 	@include text;
-	float: right;
+	text-align: end;
 	box-sizing: border-box;
 	position: relative;
 	top: 4.5rem;
@@ -353,16 +356,16 @@ body {
 	font-weight: normal;
 }
 
+/* footer */
+
+.footer {
+	display: flex;
+}
+
 .visit,
 .links,
 .academy {
 	width: (100%/3);
-	float: left;
-}
-
-.footer {
-	@include size (100%, 6rem);
-	clear: both;
 }
 
 .visit p {
@@ -411,43 +414,54 @@ body {
 	box-sizing: border-box;
 }
 
+
 /* menu */
+
+.menu {
+	display: flex;
+	flex-wrap: wrap;
+
+	.item {
+		flex-grow: 1;
+		@include size (20%, 3rem);
+		@include text;
+		font-weight: normal;
+		background-color: $white;
+		padding-top: 1rem;
+		box-sizing: border-box;
+
+		.subitem {
+			@include text;
+			font-weight: normal;
+			display: none;
+
+			div {
+				background-color: $white;
+				height: 3rem;
+				padding-top: 1rem;
+			}
+		}
+	}
+
+	.item-3 {
+		padding-top: 0;
+	}
+
+}
 
 .item:hover .subitem {
 	display: block;
 }
 
-.item {
-	@include size (20%, 3rem);
-	@include text;
-	font-weight: normal;
-	background-color: $white;
-	float: left;
-	padding-top: 1rem;
-	box-sizing: border-box;
-
-	a {
-		text-decoration: none;
-		color: $black;
-	}
-
-	.subitem {
-		@include text;
-		font-weight: normal;
-		display: none;
-		box-sizing: border-box;
-
-		div {
-			box-sizing: border-box;
-			background-color: $white;
-			height: 3rem;
-			padding-top: 1rem;
-		}
-	}
-}
-
-.item-3 {
-	padding-top: 0;
+.heading-text {
+	color: $white;
+	font-size: 5em;
+	font-weight: 800;
+	height: 0;
+	position: relative;
+	left: 50%;
+	top: 19%;
+	transform: translateX(calc(-50%));
 }
 
 .item a:hover,
