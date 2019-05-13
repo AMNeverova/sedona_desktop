@@ -63,20 +63,20 @@
             <div class="row-1">
                 <div class="impression">
                     <div class="radio">
-                        <input class="input-radio" type="radio" name="impression" value="pos" id="variant-1"
+                        <input form='review' class="input-radio" type="radio" name="impression" value="pos" id="variant-1"
                             checked="true">
                         <label for="variant-1">
                             <p>Скорее положительное</p>
                         </label>
                     </div>
                     <div class="radio">
-                        <input class="input-radio" type="radio" name="impression" value="pos" id="variant-2">
+                        <input form='review' class="input-radio" type="radio" name="impression" value="neg" id="variant-2">
                         <label for="variant-2">
                             <p>Скорее отрицательное</p>
                         </label>
                     </div>
                     <div class="radio">
-                        <input class="input-radio" type="radio" name="impression" value="pos" id="variant-3">
+                        <input form='review' class="input-radio" type="radio" name="impression" value="diff" id="variant-3">
                         <label for="variant-3">
                             <p>Затрудняюсь ответить</p>
                         </label>
@@ -85,15 +85,15 @@
                 <div class="present">
                     <div class="text">
                         <label for="input-name" class="required narrow">Имя</label>
-                        <input type="text" class="input-text input-name" placeholder="Петр" id="input-name" required="true">
+                        <input form='review' type="text" class="input-text input-name" placeholder="Петр" id="input-name" required="true">
                     </div>
                     <div class="text">
                         <label for="input-surname" class="required">Фамилия</label>
-                        <input class="input-text" type="text" placeholder="Иванов" id="input-surname" required="true">
+                        <input form='review' class="input-text" type="text" placeholder="Иванов" id="input-surname" required="true">
                     </div>
                     <div class="text">
                         <label for="patronym">Отчество</label>
-                        <input type="text" class="input-text" placeholder="Александрович" id="patronym">
+                        <input form='review' type="text" class="input-text" placeholder="Александрович" id="patronym">
                     </div>
                 </div>
             </div>
@@ -106,12 +106,12 @@
                 <div class="phone">
                     <p class="error">Ошибка, перепроверьте номер</p>
                     <label for="phone-number" class="required">Телефон</label>
-                    <input type="tel" class="input-phone" placeholder="Введите телефон" id="phone-number"
+                    <input form='review' type="tel" class="input-phone" placeholder="Введите телефон" id="phone-number"
                         required="true">
                 </div>
                 <div class="mail">
                     <label for="e-mail" class="required">Электронная почта</label>
-                    <input type="email" class="input-email" placeholder="Введите e-mail" id="e-mail" required="true">
+                    <input form='review' type="email" class="input-email" placeholder="Введите e-mail" id="e-mail" required="true">
 
                 </div>
             </div>
@@ -122,26 +122,26 @@
             </div>
             <div class="row-4">
                 <div class="checkbox">
-                    <input class="input-checkbox" type="checkbox" id="bridge" checked="true">
+                    <input form='review' class="input-checkbox" type="checkbox" id='bridge' value="bridge" checked="true">
                     <label for="bridge">
                         <p>Мост Дьявола</p>
                     </label>
                 </div>
                 <div class="checkbox">
-                    <input class="input-checkbox" type="checkbox" id="mountain" checked="true">
+                    <input form='review' class="input-checkbox" type="checkbox" id='mountain' value="mountain" checked="true">
                     <label for="mountain">
                         <p>Гора-Колокол</p>
                     </label>
                 </div>
                 <div class="checkbox">
-                    <input class="input-checkbox" type="checkbox" id="park" checked="true">
+                    <input form='review' class="input-checkbox" type="checkbox" value="park" id='park' checked="true">
                     <label for="park">
                         <p>Слайд-парк</p>
                     </label>
                 </div>
                 <div class="checkbox">
 
-                    <input class="input-checkbox" type="checkbox" id="cliff">
+                    <input form='review' class="input-checkbox" type="checkbox" value="cliff" id='cliff'>
                     <label for="cliff">
                         <p>Красные скалы</p>
                     </label>
@@ -154,12 +154,14 @@
             </div>
 
             <div class="textarea">
-                <textarea rows=5 class="text-describe" placeholder="Опишите подробно все свои восторги"
+                <textarea form='review' rows=5 class="text-describe" placeholder="Опишите подробно все свои восторги"
                     name="emotions"></textarea>
             </div>
             <div class="row-5">
                 <div class="button">
+                    <form action="#" id='review' method="POST">
                     <button type="submit" class="button-review">Отправить отзыв</button>
+                    </form>
                 </div>
                 <div class="obligatory">
                     <p class="obligatory-field">* &ndash; обязательные поля</p>
@@ -185,6 +187,7 @@
                 </div>
             </div>
         </div>
+        <script src="src/script.js"></script>
 </body>
 
 </html>
