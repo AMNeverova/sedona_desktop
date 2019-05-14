@@ -1,0 +1,317 @@
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function (useSourceMap) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+
+      if (item[2]) {
+        return '@media ' + item[2] + '{' + content + '}';
+      } else {
+        return content;
+      }
+    }).join('');
+  }; // import a list of modules into the list
+
+
+  list.i = function (modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      modules = [[null, modules, '']];
+    }
+
+    var alreadyImportedModules = {};
+
+    for (var i = 0; i < this.length; i++) {
+      var id = this[i][0];
+
+      if (id != null) {
+        alreadyImportedModules[id] = true;
+      }
+    }
+
+    for (i = 0; i < modules.length; i++) {
+      var item = modules[i]; // skip already imported module
+      // this implementation is not 100% perfect for weird media query combinations
+      // when a module is imported multiple times with different media queries.
+      // I hope this will never occur (Hey this way we have smaller bundles)
+
+      if (item[0] == null || !alreadyImportedModules[item[0]]) {
+        if (mediaQuery && !item[2]) {
+          item[2] = mediaQuery;
+        } else if (mediaQuery) {
+          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
+        }
+
+        list.push(item);
+      }
+    }
+  };
+
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || '';
+  var cssMapping = item[3];
+
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(cssMapping);
+    var sourceURLs = cssMapping.sources.map(function (source) {
+      return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
+    });
+    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+  }
+
+  return [content].join('\n');
+} // Adapted from convert-source-map (MIT)
+
+
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+  return '/*# ' + data + ' */';
+}
+
+/***/ }),
+/* 1 */,
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(true);
+// Imports
+var urlEscape = __webpack_require__(3);
+var ___CSS_LOADER_URL___0___ = urlEscape(__webpack_require__(4));
+var ___CSS_LOADER_URL___1___ = urlEscape(__webpack_require__(5));
+var ___CSS_LOADER_URL___2___ = urlEscape(__webpack_require__(6));
+var ___CSS_LOADER_URL___3___ = urlEscape(__webpack_require__(7));
+var ___CSS_LOADER_URL___4___ = urlEscape(__webpack_require__(8));
+var ___CSS_LOADER_URL___5___ = urlEscape(__webpack_require__(9));
+var ___CSS_LOADER_URL___6___ = urlEscape(__webpack_require__(10));
+var ___CSS_LOADER_URL___7___ = urlEscape(__webpack_require__(11));
+var ___CSS_LOADER_URL___8___ = urlEscape(__webpack_require__(12));
+var ___CSS_LOADER_URL___9___ = urlEscape(__webpack_require__(13));
+var ___CSS_LOADER_URL___10___ = urlEscape(__webpack_require__(14));
+var ___CSS_LOADER_URL___11___ = urlEscape(__webpack_require__(15));
+var ___CSS_LOADER_URL___12___ = urlEscape(__webpack_require__(16));
+var ___CSS_LOADER_URL___13___ = urlEscape(__webpack_require__(17));
+
+// Module
+exports.push([module.i, "body {\n  background-color: #f2f2f2;\n  font-family: 'PT Sans', sans-serif;\n  margin: 0;\n  padding: 0; }\n  body .wrapper {\n    width: 75rem;\n    margin: 0 auto;\n    background-color: #ffffff; }\n    body .wrapper .container {\n      margin: 0 7rem; }\n\n.header {\n  background-position: center;\n  background-repeat: no-repeat;\n  background-image: url(" + ___CSS_LOADER_URL___0___ + ");\n  background-position: bottom;\n  background-size: cover;\n  height: 360px; }\n\n[class^=\"heading\"] {\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: bold; }\n\n.logo {\n  display: block;\n  position: relative;\n  left: 12%; }\n\n.heading-1 {\n  display: flex;\n  flex-wrap: wrap; }\n  .heading-1 .main {\n    width: 100%;\n    margin-top: 0;\n    padding-top: 2.5rem;\n    font-size: 2rem; }\n  .heading-1 .secondary {\n    width: 100%;\n    font-weight: normal;\n    margin: 0;\n    padding-bottom: 1rem; }\n\n.row-1 {\n  display: flex;\n  flex-wrap: wrap; }\n  .row-1 .impression {\n    width: 50%;\n    display: flex;\n    flex-direction: column;\n    border-right: 0.15rem solid #f2f2f2; }\n  .row-1 .present {\n    padding-left: 8rem;\n    box-sizing: border-box;\n    width: 50%;\n    display: flex;\n    flex-direction: column; }\n\n.heading-2,\n.radio,\n.heading-3,\n.text {\n  flex-grow: 1;\n  height: 5rem;\n  box-sizing: border-box; }\n\n.heading-2,\n.heading-3 {\n  padding-top: 2rem; }\n\n.input-radio,\n.input-checkbox {\n  display: none; }\n\n.radio label::before {\n  width: 3rem;\n  height: 3rem;\n  content: \"\";\n  display: block;\n  border-radius: 50%;\n  background-color: #f2f2f2;\n  float: left; }\n\n.input-radio:checked + label:before {\n  width: 3rem;\n  height: 3rem;\n  display: block;\n  box-sizing: border-box;\n  background-color: #000000;\n  border: 1rem solid #f2f2f2; }\n\n.radio label p {\n  padding-left: 4rem; }\n\n.text label {\n  width: 5rem;\n  height: 2rem;\n  padding-top: 1rem;\n  box-sizing: border-box; }\n\n.text .narrow {\n  width: 3rem; }\n\n.input-text {\n  width: 12rem; }\n\n.input-name {\n  width: 14rem; }\n\n.input-text,\n.input-phone,\n.input-email {\n  font-weight: bold;\n  background-color: #f2f2f2;\n  border: none;\n  height: 3rem; }\n\n::placeholder {\n  color: #000000;\n  opacity: 1; }\n\n.input-text,\n.input-phone,\n.input-email,\n.text-describe {\n  font-family: 'PT Sans', sans-serif;\n  text-indent: 1rem; }\n\n/*row-2*/\n.row-2 {\n  display: flex; }\n  .row-2 div {\n    width: 33.33333%;\n    height: 7rem;\n    box-sizing: border-box; }\n  .row-2 .heading-4 {\n    font-size: 1rem;\n    height: 2rem;\n    padding-top: 3rem; }\n  .row-2 .stripe::before {\n    width: 100%;\n    height: 0.15rem;\n    content: \"\";\n    background-color: #f2f2f2;\n    display: block;\n    position: relative;\n    top: 50%; }\n\n/* row-3 */\n.row-3 {\n  display: flex; }\n  .row-3 .phone, .row-3 .mail {\n    width: 50%;\n    height: 4rem;\n    float: left;\n    box-sizing: border-box;\n    margin-bottom: 1rem; }\n    .row-3 .phone .error, .row-3 .mail .error {\n      width: 100%;\n      height: 1rem;\n      margin: 0;\n      font-size: 0.7rem;\n      color: #cc0000;\n      text-align: left;\n      padding-left: 5rem; }\n  .row-3 .mail {\n    padding-top: 1rem; }\n  .row-3 .phone::after, .row-3 .mail::after,\n  .row-3 .mail::after {\n    background-position: center;\n    background-repeat: no-repeat;\n    width: 3rem;\n    height: 3rem;\n    content: \"\";\n    background-color: #f2f2f2;\n    display: block;\n    margin-left: 0;\n    background-image: url(" + ___CSS_LOADER_URL___1___ + ");\n    border-radius: 0.2rem;\n    position: relative;\n    left: 50%;\n    top: -78%; }\n  .row-3 .mail::after {\n    background-image: url(" + ___CSS_LOADER_URL___2___ + ");\n    left: 65%;\n    top: -104%; }\n\n.required::after {\n  content: '*'; }\n\n/* row-4  checkbox*/\n.row-4 {\n  display: flex; }\n  .row-4 .checkbox {\n    width: 25%;\n    box-sizing: border-box; }\n\n.checkbox label:before {\n  content: \"\";\n  width: 3rem;\n  height: 3rem;\n  background-color: #f2f2f2;\n  display: block;\n  border-radius: 0.3rem;\n  margin: 0; }\n\n.checkbox label {\n  display: block;\n  margin-top: 1rem;\n  display: flex; }\n\n.input-checkbox:checked + label:before {\n  background-image: url(" + ___CSS_LOADER_URL___3___ + ");\n  background-position: center;\n  background-repeat: no-repeat; }\n\n/* textarea */\n.text-describe {\n  width: 100%;\n  height: 5rem;\n  background-color: #f2f2f2;\n  border: none;\n  display: block;\n  margin: 0 auto;\n  font-weight: bold;\n  color: #000000;\n  padding-top: 1rem; }\n\n/* row-5 button*/\n.row-5 {\n  display: flex; }\n  .row-5 div {\n    width: 50%;\n    height: 10rem; }\n\n.button-review {\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: bold;\n  width: 100%;\n  height: 4rem;\n  background-color: #90b2d0;\n  color: #ffffff;\n  margin-top: 3rem;\n  padding: 0;\n  border: none; }\n\n.obligatory-field {\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: bold;\n  text-align: end;\n  box-sizing: border-box;\n  position: relative;\n  top: 4.5rem;\n  margin: 0;\n  font-size: 0.9rem;\n  font-weight: normal; }\n\n/* footer */\n.footer {\n  display: flex; }\n\n.visit,\n.links,\n.academy {\n  width: 33.33333%; }\n\n.visit p {\n  text-transform: uppercase;\n  text-align: left;\n  position: relative;\n  top: 2rem;\n  margin: 0;\n  font-weight: bold;\n  font-size: 1.2rem; }\n\n.academy p {\n  text-transform: uppercase;\n  text-align: left;\n  position: relative;\n  top: 2rem;\n  margin: 0;\n  font-size: 0.9rem;\n  text-align: right;\n  padding-right: 1.5rem; }\n\n.twitter {\n  position: relative;\n  background-color: #90b2d0;\n  width: 2rem;\n  height: 2rem;\n  background-repeat: no-repeat;\n  background-position: center;\n  top: 1.5rem;\n  left: 7rem;\n  background-image: url(" + ___CSS_LOADER_URL___4___ + "); }\n\n.facebook {\n  position: relative;\n  background-color: #90b2d0;\n  width: 2rem;\n  height: 2rem;\n  background-repeat: no-repeat;\n  background-position: center;\n  top: -0.5rem;\n  left: 9.5rem;\n  background-image: url(" + ___CSS_LOADER_URL___5___ + "); }\n\n.youtube {\n  position: relative;\n  background-color: #90b2d0;\n  width: 2rem;\n  height: 2rem;\n  background-repeat: no-repeat;\n  background-position: center;\n  left: 12rem;\n  top: -2.5rem;\n  background-image: url(" + ___CSS_LOADER_URL___6___ + "); }\n\n.academy p::after {\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 2rem;\n  height: 2rem;\n  content: \"\";\n  background-image: url(" + ___CSS_LOADER_URL___7___ + ");\n  display: block;\n  position: relative;\n  left: 19rem;\n  bottom: 1.5rem;\n  box-sizing: border-box; }\n\n/* menu */\n.menu {\n  display: flex;\n  flex-wrap: wrap; }\n  .menu .item {\n    flex-grow: 1;\n    width: 20%;\n    height: 3rem;\n    text-transform: uppercase;\n    text-align: center;\n    font-weight: bold;\n    font-weight: normal;\n    background-color: #ffffff;\n    padding-top: 1rem;\n    box-sizing: border-box; }\n    .menu .item .subitem {\n      text-transform: uppercase;\n      text-align: center;\n      font-weight: bold;\n      font-weight: normal;\n      display: none; }\n      .menu .item .subitem div {\n        background-color: #ffffff;\n        height: 3rem;\n        padding-top: 1rem; }\n  .menu .item-3 {\n    padding-top: 0; }\n\n.item:hover .subitem {\n  display: block; }\n\n.heading-text {\n  color: #ffffff;\n  font-size: 5em;\n  font-weight: 800;\n  height: 0;\n  position: relative;\n  top: 19%; }\n\n.item a:hover,\n.subitem div a:hover {\n  color: #90b1d0;\n  cursor: pointer; }\n\n.item a:active {\n  color: #b2b2b2; }\n\n.subitem div a:active {\n  color: #d4d0cd; }\n\n/* hover, active */\n.checkbox label:hover:before,\n.input-checkbox:checked + label:hover:before,\n.input-phone:hover,\n.input-email:hover,\n.input-text:hover,\n.radio label:hover::before,\n.text-describe:hover {\n  background-color: #e4e4e4; }\n\n.radio label:active:before,\n.checkbox label:active:before {\n  background-color: #d4d4d4; }\n\n.input-checkbox:checked + label:active:before {\n  background-color: #d4d4d4;\n  background-image: url(" + ___CSS_LOADER_URL___8___ + "); }\n\n.input-radio:checked + label:hover:before {\n  border: 1rem solid #e4e4e4;\n  background-color: #000000; }\n\n.input-radio:checked + label:active:before {\n  background-color: #a4a4a4;\n  border: 1rem solid #d4d4d4; }\n\n.input-phone:focus,\n.input-text:focus,\n.input-email:focus {\n  background-color: #ffffff;\n  outline: #e4e4e4 solid 0.3rem; }\n\n.text-describe:focus {\n  outline: #e4e4e4 solid 0.3rem;\n  background-color: #ffffff; }\n\n.academy p:hover::after {\n  background-image: url(" + ___CSS_LOADER_URL___9___ + "); }\n\n.twitter:hover,\n.facebook:hover,\n.youtube:hover,\n.button-review:hover {\n  background-color: #799cbd;\n  cursor: pointer; }\n\n.twitter:active,\n.facebook:active,\n.youtube:active,\n.button-review:active {\n  background-color: #6c94ba; }\n\n.twitter:active {\n  background-image: url(" + ___CSS_LOADER_URL___10___ + "); }\n\n.facebook:active {\n  background-image: url(" + ___CSS_LOADER_URL___11___ + "); }\n\n.youtube:active {\n  background-image: url(" + ___CSS_LOADER_URL___12___ + "); }\n\n.button-review:active {\n  color: #98b4cf;\n  cursor: pointer; }\n\n.academy p:active::after {\n  background-image: url(" + ___CSS_LOADER_URL___13___ + "); }\n", "",{"version":3,"sources":["main.scss"],"names":[],"mappings":"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","file":"main.scss","sourcesContent":["body {\n  background-color: #f2f2f2;\n  font-family: 'PT Sans', sans-serif;\n  margin: 0;\n  padding: 0; }\n  body .wrapper {\n    width: 75rem;\n    margin: 0 auto;\n    background-color: #ffffff; }\n    body .wrapper .container {\n      margin: 0 7rem; }\n\n.header {\n  background-position: center;\n  background-repeat: no-repeat;\n  background-image: url(\"./img/header.png\");\n  background-position: bottom;\n  background-size: cover;\n  height: 360px; }\n\n[class^=\"heading\"] {\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: bold; }\n\n.logo {\n  display: block;\n  position: relative;\n  left: 12%; }\n\n.heading-1 {\n  display: flex;\n  flex-wrap: wrap; }\n  .heading-1 .main {\n    width: 100%;\n    margin-top: 0;\n    padding-top: 2.5rem;\n    font-size: 2rem; }\n  .heading-1 .secondary {\n    width: 100%;\n    font-weight: normal;\n    margin: 0;\n    padding-bottom: 1rem; }\n\n.row-1 {\n  display: flex;\n  flex-wrap: wrap; }\n  .row-1 .impression {\n    width: 50%;\n    display: flex;\n    flex-direction: column;\n    border-right: 0.15rem solid #f2f2f2; }\n  .row-1 .present {\n    padding-left: 8rem;\n    box-sizing: border-box;\n    width: 50%;\n    display: flex;\n    flex-direction: column; }\n\n.heading-2,\n.radio,\n.heading-3,\n.text {\n  flex-grow: 1;\n  height: 5rem;\n  box-sizing: border-box; }\n\n.heading-2,\n.heading-3 {\n  padding-top: 2rem; }\n\n.input-radio,\n.input-checkbox {\n  display: none; }\n\n.radio label::before {\n  width: 3rem;\n  height: 3rem;\n  content: \"\";\n  display: block;\n  border-radius: 50%;\n  background-color: #f2f2f2;\n  float: left; }\n\n.input-radio:checked + label:before {\n  width: 3rem;\n  height: 3rem;\n  display: block;\n  box-sizing: border-box;\n  background-color: #000000;\n  border: 1rem solid #f2f2f2; }\n\n.radio label p {\n  padding-left: 4rem; }\n\n.text label {\n  width: 5rem;\n  height: 2rem;\n  padding-top: 1rem;\n  box-sizing: border-box; }\n\n.text .narrow {\n  width: 3rem; }\n\n.input-text {\n  width: 12rem; }\n\n.input-name {\n  width: 14rem; }\n\n.input-text,\n.input-phone,\n.input-email {\n  font-weight: bold;\n  background-color: #f2f2f2;\n  border: none;\n  height: 3rem; }\n\n::placeholder {\n  color: #000000;\n  opacity: 1; }\n\n.input-text,\n.input-phone,\n.input-email,\n.text-describe {\n  font-family: 'PT Sans', sans-serif;\n  text-indent: 1rem; }\n\n/*row-2*/\n.row-2 {\n  display: flex; }\n  .row-2 div {\n    width: 33.33333%;\n    height: 7rem;\n    box-sizing: border-box; }\n  .row-2 .heading-4 {\n    font-size: 1rem;\n    height: 2rem;\n    padding-top: 3rem; }\n  .row-2 .stripe::before {\n    width: 100%;\n    height: 0.15rem;\n    content: \"\";\n    background-color: #f2f2f2;\n    display: block;\n    position: relative;\n    top: 50%; }\n\n/* row-3 */\n.row-3 {\n  display: flex; }\n  .row-3 .phone, .row-3 .mail {\n    width: 50%;\n    height: 4rem;\n    float: left;\n    box-sizing: border-box;\n    margin-bottom: 1rem; }\n    .row-3 .phone .error, .row-3 .mail .error {\n      width: 100%;\n      height: 1rem;\n      margin: 0;\n      font-size: 0.7rem;\n      color: #cc0000;\n      text-align: left;\n      padding-left: 5rem; }\n  .row-3 .mail {\n    padding-top: 1rem; }\n  .row-3 .phone::after, .row-3 .mail::after,\n  .row-3 .mail::after {\n    background-position: center;\n    background-repeat: no-repeat;\n    width: 3rem;\n    height: 3rem;\n    content: \"\";\n    background-color: #f2f2f2;\n    display: block;\n    margin-left: 0;\n    background-image: url(./img/phone.png);\n    border-radius: 0.2rem;\n    position: relative;\n    left: 50%;\n    top: -78%; }\n  .row-3 .mail::after {\n    background-image: url(./img/mail.png);\n    left: 65%;\n    top: -104%; }\n\n.required::after {\n  content: '*'; }\n\n/* row-4  checkbox*/\n.row-4 {\n  display: flex; }\n  .row-4 .checkbox {\n    width: 25%;\n    box-sizing: border-box; }\n\n.checkbox label:before {\n  content: \"\";\n  width: 3rem;\n  height: 3rem;\n  background-color: #f2f2f2;\n  display: block;\n  border-radius: 0.3rem;\n  margin: 0; }\n\n.checkbox label {\n  display: block;\n  margin-top: 1rem;\n  display: flex; }\n\n.input-checkbox:checked + label:before {\n  background-image: url(./img/tick.png);\n  background-position: center;\n  background-repeat: no-repeat; }\n\n/* textarea */\n.text-describe {\n  width: 100%;\n  height: 5rem;\n  background-color: #f2f2f2;\n  border: none;\n  display: block;\n  margin: 0 auto;\n  font-weight: bold;\n  color: #000000;\n  padding-top: 1rem; }\n\n/* row-5 button*/\n.row-5 {\n  display: flex; }\n  .row-5 div {\n    width: 50%;\n    height: 10rem; }\n\n.button-review {\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: bold;\n  width: 100%;\n  height: 4rem;\n  background-color: #90b2d0;\n  color: #ffffff;\n  margin-top: 3rem;\n  padding: 0;\n  border: none; }\n\n.obligatory-field {\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: bold;\n  text-align: end;\n  box-sizing: border-box;\n  position: relative;\n  top: 4.5rem;\n  margin: 0;\n  font-size: 0.9rem;\n  font-weight: normal; }\n\n/* footer */\n.footer {\n  display: flex; }\n\n.visit,\n.links,\n.academy {\n  width: 33.33333%; }\n\n.visit p {\n  text-transform: uppercase;\n  text-align: left;\n  position: relative;\n  top: 2rem;\n  margin: 0;\n  font-weight: bold;\n  font-size: 1.2rem; }\n\n.academy p {\n  text-transform: uppercase;\n  text-align: left;\n  position: relative;\n  top: 2rem;\n  margin: 0;\n  font-size: 0.9rem;\n  text-align: right;\n  padding-right: 1.5rem; }\n\n.twitter {\n  position: relative;\n  background-color: #90b2d0;\n  width: 2rem;\n  height: 2rem;\n  background-repeat: no-repeat;\n  background-position: center;\n  top: 1.5rem;\n  left: 7rem;\n  background-image: url(\"./img/icon-twitter.png\"); }\n\n.facebook {\n  position: relative;\n  background-color: #90b2d0;\n  width: 2rem;\n  height: 2rem;\n  background-repeat: no-repeat;\n  background-position: center;\n  top: -0.5rem;\n  left: 9.5rem;\n  background-image: url(\"./img/icon-facebook.png\"); }\n\n.youtube {\n  position: relative;\n  background-color: #90b2d0;\n  width: 2rem;\n  height: 2rem;\n  background-repeat: no-repeat;\n  background-position: center;\n  left: 12rem;\n  top: -2.5rem;\n  background-image: url(\"./img/icon-youtube.png\"); }\n\n.academy p::after {\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 2rem;\n  height: 2rem;\n  content: \"\";\n  background-image: url(./img/htmlacademy.png);\n  display: block;\n  position: relative;\n  left: 19rem;\n  bottom: 1.5rem;\n  box-sizing: border-box; }\n\n/* menu */\n.menu {\n  display: flex;\n  flex-wrap: wrap; }\n  .menu .item {\n    flex-grow: 1;\n    width: 20%;\n    height: 3rem;\n    text-transform: uppercase;\n    text-align: center;\n    font-weight: bold;\n    font-weight: normal;\n    background-color: #ffffff;\n    padding-top: 1rem;\n    box-sizing: border-box; }\n    .menu .item .subitem {\n      text-transform: uppercase;\n      text-align: center;\n      font-weight: bold;\n      font-weight: normal;\n      display: none; }\n      .menu .item .subitem div {\n        background-color: #ffffff;\n        height: 3rem;\n        padding-top: 1rem; }\n  .menu .item-3 {\n    padding-top: 0; }\n\n.item:hover .subitem {\n  display: block; }\n\n.heading-text {\n  color: #ffffff;\n  font-size: 5em;\n  font-weight: 800;\n  height: 0;\n  position: relative;\n  top: 19%; }\n\n.item a:hover,\n.subitem div a:hover {\n  color: #90b1d0;\n  cursor: pointer; }\n\n.item a:active {\n  color: #b2b2b2; }\n\n.subitem div a:active {\n  color: #d4d0cd; }\n\n/* hover, active */\n.checkbox label:hover:before,\n.input-checkbox:checked + label:hover:before,\n.input-phone:hover,\n.input-email:hover,\n.input-text:hover,\n.radio label:hover::before,\n.text-describe:hover {\n  background-color: #e4e4e4; }\n\n.radio label:active:before,\n.checkbox label:active:before {\n  background-color: #d4d4d4; }\n\n.input-checkbox:checked + label:active:before {\n  background-color: #d4d4d4;\n  background-image: url(\"./img/tick-active.png\"); }\n\n.input-radio:checked + label:hover:before {\n  border: 1rem solid #e4e4e4;\n  background-color: #000000; }\n\n.input-radio:checked + label:active:before {\n  background-color: #a4a4a4;\n  border: 1rem solid #d4d4d4; }\n\n.input-phone:focus,\n.input-text:focus,\n.input-email:focus {\n  background-color: #ffffff;\n  outline: #e4e4e4 solid 0.3rem; }\n\n.text-describe:focus {\n  outline: #e4e4e4 solid 0.3rem;\n  background-color: #ffffff; }\n\n.academy p:hover::after {\n  background-image: url(\"./img/academy-hover.png\"); }\n\n.twitter:hover,\n.facebook:hover,\n.youtube:hover,\n.button-review:hover {\n  background-color: #799cbd;\n  cursor: pointer; }\n\n.twitter:active,\n.facebook:active,\n.youtube:active,\n.button-review:active {\n  background-color: #6c94ba; }\n\n.twitter:active {\n  background-image: url(\"./img/twitter-active.png\"); }\n\n.facebook:active {\n  background-image: url(\"./img/facebook-active.png\"); }\n\n.youtube:active {\n  background-image: url(\"./img/youtube-active.png\"); }\n\n.button-review:active {\n  color: #98b4cf;\n  cursor: pointer; }\n\n.academy p:active::after {\n  background-image: url(\"./img/academy-active.png\"); }\n"]}]);
+
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function escape(url, needQuotes) {
+  if (typeof url !== 'string') {
+    return url;
+  } // If url is already wrapped in quotes, remove them
+
+
+  if (/^['"].*['"]$/.test(url)) {
+    url = url.slice(1, -1);
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]/.test(url) || needQuotes) {
+    return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"';
+  }
+
+  return url;
+};
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/header.png";
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/phone.png";
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/mail.png";
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/tick.png";
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/icon-twitter.png";
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/icon-facebook.png";
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/icon-youtube.png";
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/htmlacademy.png";
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/tick-active.png";
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/academy-hover.png";
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/twitter-active.png";
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/facebook-active.png";
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/youtube-active.png";
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/academy-active.png";
+
+/***/ })
+/******/ ]);
