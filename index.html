@@ -4,7 +4,10 @@
 <head>
     <title>Visit Sedona</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="public/app.css" />
+    <link rel="stylesheet" media="screen and (max-width: 480px)" href="public/style480.css">
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="public/style768.css">
 </head>
 
 <body>
@@ -29,6 +32,7 @@
                 </div>
                 <div class="item item-3">
                     <img src="src/img/logotype-desktop.png" alt="City of Sedona" class="logo" />
+                    <img src="src/img/icon-menu.png" alt="menu" class="icon-menu">
                 </div>
                 <div class="item">
                     <a>форма отзыва</a>
@@ -55,75 +59,73 @@
                 <p class="secondary">Помогите нашим отелям стать лучше! Оставьте отзыв о них.</p>
                 <p class="secondary">А также о посещенных вами достопримечательностях.</p>
             </div>
-            <div class="row-1">
-                <div class="impression">
-                    <div class="heading-2">ваше общее впечатление:</div>
-                    <div class="radio">
-                        <input form='review' class="input-radio" type="radio" name="impression" value="pos"
-                            id="variant-1" checked="true">
-                        <label for="variant-1">
-                            <p>Скорее положительное</p>
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <input form='review' class="input-radio" type="radio" name="impression" value="neg"
-                            id="variant-2">
-                        <label for="variant-2">
-                            <p>Скорее отрицательное</p>
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <input form='review' class="input-radio" type="radio" name="impression" value="diff"
-                            id="variant-3">
-                        <label for="variant-3">
-                            <p>Затрудняюсь ответить</p>
-                        </label>
-                    </div>
-                </div>
-                <div class="present">
-                    <div class="heading-3">представьтесь:</div>
-                    <div class="text">
-                        <label for="input-name" class="required narrow">Имя</label>
-                        <input form='review' type="text" class="input-text input-name" placeholder="Петр"
-                            id="input-name" required="true">
-                    </div>
-                    <div class="text">
-                        <label for="input-surname" class="required">Фамилия</label>
-                        <input form='review' class="input-text" type="text" placeholder="Иванов" id="input-surname"
-                            required="true">
-                    </div>
-                    <div class="text">
-                        <label for="patronym">Отчество</label>
-                        <input form='review' type="text" class="input-text" placeholder="Александрович" id="patronym">
-                    </div>
-                </div>
 
-
+            <div class="impression">
+                <div class="heading-2">ваше общее впечатление:</div>
+                <div class="radio">
+                    <input form='review' class="input-radio" type="radio" name="impression" value="pos" id="variant-1"
+                        checked="true">
+                    <label for="variant-1">
+                        <p>Скорее положительное</p>
+                    </label>
+                </div>
+                <div class="radio">
+                    <input form='review' class="input-radio" type="radio" name="impression" value="neg" id="variant-2">
+                    <label for="variant-2">
+                        <p>Скорее отрицательное</p>
+                    </label>
+                </div>
+                <div class="radio">
+                    <input form='review' class="input-radio" type="radio" name="impression" value="diff" id="variant-3">
+                    <label for="variant-3">
+                        <p>Затрудняюсь ответить</p>
+                    </label>
+                </div>
             </div>
-            <div class="row-2">
-                <div class="stripe"></div>
-                <div class="heading-4">контактная информация</div>
-                <div class="stripe"></div>
-            </div>
-            <div class="row-3">
-                <div class="phone">
-                    <p class="error">Ошибка, перепроверьте номер</p>
-                    <label for="phone-number" class="required">Телефон</label>
-                    <input form='review' type="tel" class="input-phone" placeholder="Введите телефон" id="phone-number"
+            <div class="present">
+                <div class="heading-3">представьтесь:</div>
+                <div class="text">
+                    <label for="input-name" class="required narrow">Имя</label>
+                    <input form='review' type="text" class="input-text input-name" placeholder="Петр" id="input-name"
                         required="true">
                 </div>
-                <div class="mail">
-                    <label for="e-mail" class="required">Электронная почта</label>
-                    <input form='review' type="email" class="input-email" placeholder="Введите e-mail" id="e-mail"
+                <div class="text">
+                    <label for="input-surname" class="required">Фамилия</label>
+                    <input form='review' class="input-text" type="text" placeholder="Иванов" id="input-surname"
                         required="true">
-
+                </div>
+                <div class="text">
+                    <label for="patronym">Отчество</label>
+                    <input form='review' type="text" class="input-text" placeholder="Александрович" id="patronym">
                 </div>
             </div>
-            <div class="row-2">
-                <div class="stripe"></div>
-                <div class="heading-4 sights">посещенные достопримечательности:</div>
-                <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="heading-4 contact-information">контактная информация</div>
+            <div class="stripe"></div>
+
+
+            <div class="phone">
+                <p class="error">Ошибка, перепроверьте номер</p>
+                <label for="phone-number" class="required">Телефон</label>
+                <input form='review' type="tel" class="input-phone" placeholder="Введите телефон" id="phone-number"
+                    required="true">
+                <div class="phone-logo"></div>
             </div>
+
+            
+            <div class="mail">
+                <label for="e-mail" class="required">Электронная почта</label>
+                <input form='review' type="email" class="input-email" placeholder="Введите e-mail" id="e-mail"
+                    required="true">
+                <div class="mail-logo"></div>
+
+            </div>
+
+
+            <div class="stripe"></div>
+            <div class="heading-4 sights">посещенные достопримечательности:</div>
+            <div class="stripe"></div>
+
             <div class="row-4">
                 <div class="checkbox">
                     <input form='review' class="input-checkbox" type="checkbox" id='bridge' value="bridge"
@@ -153,11 +155,11 @@
                     </label>
                 </div>
             </div>
-            <div class="row-2">
-                <div class="stripe"></div>
-                <div class="heading-4">опишите свои эмоции</div>
-                <div class="stripe"></div>
-            </div>
+
+            <div class="stripe"></div>
+            <div class="heading-4">опишите свои эмоции</div>
+            <div class="stripe"></div>
+
             <div class="textarea">
                 <textarea form='review' rows=5 class="text-describe" placeholder="Опишите подробно все свои восторги"
                     name="emotions"></textarea>
@@ -189,6 +191,7 @@
                 </div>
                 <div class="academy">
                     <p>разработано</p>
+                    <div class="academy-logo"></div>
                 </div>
             </div>
         </div>

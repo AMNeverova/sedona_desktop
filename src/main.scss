@@ -13,7 +13,6 @@
 }
 
 @mixin footer-links {
-	position: relative;
 	background-color: $button;
 	width: 2rem;
 	height: 2rem;
@@ -53,12 +52,14 @@ body {
 	padding: 0;
 
 	.wrapper {
-		width: 1200px;
+		width: 75rem;
 		margin: 0 auto;
 		background-color: #ffffff;
 
 		.container {
 			margin: 0 7rem;
+			display: flex;
+			flex-wrap: wrap;
 		}
 	}
 }
@@ -67,8 +68,8 @@ body {
 	@include background;
 	background-image: url('img/header.png');
 	background-position: bottom;
+	background-size: cover;
 	height: 360px;
-	max-width: 1200px;
 }
 
 [class^="heading"] {
@@ -78,13 +79,17 @@ body {
 .logo {
 	display: block;
 	position: relative;
-	left: 50%;
-	transform: translateX(calc(-50%));
+	left: 12%;
+}
+
+.icon-menu {
+	display: none;
 }
 
 .heading-1 {
 	display: flex;
 	flex-wrap: wrap;
+	flex-basis: 100%;
 
 	.main {
 		width: 100%;
@@ -101,24 +106,22 @@ body {
 	}
 }
 
-.row-1 {
+.impression {
+	flex-basis: 50%;
 	display: flex;
-
-	.impression {
-		width: 50%;
-		display: flex;
-		flex-direction: column;
-		border-right: 0.15rem solid $grey;
-	}
-
-	.present {
-		padding-left: 8rem;
-		box-sizing: border-box;
-		width: 50%;
-		display: flex;
-		flex-direction: column;
-	}
+	flex-direction: column;
+	border-right: 0.15rem solid $grey;
+	box-sizing: border-box;
 }
+
+.present {
+	padding-left: 8rem;
+	box-sizing: border-box;
+	flex-basis: 50%;
+	display: flex;
+	flex-direction: column;
+}
+
 
 .heading-2,
 .radio,
@@ -164,6 +167,7 @@ body {
 	@include size (5rem, 2rem);
 	padding-top: 1rem;
 	box-sizing: border-box;
+	text-transform: uppercase;
 }
 
 .text .narrow {
@@ -198,84 +202,85 @@ body {
 .input-email,
 .text-describe {
 	font-family: 'PT Sans', sans-serif;
-	text-indent: 1rem;
+	padding-left: 1rem;
 }
 
 /*row-2*/
 
-.row-2 {
+.stripe, .heading-4 {
+	flex-basis: (100%/3);
+	box-sizing: border-box;
+	height: 5rem;
 
-	display: flex;
-
-	div {
-		@include size (100%/3, 7rem);
-		box-sizing: border-box;
-
-	}
-
-	.heading-4 {
-		font-size: 1rem;
-		height: 2rem;
-		padding-top: 3rem;
-	}
-
-	.stripe::before {
-		@include size (100%, 0.15rem);
-		content: "";
-		background-color: $grey;
-		display: block;
-		position: relative;
-		top: 50%;
-	}
 }
+
+.heading-4 {
+	font-size: 1rem;
+	padding-top: 2rem;
+}
+
+.sights {
+	padding-top: 1rem;
+}
+
+.stripe::before {
+	@include size (100%, 0.15rem);
+	content: "";
+	background-color: $grey;
+	display: block;
+	position: relative;
+	top: 50%;
+}
+
 
 /* row-3 */
 
-.row-3 {
+
+
+.phone {
+	flex-basis: 50%;
+	box-sizing: border-box;
+	margin-bottom: 1rem;
 	display: flex;
+	flex-wrap: wrap;
 
-	.phone {
-		@include size (50%, 4rem);
-		float: left;
-		box-sizing: border-box;
-		margin-bottom: 1rem;
-
-		.error {
-			@include size (100%, 1rem);
-			margin: 0;
-			font-size: 0.7rem;
-			color: $red;
-			text-align: left;
-			padding-left: 5rem;
-		}
+	.error {
+		flex-basis: 100%;
+		margin: 0;
+		font-size: 0.7rem;
+		color: $red;
+		text-align: left;
+		padding-left: 5rem;
+		padding-bottom: 1rem;
 	}
-
-	.mail {
-		@extend .phone;
+	label {
+		text-transform: uppercase;
 		padding-top: 1rem;
 	}
+}
 
-	.phone::after,
-	.mail::after {
-		@include background;
-		@include size (3rem, 3rem);
-		content: "";
-		background-color: $grey;
-		display: block;
-		margin-left: 0;
-		background-image: url(img/phone.png);
-		border-radius: 0.2rem;
-		position: relative;
-		left: 50%;
-		top: -78%;
+.mail {
+	@extend .phone;
+	padding-top: 2rem;
+	label {
+		text-transform: uppercase;
 	}
+}
 
-	.mail::after {
-		background-image: url(img/mail.png);
-		left: 65%;
-		top: -104%;
-	}
+.phone-logo::after,
+.mail-logo::after {
+	@include background;
+	@include size (3rem, 3rem);
+	content: "";
+	background-color: $grey;
+	display: block;
+	margin-left: 0;
+	background-image: url(img/phone.png);
+	border-radius: 0.2rem;
+}
 
+.mail::after {
+	background-image: url(img/mail.png);
 }
 
 .required::after {
@@ -286,9 +291,14 @@ body {
 
 .row-4 {
 	display: flex;
+	flex-basis: 100%;
+
 	.checkbox {
-		width: 25%;
+		flex-basis: 25%;
 		box-sizing: border-box;
+		label p {
+			padding-left: 1rem;
+		}
 	}
 
 }
@@ -315,8 +325,13 @@ body {
 
 /* textarea */
 
+.textarea {
+	flex-basis: 100%;
+}
+
 .text-describe {
-	@include size (100%, 5rem);
+	width: 100%;
+	height: 5rem;
 	background-color: $grey;
 	border: none;
 	display: block;
@@ -324,12 +339,16 @@ body {
 	font-weight: bold;
 	color: $black;
 	padding-top: 1rem;
+    font-family: Arial;
+    font-size: 13px;
 }
 
 /* row-5 button*/
 
 .row-5 {
 	display: flex;
+	flex-basis: 100%;
+
 	div {
 		@include size (50%, 10rem);
 	}
@@ -360,12 +379,25 @@ body {
 
 .footer {
 	display: flex;
+	flex-basis: 100%;
+	.links {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.academy {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
 }
 
 .visit,
 .links,
 .academy {
-	width: (100%/3);
+	flex-basis: (100%/3);
+	height: 5rem;
 }
 
 .visit p {
@@ -375,42 +407,35 @@ body {
 }
 
 .academy p {
+	display: flex;
 	@include footer-texts;
 	font-size: 0.9rem;
 	text-align: right;
-	padding-right: 1.5rem;
+	position: static;
 }
 
 .twitter {
 	@include footer-links;
-	top: 1.5rem;
-	left: 7rem;
 	background-image: url("img/icon-twitter.png");
 }
 
 .facebook {
 	@include footer-links;
-	top: -0.5rem;
-	left: 9.5rem;
 	background-image: url("img/icon-facebook.png");
+	margin: 0 1vw;
 }
 
 .youtube {
 	@include footer-links;
-	left: 12rem;
-	top: -2.5rem;
 	background-image: url("img/icon-youtube.png");
 }
 
-.academy p::after {
+.academy-logo::after {
 	@include background;
 	@include size (2rem, 2rem);
 	content: "";
 	background-image: url(img/htmlacademy.png);
 	display: block;
-	position: relative;
-	left: 19rem;
-	bottom: 1.5rem;
 	box-sizing: border-box;
 }
 
@@ -459,9 +484,7 @@ body {
 	font-weight: 800;
 	height: 0;
 	position: relative;
-	left: 50%;
 	top: 19%;
-	transform: translateX(calc(-50%));
 }
 
 .item a:hover,
@@ -522,7 +545,7 @@ body {
 	background-color: #ffffff;
 }
 
-.academy p:hover::after {
+.academy-logo:hover::after {
 	background-image: url('img/academy-hover.png');
 }
 
@@ -558,6 +581,6 @@ body {
 	cursor: pointer;
 }
 
-.academy p:active::after {
+.academy-logo:active::after {
 	background-image: url('img/academy-active.png');
 }

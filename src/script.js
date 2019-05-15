@@ -59,3 +59,40 @@ buttonReview.addEventListener('click', function () {
     };
 
 })
+
+var menuIcon = document.querySelector('.icon-menu');
+
+
+menuIcon.addEventListener('click', function(){
+    var nextSibling = document.querySelector('.wrapper');
+    var parentElem = document.body;
+    var mobileMenu = document.createElement('div');
+    mobileMenu.className = 'mobile-menu';
+    var mobileMenuItem1 = document.createElement('div');
+    mobileMenuItem1.className = 'blue-item';
+    mobileMenuItem1.innerHTML = "главная";
+    parentElem.insertBefore(mobileMenu, nextSibling);
+    mobileMenu.insertBefore(mobileMenuItem1, null);
+    var mobileMenuItem2 = mobileMenuItem1.cloneNode(true);
+    mobileMenuItem2.innerHTML = 'фото и видео';
+    mobileMenu.appendChild(mobileMenuItem2);
+    var mobileMenuItem3 = mobileMenuItem1.cloneNode(true);
+    mobileMenuItem3.innerHTML = 'форма отзыва';
+    mobileMenu.appendChild(mobileMenuItem3);
+    var mobileMenuItem4 = mobileMenuItem1.cloneNode(true);
+    mobileMenuItem4.innerHTML = 'html academy';
+    mobileMenu.appendChild(mobileMenuItem4);
+    var cross = document.createElement('img');
+    cross.className = 'cross';
+    cross.src = "public/img/icon-cross.png";
+    mobileMenuItem1.appendChild(cross);
+
+    cross.onclick = function() {
+    var mobileMenu = document.querySelector('.mobile-menu');
+    var parentElem = document.body;
+    parentElem.removeChild(mobileMenu);
+}
+
+})
+
+

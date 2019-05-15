@@ -1,4 +1,7 @@
 node_modules
 package-lock.json
 docs
+public/app
+public/style480
+public/style768
 
