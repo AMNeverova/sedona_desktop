@@ -1,1 +1,2 @@
-import '../src/main.scss'
+// import './main.scss'
+// import './style480.scss'
