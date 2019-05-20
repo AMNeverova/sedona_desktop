@@ -1,15 +1,12 @@
 window.onload = function () {
 
-
-
-    var getValue = function () {
+    var getRadioValue = function () {
         var elems = document.querySelectorAll('.input-radio');
         for (var i = 0; i < elems.length; i++) {
             if (elems[i].checked) {
                 var value = elems[i].value;
             }
         }
-
         return value
     }
 
@@ -31,12 +28,10 @@ window.onload = function () {
         var name = document.querySelector('.input-name').value;
         var surname = document.querySelector('.input-surname').value;
         var patronym = document.querySelector('.patronym').value;
-
         var phoneNumber = document.querySelector('.input-phone').value;
         var email = document.querySelector('.input-email').value;
         var emotions = document.querySelector('.text-describe').value;
-
-        var impression = getValue();
+        var impression = getRadioValue();
         var sights = getSights();
 
         var body = 'name=' + name + '&surname=' + surname + '&patronym=' + patronym +
@@ -47,21 +42,17 @@ window.onload = function () {
 
         xhr.open('POST', '#');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
         xhr.send(body);
-
         xhr.onload = function () {
             if (xhr.status != 200) {
-                alert(`Error' + xhr.status + ':'+ xhr.statusText`);
+                alert(`Error ${xhr.status}: ${xhr.statusText}`);
             } else {
-                alert(`Done`);
+                alert('Done');
             }
         };
-
         xhr.onerror = function () {
             alert("Request failed");
         };
-
     })
 
     var menuIcon = document.querySelector('.icon-menu');

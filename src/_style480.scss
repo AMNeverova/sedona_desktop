@@ -1,5 +1,4 @@
 @media screen and (max-width:480px) {
-
     body {
 
         .wrapper {
@@ -26,6 +25,7 @@
     }
 
     .heading-1 {
+
         order: -1;
 
         .main {
@@ -59,7 +59,6 @@
         border-top: 0.15rem solid $grey;
         margin-top: 1rem;
         border-bottom: 0.15rem solid $grey;
-
     }
 
     .stripe {
@@ -78,15 +77,6 @@
     /* row-3 */
 
     .phone {
-        label {
-            flex-basis: 100%;
-            span {
-                flex-basis: 40%;
-                padding-left: 1rem;
-                padding-bottom: 1rem;
-            }
-        }
-
         box-sizing: border-box;
         display: flex;
         flex-wrap: wrap;
@@ -95,6 +85,15 @@
         flex-basis: 100%;
         order: -1;
 
+        label {
+            flex-basis: 100%;
+
+            span {
+                flex-basis: 40%;
+                padding-left: 1rem;
+                padding-bottom: 1rem;
+            }
+        }
         .error {
             flex-basis: 100%;
             font-size: 0.8rem;
@@ -135,7 +134,6 @@
             padding-left: 9vw;
             padding-bottom: 3vw;
         }
-
     }
 
     .textarea {
@@ -195,7 +193,6 @@
     }
 
     .links {
-
         .twitter,
         .facebook,
         .youtube {
@@ -252,10 +249,10 @@
     .item-3::before {
         content: '';
         display: block;
-        background-image: $logotype-mobile;
+        background-image: $logo-mobile;
         flex-basis: 100%;
         height: 5.5rem;
-        @include background;
+        @include background-centered;
         background-position-y: 0%;
     }
 

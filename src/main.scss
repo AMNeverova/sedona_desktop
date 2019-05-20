@@ -1,5 +1,4 @@
 @import 'attributes.scss';
-
 body {
 	background-color: $grey;
 	font-family: 'PT Sans', sans-serif;
@@ -24,7 +23,7 @@ body {
 }
 
 [class^="heading"] {
-	@include text;
+	@include text-upper-centered;
 }
 
 .logo {
@@ -49,13 +48,12 @@ body {
 		padding-top: 2.5rem;
 		font-size: 2rem;
 	}
-
 	.secondary {
 		width: 100%;
 		font-weight: normal;
 		margin: 0;
 		line-height: 2;
-		font-size: $reduced;
+		font-size: $font-reduced;
 	}
 }
 
@@ -122,7 +120,7 @@ body {
 	padding-top: 1rem;
 	box-sizing: border-box;
 	text-transform: uppercase;
-	font-size: $reduced;
+	font-size: $font-reduced;
 }
 
 .text .narrow {
@@ -131,7 +129,6 @@ body {
 
 .input-text {
 	width: 23vw;
-
 	@media screen and (max-width: 270px) {
 		width: 55vw;
 	}
@@ -180,11 +177,9 @@ body {
 	.for-sights {
 		flex-basis: 30%;
 	}
-
 	.sights {
 		flex-basis: 34%;
 	}
-
 }
 
 .heading-4 {
@@ -196,7 +191,6 @@ body {
 .sights {
 	padding-top: 1rem;
 	margin: 0;
-
 	@media screen and (max-width: 270px) {
 		font-size: 0.9rem;
 	}
@@ -224,7 +218,7 @@ body {
 		flex-basis: 100%;
 		margin: 0;
 		font-size: 0.7rem;
-		color: $red;
+		color: $red-text;
 		text-align: left;
 		text-transform: none;
 		padding-left: 6rem;
@@ -232,14 +226,13 @@ body {
 
 	label {
 		text-transform: uppercase;
-		font-size: $reduced;
+		font-size: $font-reduced;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
 
 		span {
 			flex-basis: 15%;
-
 		}
 	}
 }
@@ -250,7 +243,7 @@ body {
 
 	label {
 		text-transform: uppercase;
-		font-size: $reduced;
+		font-size: $font-reduced;
 		flex-basis: 100%;
 
 		.input-email {
@@ -265,18 +258,18 @@ body {
 
 .phone-logo::after,
 .mail-logo::after {
-	@include background;
+	@include background-centered;
 	@include size (3rem, 3rem);
 	content: "";
 	background-color: $grey;
 	display: block;
 	margin-left: 0;
-	background-image: $phone-logo;
+	background-image: $logo-phone;
 	border-radius: 0.2rem;
 }
 
 .mail::after {
-	background-image: $mail-logo;
+	background-image: $logo-mail;
 }
 
 .required::after {
@@ -316,8 +309,8 @@ body {
 }
 
 .input-checkbox:checked+label:before {
-	background-image: $tick;
-	@include background;
+	background-image: $checkbox-tick;
+	@include background-centered;
 }
 
 /* textarea */
@@ -352,9 +345,9 @@ body {
 }
 
 .button-review {
-	@include text;
+	@include text-upper-centered;
 	@include size (100%, 4rem);
-	background-color: $button;
+	background-color: $background-button;
 	color: $white;
 	margin-top: 3rem;
 	padding: 0;
@@ -362,7 +355,7 @@ body {
 }
 
 .obligatory-field {
-	@include text;
+	@include text-upper-centered;
 	text-align: right;
 	box-sizing: border-box;
 	position: relative;
@@ -429,7 +422,7 @@ body {
 }
 
 .academy-logo::after {
-	@include background;
+	@include background-centered;
 	@include size (2rem, 2rem);
 	content: "";
 	background-image: $icon-htmlacademy;
@@ -446,15 +439,14 @@ body {
 	.item {
 		flex-grow: 1;
 		@include size (20%, 3rem);
-		@include text;
+		@include text-upper-centered;
 		font-weight: normal;
 		background-color: $white;
 		padding-top: 1rem;
 		box-sizing: border-box;
 
 		.subitem {
-
-			@include text;
+			@include text-upper-centered;
 			font-weight: normal;
 			display: none;
 
@@ -468,7 +460,6 @@ body {
 	.item-3 {
 		padding-top: 0;
 	}
-
 }
 
 .item:hover .subitem {
@@ -486,8 +477,8 @@ body {
 	height: 360px;
 	padding-top: 7rem;
 	box-sizing: border-box;
-	@include background;
-	background-image: $header-background;
+	@include background-centered;
+	background-image: $background-header;
 	background-position: bottom;
 }
 
@@ -498,7 +489,7 @@ body {
 }
 
 .item a:active {
-	color: $active;
+	color: $item-active;
 }
 
 .subitem div a:active {
@@ -524,7 +515,7 @@ body {
 
 .input-checkbox:checked+label:active:before {
 	background-color: $input-active;
-	background-image: $tick-active;
+	background-image: $checkbox-tick-active;
 }
 
 .input-radio:checked+label:hover:before {

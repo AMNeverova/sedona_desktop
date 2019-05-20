@@ -1,4 +1,4 @@
-@mixin text {
+@mixin text-upper-centered {
 	text-transform: uppercase;
 	text-align: center;
 	font-weight: bold;
@@ -13,14 +13,14 @@
 }
 
 @mixin footer-links {
-	background-color: $button;
+	background-color: $background-button;
 	width: 2rem;
 	height: 2rem;
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
-@mixin background {
+@mixin background-centered {
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -36,17 +36,17 @@
     font-size: 1rem;
 }
 
-$reduced: 0.8rem;
+$font-reduced: 0.8rem;
 
 /* colors */
 
 $white: #ffffff;
 $grey: #f2f2f2;
 $black: #000000;
-$red: #cc0000;
-$button: #90b2d0;
+$red-text: #cc0000;
+$background-button: #90b2d0;
 $blue-hover: #90b1d0;
-$active: #b2b2b2;
+$item-active: #b2b2b2;
 $subitem-active: #d4d0cd;
 $input-hover: #e4e4e4;
 $input-active: #d4d4d4;
@@ -63,11 +63,11 @@ $mobile-menu-active-text: #98b5cf;
 
 /* images */
 
-$header-background: url('img/header.png');
-$phone-logo: url('img/phone.png');
-$mail-logo: url('img/mail.png');
-$tick: url('img/tick.png');
-$tick-active: url("img/tick-active.png");
+$background-header: url('img/header.png');
+$logo-phone: url('img/phone.png');
+$logo-mail: url('img/mail.png');
+$checkbox-tick: url('img/tick.png');
+$checkbox-tick-active: url("img/tick-active.png");
 $icon-facebook: url("img/icon-facebook.png");
 $icon-facebook-active: url("img/facebook-active.png");
 $icon-twitter: url("img/icon-twitter.png");
@@ -77,10 +77,4 @@ $icon-youtube-active: url("img/youtube-active.png");
 $icon-htmlacademy: url('img/htmlacademy.png');
 $icon-htmlacademy-hover: url('img/academy-hover.png');
 $icon-htmlacademy-active: url('img/academy-active.png');
-$logotype-mobile: url('img/logotyle-mobile.png');
-
-
-
-
-
-
+$logo-mobile: url('img/logotyle-mobile.png');
