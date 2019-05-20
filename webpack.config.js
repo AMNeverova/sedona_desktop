@@ -5,8 +5,6 @@ module.exports = {
     entry: {
         'main.js': "./src/index.js",
         'app': './src/main.scss',
-        'style480': './src/style480.scss',
-        'style768': './src/style768.scss'
     },
     output: {
       path: __dirname + '/public/',

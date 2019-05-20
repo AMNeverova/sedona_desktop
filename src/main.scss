@@ -1,50 +1,4 @@
-@mixin text {
-	text-transform: uppercase;
-	text-align: center;
-	font-weight: bold;
-}
-
-@mixin footer-texts {
-	text-transform: uppercase;
-	text-align: left;
-	position: relative;
-	top: 2rem;
-	margin: 0;
-}
-
-@mixin footer-links {
-	background-color: $button;
-	width: 2rem;
-	height: 2rem;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-@mixin background {
-	background-position: center;
-	background-repeat: no-repeat;
-}
-
-@mixin size ($width, $height) {
-	width: $width;
-	height: $height;
-}
-
-$white: #ffffff;
-$grey: #f2f2f2;
-$black: #000000;
-$red: #cc0000;
-$button: #90b2d0;
-$blue-hover: #90b1d0;
-$active: #b2b2b2;
-$subitem-active: #d4d0cd;
-$input-hover: #e4e4e4;
-$input-active: #d4d4d4;
-$radio-checked: #a4a4a4;
-$footer-hover: #799cbd;
-$footer-active: #6c94ba;
-$button-active: #98b4cf;
-
+@import 'attributes.scss';
 body {
 	background-color: $grey;
 	font-family: 'PT Sans', sans-serif;
@@ -52,9 +6,9 @@ body {
 	padding: 0;
 
 	.wrapper {
-		width: 75rem;
+		width: 90%;
 		margin: 0 auto;
-		background-color: #ffffff;
+		background-color: $white;
 
 		.container {
 			margin: 0 7rem;
@@ -65,21 +19,18 @@ body {
 }
 
 .header {
-	@include background;
-	background-image: url('img/header.png');
-	background-position: bottom;
-	background-size: cover;
-	height: 360px;
+	height: auto;
 }
 
 [class^="heading"] {
-	@include text;
+	@include text-upper-centered;
 }
 
 .logo {
 	display: block;
 	position: relative;
 	left: 12%;
+	z-index: 2;
 }
 
 .icon-menu {
@@ -97,17 +48,17 @@ body {
 		padding-top: 2.5rem;
 		font-size: 2rem;
 	}
-
 	.secondary {
 		width: 100%;
 		font-weight: normal;
 		margin: 0;
-		padding-bottom: 1rem;
+		line-height: 2;
+		font-size: $font-reduced;
 	}
 }
 
 .impression {
-	flex-basis: 50%;
+	flex-basis: 49%;
 	display: flex;
 	flex-direction: column;
 	border-right: 0.15rem solid $grey;
@@ -115,13 +66,13 @@ body {
 }
 
 .present {
-	padding-left: 8rem;
+	padding-left: 5vw;
+	-ms-padding-left: 2vw;
 	box-sizing: border-box;
-	flex-basis: 50%;
+	flex-basis: 51%;
 	display: flex;
 	flex-direction: column;
 }
-
 
 .heading-2,
 .radio,
@@ -161,6 +112,7 @@ body {
 
 .radio label p {
 	padding-left: 4rem;
+	font-weight: bold;
 }
 
 .text label {
@@ -168,6 +120,7 @@ body {
 	padding-top: 1rem;
 	box-sizing: border-box;
 	text-transform: uppercase;
+	font-size: $font-reduced;
 }
 
 .text .narrow {
@@ -175,11 +128,14 @@ body {
 }
 
 .input-text {
-	width: 12rem;
+	width: 23vw;
+	@media screen and (max-width: 270px) {
+		width: 55vw;
+	}
 }
 
 .input-name {
-	width: 14rem;
+	width: 26vw;
 }
 
 .input-text,
@@ -196,7 +152,6 @@ body {
 	opacity: 1;
 }
 
-
 .input-text,
 .input-phone,
 .input-email,
@@ -207,20 +162,38 @@ body {
 
 /*row-2*/
 
-.stripe, .heading-4 {
-	flex-basis: (100%/3);
+.stripe,
+.heading-4 {
+	flex-basis: 32%;
 	box-sizing: border-box;
 	height: 5rem;
+}
 
+.sights-heading {
+	display: flex;
+	flex-basis: 100%;
+	justify-content: space-between;
+
+	.for-sights {
+		flex-basis: 30%;
+	}
+	.sights {
+		flex-basis: 34%;
+	}
 }
 
 .heading-4 {
+	margin: 0 1vw;
 	font-size: 1rem;
 	padding-top: 2rem;
 }
 
 .sights {
 	padding-top: 1rem;
+	margin: 0;
+	@media screen and (max-width: 270px) {
+		font-size: 0.9rem;
+	}
 }
 
 .stripe::before {
@@ -232,10 +205,7 @@ body {
 	top: 50%;
 }
 
-
-/* row-3 */
-
-
+/* row-3, phone & mail */
 
 .phone {
 	flex-basis: 50%;
@@ -248,39 +218,58 @@ body {
 		flex-basis: 100%;
 		margin: 0;
 		font-size: 0.7rem;
-		color: $red;
+		color: $red-text;
 		text-align: left;
-		padding-left: 5rem;
-		padding-bottom: 1rem;
+		text-transform: none;
+		padding-left: 6rem;
 	}
+
 	label {
 		text-transform: uppercase;
-		padding-top: 1rem;
+		font-size: $font-reduced;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+
+		span {
+			flex-basis: 15%;
+		}
 	}
 }
 
 .mail {
 	@extend .phone;
 	padding-top: 2rem;
+
 	label {
 		text-transform: uppercase;
+		font-size: $font-reduced;
+		flex-basis: 100%;
+
+		.input-email {
+			width: 14vw;
+		}
+
+		span {
+			flex-basis: 37%;
+		}
 	}
 }
 
 .phone-logo::after,
 .mail-logo::after {
-	@include background;
+	@include background-centered;
 	@include size (3rem, 3rem);
 	content: "";
 	background-color: $grey;
 	display: block;
 	margin-left: 0;
-	background-image: url(img/phone.png);
+	background-image: $logo-phone;
 	border-radius: 0.2rem;
 }
 
 .mail::after {
-	background-image: url(img/mail.png);
+	background-image: $logo-mail;
 }
 
 .required::after {
@@ -296,11 +285,12 @@ body {
 	.checkbox {
 		flex-basis: 25%;
 		box-sizing: border-box;
+
 		label p {
 			padding-left: 1rem;
+			font-weight: bold;
 		}
 	}
-
 }
 
 .checkbox label:before {
@@ -319,8 +309,8 @@ body {
 }
 
 .input-checkbox:checked+label:before {
-	background-image: url(img/tick.png);
-	@include background;
+	background-image: $checkbox-tick;
+	@include background-centered;
 }
 
 /* textarea */
@@ -330,7 +320,7 @@ body {
 }
 
 .text-describe {
-	width: 100%;
+	width: 97%;
 	height: 5rem;
 	background-color: $grey;
 	border: none;
@@ -339,8 +329,8 @@ body {
 	font-weight: bold;
 	color: $black;
 	padding-top: 1rem;
-    font-family: Arial;
-    font-size: 13px;
+	font-family: Arial;
+	font-size: 13px;
 }
 
 /* row-5 button*/
@@ -355,9 +345,9 @@ body {
 }
 
 .button-review {
-	@include text;
+	@include text-upper-centered;
 	@include size (100%, 4rem);
-	background-color: $button;
+	background-color: $background-button;
 	color: $white;
 	margin-top: 3rem;
 	padding: 0;
@@ -365,8 +355,8 @@ body {
 }
 
 .obligatory-field {
-	@include text;
-	text-align: end;
+	@include text-upper-centered;
+	text-align: right;
 	box-sizing: border-box;
 	position: relative;
 	top: 4.5rem;
@@ -380,6 +370,7 @@ body {
 .footer {
 	display: flex;
 	flex-basis: 100%;
+
 	.links {
 		display: flex;
 		align-items: center;
@@ -416,29 +407,28 @@ body {
 
 .twitter {
 	@include footer-links;
-	background-image: url("img/icon-twitter.png");
+	background-image: $icon-twitter;
 }
 
 .facebook {
 	@include footer-links;
-	background-image: url("img/icon-facebook.png");
+	background-image: $icon-facebook;
 	margin: 0 1vw;
 }
 
 .youtube {
 	@include footer-links;
-	background-image: url("img/icon-youtube.png");
+	background-image: $icon-youtube;
 }
 
 .academy-logo::after {
-	@include background;
+	@include background-centered;
 	@include size (2rem, 2rem);
 	content: "";
-	background-image: url(img/htmlacademy.png);
+	background-image: $icon-htmlacademy;
 	display: block;
 	box-sizing: border-box;
 }
-
 
 /* menu */
 
@@ -449,14 +439,14 @@ body {
 	.item {
 		flex-grow: 1;
 		@include size (20%, 3rem);
-		@include text;
+		@include text-upper-centered;
 		font-weight: normal;
 		background-color: $white;
 		padding-top: 1rem;
 		box-sizing: border-box;
 
 		.subitem {
-			@include text;
+			@include text-upper-centered;
 			font-weight: normal;
 			display: none;
 
@@ -467,24 +457,29 @@ body {
 			}
 		}
 	}
-
 	.item-3 {
 		padding-top: 0;
 	}
-
 }
 
 .item:hover .subitem {
 	display: block;
+	position: absolute;
+	z-index: 1;
+	width: 18%;
 }
 
 .heading-text {
+	width: auto;
 	color: $white;
 	font-size: 5em;
 	font-weight: 800;
-	height: 0;
-	position: relative;
-	top: 19%;
+	height: 360px;
+	padding-top: 7rem;
+	box-sizing: border-box;
+	@include background-centered;
+	background-image: $background-header;
+	background-position: bottom;
 }
 
 .item a:hover,
@@ -494,7 +489,7 @@ body {
 }
 
 .item a:active {
-	color: $active;
+	color: $item-active;
 }
 
 .subitem div a:active {
@@ -520,7 +515,7 @@ body {
 
 .input-checkbox:checked+label:active:before {
 	background-color: $input-active;
-	background-image: url("img/tick-active.png");
+	background-image: $checkbox-tick-active;
 }
 
 .input-radio:checked+label:hover:before {
@@ -536,17 +531,17 @@ body {
 .input-phone:focus,
 .input-text:focus,
 .input-email:focus {
-	background-color: #ffffff;
+	background-color: $white;
 	outline: $input-hover solid 0.3rem;
 }
 
 .text-describe:focus {
 	outline: $input-hover solid 0.3rem;
-	background-color: #ffffff;
+	background-color: $white;
 }
 
 .academy-logo:hover::after {
-	background-image: url('img/academy-hover.png');
+	background-image: $icon-htmlacademy-hover;
 }
 
 .twitter:hover,
@@ -565,15 +560,15 @@ body {
 }
 
 .twitter:active {
-	background-image: url("img/twitter-active.png")
+	background-image: $icon-twitter-active;
 }
 
 .facebook:active {
-	background-image: url("img/facebook-active.png")
+	background-image: $icon-facebook-active;
 }
 
 .youtube:active {
-	background-image: url("img/youtube-active.png")
+	background-image: $icon-youtube-active;
 }
 
 .button-review:active {
@@ -582,5 +577,15 @@ body {
 }
 
 .academy-logo:active::after {
-	background-image: url('img/academy-active.png');
+	background-image: $icon-htmlacademy-active;
+}
+
+@import 'style970';
+@import 'style480';
+@import 'style270';
+
+.input-text {
+	@media screen and (max-width: 270px) {
+		width: 55vw;
+	}
 }
