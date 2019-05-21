@@ -7,6 +7,7 @@ body {
   padding: 0; }
   body .wrapper {
     width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
     background-color: #ffffff; }
     body .wrapper .container {
@@ -48,19 +49,19 @@ body {
     font-size: 0.8rem; }
 
 .impression {
-  flex-basis: 49%;
+  flex-basis: 48%;
   display: flex;
   flex-direction: column;
   border-right: 0.15rem solid #f2f2f2;
   box-sizing: border-box; }
 
 .present {
-  padding-left: 5vw;
-  -ms-padding-left: 2vw;
   box-sizing: border-box;
-  flex-basis: 51%;
+  flex-basis: 50%;
   display: flex;
   flex-direction: column; }
+  .present .text {
+    padding-left: 4vw; }
 
 .heading-2,
 .radio,
@@ -78,7 +79,10 @@ body {
 .input-checkbox {
   display: none; }
 
-.radio label::before {
+.radio-button {
+  display: flex; }
+
+.radio-button::before {
   width: 3rem;
   height: 3rem;
   content: "";
@@ -87,7 +91,7 @@ body {
   background-color: #f2f2f2;
   float: left; }
 
-.input-radio:checked + label:before {
+.input-radio:checked + .radio-button::before {
   width: 3rem;
   height: 3rem;
   display: block;
@@ -95,8 +99,9 @@ body {
   background-color: #000000;
   border: 1rem solid #f2f2f2; }
 
-.radio label p {
-  padding-left: 4rem;
+.radio-label-text {
+  padding-top: 1rem;
+  padding-left: 1rem;
   font-weight: bold; }
 
 .text label {
@@ -111,13 +116,13 @@ body {
   width: 3rem; }
 
 .input-text {
-  width: 23vw; }
+  width: 75%; }
   @media screen and (max-width: 270px) {
     .input-text {
       width: 55vw; } }
 
 .input-name {
-  width: 26vw; }
+  width: 83%; }
 
 .input-text,
 .input-phone,
@@ -195,9 +200,10 @@ body {
     font-size: 0.8rem;
     display: flex;
     flex-wrap: wrap;
-    align-items: center; }
+    align-items: center;
+    flex-basis: 100%; }
     .phone label span, .mail label span {
-      flex-basis: 15%; }
+      flex-basis: 17%; }
 
 .mail {
   padding-top: 2rem; }
@@ -206,12 +212,12 @@ body {
     font-size: 0.8rem;
     flex-basis: 100%; }
     .mail label .input-email {
-      width: 14vw; }
+      width: 46%; }
     .mail label span {
-      flex-basis: 37%; }
+      flex-basis: 33%; }
 
-.phone-logo::after,
-.mail-logo::after {
+.phone-logo:after,
+.mail-logo:after {
   background-position: center;
   background-repeat: no-repeat;
   width: 3rem;
@@ -236,11 +242,14 @@ body {
   .row-4 .checkbox {
     flex-basis: 25%;
     box-sizing: border-box; }
-    .row-4 .checkbox label p {
-      padding-left: 1rem;
-      font-weight: bold; }
+    .row-4 .checkbox .checkbox-button {
+      display: flex; }
+      .row-4 .checkbox .checkbox-button .checkbox-label-text {
+        font-weight: bold;
+        padding-top: 1rem;
+        padding-left: 1rem; }
 
-.checkbox label:before {
+.checkbox-button::before {
   content: "";
   width: 3rem;
   height: 3rem;
@@ -250,11 +259,10 @@ body {
   margin: 0; }
 
 .checkbox label {
-  display: block;
   margin-top: 1rem;
   display: flex; }
 
-.input-checkbox:checked + label:before {
+.input-checkbox:checked + .checkbox-button::before {
   background-image: url(img/tick.png);
   background-position: center;
   background-repeat: no-repeat; }
@@ -402,7 +410,8 @@ body {
       text-align: center;
       font-weight: bold;
       font-weight: normal;
-      display: none; }
+      display: none;
+      max-width: 240px; }
       .menu .item .subitem div {
         background-color: #ffffff;
         height: 3rem;
@@ -414,7 +423,8 @@ body {
   display: block;
   position: absolute;
   z-index: 1;
-  width: 18%; }
+  width: 18%;
+  max-width: 240px; }
 
 .heading-text {
   width: auto;
@@ -441,28 +451,28 @@ body {
   color: #d4d0cd; }
 
 /* hover, active */
-.checkbox label:hover:before,
-.input-checkbox:checked + label:hover:before,
+.checkbox-button:hover:before,
+.input-checkbox:checked + .checkbox-button:hover:before,
 .input-phone:hover,
 .input-email:hover,
 .input-text:hover,
-.radio label:hover::before,
+.radio-button:hover::before,
 .text-describe:hover {
   background-color: #e4e4e4; }
 
-.radio label:active:before,
-.checkbox label:active:before {
+.radio-button:active:before,
+.checkbox-button:active:before {
   background-color: #d4d4d4; }
 
-.input-checkbox:checked + label:active:before {
+.input-checkbox:checked + .checkbox-button:active:before {
   background-color: #d4d4d4;
   background-image: url(img/tick-active.png); }
 
-.input-radio:checked + label:hover:before {
+.input-radio:checked + .radio-button:hover:before {
   border: 1rem solid #e4e4e4;
   background-color: #000000; }
 
-.input-radio:checked + label:active:before {
+.input-radio:checked + .radio-button:active:before {
   background-color: #a4a4a4;
   border: 1rem solid #d4d4d4; }
 
@@ -534,11 +544,11 @@ body {
     background-image: url(img/logotyle-mobile.png);
     flex-basis: 100%;
     height: 5.5rem;
-    background-position-y: 0%;
-    background-position: center;
-    background-repeat: no-repeat; }
-  .present {
-    padding-left: 4vw; }
+    background-position-x: 50%;
+    background-repeat: no-repeat;
+    position: relative; }
+  .item:hover .subitem {
+    width: 20%; }
   .input-text {
     width: 19vw; }
   .text label {
@@ -603,7 +613,7 @@ body {
   .present {
     flex-basis: 100%;
     padding-left: 0;
-    padding: 0 9vw;
+    padding: 0 7vw;
     border-top: 0.15rem solid #f2f2f2;
     order: -1;
     margin-top: 1rem; }
@@ -616,7 +626,7 @@ body {
   .impression {
     flex-basis: 100%;
     border: none;
-    padding: 0 9vw;
+    padding: 0 7vw;
     border-top: 0.15rem solid #f2f2f2;
     margin-top: 1rem;
     border-bottom: 0.15rem solid #f2f2f2; }
@@ -632,14 +642,14 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    padding-left: 9vw;
+    padding-left: 7vw;
     height: 7rem;
     flex-basis: 100%;
     order: -1; }
     .phone label, .mail label {
       flex-basis: 100%; }
       .phone label span, .mail label span {
-        flex-basis: 40%;
+        flex-basis: 75%;
         padding-left: 1rem;
         padding-bottom: 1rem; }
     .phone .error, .mail .error {
@@ -664,13 +674,16 @@ body {
     border-top: none;
     flex-basis: 83%; }
   .row-4 {
-    flex-direction: column; }
+    flex-direction: column;
+    height: 20rem; }
     .row-4 .checkbox {
       flex-basis: 100%;
-      padding-left: 9vw;
+      padding-left: 7vw;
       padding-bottom: 3vw; }
+  .row-5 {
+    height: 10rem; }
   .textarea {
-    padding: 0 9vw; }
+    padding: 0 7vw; }
   .radio label,
   .checkbox label {
     font-weight: bold; }
@@ -736,10 +749,11 @@ body {
       display: none; }
     .menu .item-3 .icon-menu {
       display: block;
-      position: absolute;
+      position: relative;
       height: 1.5rem;
-      padding-top: 0.7rem;
-      padding-right: 0.5rem; }
+      padding-top: 0.5rem;
+      padding-right: 0.5rem;
+      cursor: pointer; }
   .item-3::before {
     content: '';
     display: block;
@@ -748,7 +762,9 @@ body {
     height: 5.5rem;
     background-position: center;
     background-repeat: no-repeat;
-    background-position-y: 0%; }
+    background-position-y: 0%;
+    background-position-x: 58%;
+    position: relative; }
   .item:active:not(.item-3) {
     background-color: #6c95ba;
     color: #98b5cf; }

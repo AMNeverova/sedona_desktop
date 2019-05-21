@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="public/app.css" />
     <script src="src/script.js"></script>
 </head>
+
 <body>
     <div class="wrapper">
         <div class="header">
@@ -63,19 +64,25 @@
                     <label for="variant-1">
                         <input class="input-radio" type="radio" name="impression" value="pos" id="variant-1"
                             checked="true">
-                        <p>Скорее положительное</p>
+                        <div class="radio-button">
+                            <div class="radio-label-text">Скорее положительное</div>
+                        </div>
                     </label>
                 </div>
                 <div class="radio">
                     <label for="variant-2">
                         <input class="input-radio" type="radio" name="impression" value="neg" id="variant-2">
-                        <p>Скорее отрицательное</p>
+                        <div class="radio-button">
+                            <div class="radio-label-text">Скорее отрицательное</div>
+                        </div>
                     </label>
                 </div>
                 <div class="radio">
                     <label for="variant-3">
                         <input class="input-radio" type="radio" name="impression" value="diff" id="variant-3">
-                        <p>Затрудняюсь ответить</p>
+                        <div class="radio-button">
+                            <div class="radio-label-text">Затрудняюсь ответить</div>
+                        </div>
                     </label>
                 </div>
             </div>
@@ -123,27 +130,35 @@
             </div>
             <div class="row-4">
                 <div class="checkbox">
-                    <input class="input-checkbox" type="checkbox" id='bridge' value="bridge" checked="true">
-                    <label for="bridge">
-                        <p>Мост Дьявола</p>
+                    <label>
+                        <input class="input-checkbox" type="checkbox" value="bridge" checked="true">
+                        <div class="checkbox-button">
+                            <div class="checkbox-label-text">Мост Дьявола</div>
+                        </div>
                     </label>
                 </div>
                 <div class="checkbox">
-                    <input class="input-checkbox" type="checkbox" id='mountain' value="mountain" checked="true">
-                    <label for="mountain">
-                        <p>Гора-Колокол</p>
+                    <label>
+                        <input class="input-checkbox" type="checkbox" value="mountain" checked="true">
+                        <div class="checkbox-button">
+                            <div class="checkbox-label-text">Гора-Колокол</div>
+                        </div>
                     </label>
                 </div>
                 <div class="checkbox">
-                    <input class="input-checkbox" type="checkbox" value="park" id='park' checked="true">
-                    <label for="park">
-                        <p>Слайд-парк</p>
+                    <label>
+                        <input class="input-checkbox" type="checkbox" value="park" checked="true">
+                        <div class="checkbox-button">
+                            <div class="checkbox-label-text">Слайд-парк</div>
+                        </div>
                     </label>
                 </div>
                 <div class="checkbox">
-                    <input class="input-checkbox" type="checkbox" value="cliff" id='cliff'>
-                    <label for="cliff">
-                        <p>Красные скалы</p>
+                    <label>
+                        <input class="input-checkbox" type="checkbox" value="cliff">
+                        <div class="checkbox-button">
+                            <div class="checkbox-label-text">Красные скалы</div>
+                        </div>
                     </label>
                 </div>
             </div>
@@ -185,4 +200,5 @@
         </div>
     </div>
 </body>
+
 </html>

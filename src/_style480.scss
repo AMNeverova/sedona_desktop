@@ -1,6 +1,5 @@
 @media screen and (max-width:480px) {
     body {
-
         .wrapper {
             width: inherit;
             margin: 0;
@@ -25,7 +24,6 @@
     }
 
     .heading-1 {
-
         order: -1;
 
         .main {
@@ -36,7 +34,7 @@
     .present {
         flex-basis: 100%;
         padding-left: 0;
-        padding: 0 9vw;
+        padding: 0 7vw;
         border-top: 0.15rem solid $grey;
         order: -1;
         margin-top: 1rem;
@@ -55,7 +53,7 @@
     .impression {
         flex-basis: 100%;
         border: none;
-        padding: 0 9vw;
+        padding: 0 7vw;
         border-top: 0.15rem solid $grey;
         margin-top: 1rem;
         border-bottom: 0.15rem solid $grey;
@@ -80,16 +78,15 @@
         box-sizing: border-box;
         display: flex;
         flex-wrap: wrap;
-        padding-left: 9vw;
+        padding-left: 7vw;
         height: 7rem;
         flex-basis: 100%;
         order: -1;
 
         label {
             flex-basis: 100%;
-
             span {
-                flex-basis: 40%;
+                flex-basis: 75%;
                 padding-left: 1rem;
                 padding-bottom: 1rem;
             }
@@ -128,16 +125,21 @@
 
     .row-4 {
         flex-direction: column;
+        height: 20rem;
 
         .checkbox {
             flex-basis: 100%;
-            padding-left: 9vw;
+            padding-left: 7vw;
             padding-bottom: 3vw;
         }
     }
 
+    .row-5 {
+        height: 10rem;
+    }
+
     .textarea {
-        padding: 0 9vw;
+        padding: 0 7vw;
     }
 
     .radio label, .checkbox label {
@@ -238,10 +240,11 @@
 
             .icon-menu {
                 display: block;
-                position: absolute;
+                position: relative;
                 height: 1.5rem;
-                padding-top: 0.7rem;
+                padding-top: 0.5rem;
                 padding-right: 0.5rem;
+                cursor: pointer;
             }
         }
     }
@@ -254,6 +257,8 @@
         height: 5.5rem;
         @include background-centered;
         background-position-y: 0%;
+        background-position-x: 58%;
+        position: relative;
     }
 
     .item:active:not(.item-3) {

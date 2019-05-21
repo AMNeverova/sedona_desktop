@@ -7,6 +7,7 @@ body {
 
 	.wrapper {
 		width: 90%;
+		max-width: 1200px;
 		margin: 0 auto;
 		background-color: $white;
 
@@ -58,7 +59,7 @@ body {
 }
 
 .impression {
-	flex-basis: 49%;
+	flex-basis: 48%;
 	display: flex;
 	flex-direction: column;
 	border-right: 0.15rem solid $grey;
@@ -66,12 +67,14 @@ body {
 }
 
 .present {
-	padding-left: 5vw;
-	-ms-padding-left: 2vw;
 	box-sizing: border-box;
-	flex-basis: 51%;
+	flex-basis: 50%;
 	display: flex;
 	flex-direction: column;
+
+	.text {
+		padding-left: 4vw;
+	}
 }
 
 .heading-2,
@@ -93,7 +96,11 @@ body {
 	display: none;
 }
 
-.radio label::before {
+.radio-button {
+	display: flex;
+}
+
+.radio-button::before {
 	@include size (3rem, 3rem);
 	content: "";
 	display: block;
@@ -102,7 +109,7 @@ body {
 	float: left;
 }
 
-.input-radio:checked+label:before {
+.input-radio:checked+.radio-button::before {
 	@include size (3rem, 3rem);
 	display: block;
 	box-sizing: border-box;
@@ -110,8 +117,9 @@ body {
 	border: 1rem solid $grey;
 }
 
-.radio label p {
-	padding-left: 4rem;
+.radio-label-text {
+	padding-top: 1rem;
+	padding-left: 1rem;
 	font-weight: bold;
 }
 
@@ -128,14 +136,14 @@ body {
 }
 
 .input-text {
-	width: 23vw;
+	width: 75%;
 	@media screen and (max-width: 270px) {
 		width: 55vw;
 	}
 }
 
 .input-name {
-	width: 26vw;
+	width: 83%;
 }
 
 .input-text,
@@ -230,9 +238,10 @@ body {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
+		flex-basis: 100%;
 
 		span {
-			flex-basis: 15%;
+			flex-basis: 17%;
 		}
 	}
 }
@@ -247,17 +256,16 @@ body {
 		flex-basis: 100%;
 
 		.input-email {
-			width: 14vw;
+			width: 46%;
 		}
-
 		span {
-			flex-basis: 37%;
+			flex-basis: 33%;
 		}
 	}
 }
 
-.phone-logo::after,
-.mail-logo::after {
+.phone-logo:after,
+.mail-logo:after {
 	@include background-centered;
 	@include size (3rem, 3rem);
 	content: "";
@@ -286,14 +294,19 @@ body {
 		flex-basis: 25%;
 		box-sizing: border-box;
 
-		label p {
-			padding-left: 1rem;
-			font-weight: bold;
+		.checkbox-button {
+			display: flex;
+
+			.checkbox-label-text {
+				font-weight: bold;
+				padding-top: 1rem;
+				padding-left: 1rem;
+			}
 		}
 	}
 }
 
-.checkbox label:before {
+.checkbox-button::before {
 	content: "";
 	@include size (3rem, 3rem);
 	background-color: $grey;
@@ -303,12 +316,11 @@ body {
 }
 
 .checkbox label {
-	display: block;
 	margin-top: 1rem;
 	display: flex;
 }
 
-.input-checkbox:checked+label:before {
+.input-checkbox:checked+.checkbox-button::before {
 	background-image: $checkbox-tick;
 	@include background-centered;
 }
@@ -449,6 +461,7 @@ body {
 			@include text-upper-centered;
 			font-weight: normal;
 			display: none;
+			max-width: 240px;
 
 			div {
 				background-color: $white;
@@ -467,6 +480,7 @@ body {
 	position: absolute;
 	z-index: 1;
 	width: 18%;
+	max-width: 240px;
 }
 
 .heading-text {
@@ -498,32 +512,32 @@ body {
 
 /* hover, active */
 
-.checkbox label:hover:before,
-.input-checkbox:checked+label:hover:before,
+.checkbox-button:hover:before,
+.input-checkbox:checked+.checkbox-button:hover:before,
 .input-phone:hover,
 .input-email:hover,
 .input-text:hover,
-.radio label:hover::before,
+.radio-button:hover::before,
 .text-describe:hover {
 	background-color: $input-hover;
 }
 
-.radio label:active:before,
-.checkbox label:active:before {
+.radio-button:active:before,
+.checkbox-button:active:before {
 	background-color: $input-active;
 }
 
-.input-checkbox:checked+label:active:before {
+.input-checkbox:checked+.checkbox-button:active:before {
 	background-color: $input-active;
 	background-image: $checkbox-tick-active;
 }
 
-.input-radio:checked+label:hover:before {
+.input-radio:checked+.radio-button:hover:before {
 	border: 1rem solid $input-hover;
 	background-color: $black;
 }
 
-.input-radio:checked+label:active:before {
+.input-radio:checked+.radio-button:active:before {
 	background-color: $radio-checked;
 	border: 1rem solid $input-active;
 }
