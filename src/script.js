@@ -45,7 +45,7 @@ window.onload = function () {
         xhr.send(body);
         xhr.onload = function () {
             if (xhr.status != 200) {
-                alert(`Error ${xhr.status}: ${xhr.statusText}`);
+                alert("'Error' + xhr.status + ':'+ xhr.statusText");
             } else {
                 alert('Done');
             }
@@ -61,7 +61,6 @@ window.onload = function () {
         var items = document.querySelectorAll('.item:not(.item-3)');
         for (var i = 0; i < items.length; i++) {
             items[i].classList.toggle('visible');
-            console.log(items[i].classList)
         }
     })
 };
