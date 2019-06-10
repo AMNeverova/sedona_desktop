@@ -1,56 +1,56 @@
-const path = require("path")
+const path = require("path");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: {
-        'main.js': "./src/index.js",
-        'app': './src/main.scss',
-    },
+    entry: "./src/index.js",
     output: {
-      path: __dirname + '/public/',
-      filename: "[name]" ,
-      publicPath: ""
+        path: path.join(__dirname, "/public"),
+        filename: "index_bundle.js"
     },
     module: {
-      rules: [{
-          test: /\.scss$/,
-          use: [
-            MiniCssExtractPlugin.loader,
-            {
-              loader: 'css-loader',
-              options: { sourceMap: true, url: true }
+        rules: [{
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                },
             },
             {
-              loader: "resolve-url-loader"
+                test: /\.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            url: true
+                        }
+                    },
+                    {
+                        loader: "resolve-url-loader"
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }
+                ]
             },
             {
-              loader: 'sass-loader',
-              options: { sourceMap: true }
-            }
-          ]
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {name: 'img/[name].[ext]'}  
-          }
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {name: 'img/[name].[ext]'}  
+                  }
+                ]
+              },    
+
         ]
-      },
-      // {
-      //     test: /\.css$/,
-      //     use: [
-      //       MiniCssExtractPlugin.loader,
-      //       'css-loader'
-      //     ]
-      // }
-  ]
-  },
-  devServer: {
-      overlay: true
-  },
-  plugins: [
-      new MiniCssExtractPlugin
-  ],
-};
+    },
+    plugins: [
+        new MiniCssExtractPlugin()
+    ],
+
+}

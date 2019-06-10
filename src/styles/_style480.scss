@@ -46,7 +46,7 @@
     }
 
     .input-name {
-        width: 55vw;
+        width: 57vw;
         font-size: 1rem;
     }
 
@@ -205,15 +205,19 @@
 
     /* menu */
     .menu {
-        .item:hover:not(.item-3) {
+        .item:hover:not(.item-3), .item .subitems div:hover {
             background-color: $mobile-menu-hover-background;
         }
 
         .item {
             display: none;
+            .subitems {
+                max-width: 100%;
+                width: 100%;
+            }
         }
 
-        .visible {
+        .visible, .item .subitems div{
             display: block;
             flex-basis: 100%;
             background-color: $mobile-menu-item-background;
@@ -225,6 +229,7 @@
             padding-top: 1.2rem;
             height: 3.5rem;
             font-weight: bold;
+            box-sizing: border-box;
         }
 
         .item-3 {

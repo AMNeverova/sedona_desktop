@@ -107,10 +107,12 @@ body {
 	border-radius: 50%;
 	background-color: $grey;
 	float: left;
+	min-width: 3rem;
 }
 
 .input-radio:checked+.radio-button::before {
 	@include size (3rem, 3rem);
+	min-width: 3rem;
 	display: block;
 	box-sizing: border-box;
 	background-color: $black;
@@ -131,12 +133,9 @@ body {
 	font-size: $font-reduced;
 }
 
-.text .narrow {
-	width: 3rem;
-}
-
 .input-text {
 	width: 75%;
+	margin-left: 0.3rem;
 	@media screen and (max-width: 270px) {
 		width: 55vw;
 	}
@@ -187,6 +186,7 @@ body {
 	}
 	.sights {
 		flex-basis: 34%;
+		min-width: 16rem;
 	}
 }
 
@@ -248,7 +248,7 @@ body {
 
 .mail {
 	@extend .phone;
-	padding-top: 2rem;
+	padding-top: 1rem;
 
 	label {
 		text-transform: uppercase;
@@ -457,7 +457,7 @@ body {
 		padding-top: 1rem;
 		box-sizing: border-box;
 
-		.subitem {
+		.subitems {
 			@include text-upper-centered;
 			font-weight: normal;
 			display: none;
@@ -475,7 +475,7 @@ body {
 	}
 }
 
-.item:hover .subitem {
+.item:hover .subitems {
 	display: block;
 	position: absolute;
 	z-index: 1;
@@ -497,7 +497,7 @@ body {
 }
 
 .item a:hover,
-.subitem div a:hover {
+.subitems div a:hover {
 	color: $blue-hover;
 	cursor: pointer;
 }
@@ -506,7 +506,7 @@ body {
 	color: $item-active;
 }
 
-.subitem div a:active {
+.subitems div a:active {
 	color: $subitem-active;
 }
 

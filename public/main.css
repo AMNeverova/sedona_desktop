@@ -1,317 +1,786 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/* colors */
+/* images */
+body {
+  background-color: #f2f2f2;
+  font-family: 'PT Sans', sans-serif;
+  margin: 0;
+  padding: 0; }
+  body .wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff; }
+    body .wrapper .container {
+      margin: 0 7rem;
+      display: flex;
+      flex-wrap: wrap; }
 
-"use strict";
+.header {
+  height: auto; }
 
+[class^="heading"] {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold; }
 
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function (useSourceMap) {
-  var list = []; // return the list of modules as css string
+.logo {
+  display: block;
+  position: relative;
+  left: 12%;
+  z-index: 2; }
 
-  list.toString = function toString() {
-    return this.map(function (item) {
-      var content = cssWithMappingToString(item, useSourceMap);
+.icon-menu {
+  display: none; }
 
-      if (item[2]) {
-        return '@media ' + item[2] + '{' + content + '}';
-      } else {
-        return content;
-      }
-    }).join('');
-  }; // import a list of modules into the list
+.heading-1 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%; }
+  .heading-1 .main {
+    width: 100%;
+    margin-top: 0;
+    padding-top: 2.5rem;
+    font-size: 2rem; }
+  .heading-1 .secondary {
+    width: 100%;
+    font-weight: normal;
+    margin: 0;
+    line-height: 2;
+    font-size: 0.8rem; }
 
+.impression {
+  flex-basis: 48%;
+  display: flex;
+  flex-direction: column;
+  border-right: 0.15rem solid #f2f2f2;
+  box-sizing: border-box; }
 
-  list.i = function (modules, mediaQuery) {
-    if (typeof modules === 'string') {
-      modules = [[null, modules, '']];
-    }
+.present {
+  box-sizing: border-box;
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column; }
+  .present .text {
+    padding-left: 4vw; }
 
-    var alreadyImportedModules = {};
+.heading-2,
+.radio,
+.heading-3,
+.text {
+  flex-grow: 1;
+  height: 5rem;
+  box-sizing: border-box; }
 
-    for (var i = 0; i < this.length; i++) {
-      var id = this[i][0];
+.heading-2,
+.heading-3 {
+  padding-top: 2rem; }
 
-      if (id != null) {
-        alreadyImportedModules[id] = true;
-      }
-    }
+.input-radio,
+.input-checkbox {
+  display: none; }
 
-    for (i = 0; i < modules.length; i++) {
-      var item = modules[i]; // skip already imported module
-      // this implementation is not 100% perfect for weird media query combinations
-      // when a module is imported multiple times with different media queries.
-      // I hope this will never occur (Hey this way we have smaller bundles)
+.radio-button {
+  display: flex; }
 
-      if (item[0] == null || !alreadyImportedModules[item[0]]) {
-        if (mediaQuery && !item[2]) {
-          item[2] = mediaQuery;
-        } else if (mediaQuery) {
-          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
-        }
+.radio-button::before {
+  width: 3rem;
+  height: 3rem;
+  content: "";
+  display: block;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  float: left;
+  min-width: 3rem; }
 
-        list.push(item);
-      }
-    }
-  };
+.input-radio:checked + .radio-button::before {
+  width: 3rem;
+  height: 3rem;
+  min-width: 3rem;
+  display: block;
+  box-sizing: border-box;
+  background-color: #000000;
+  border: 1rem solid #f2f2f2; }
 
-  return list;
-};
+.radio-label-text {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  font-weight: bold; }
 
-function cssWithMappingToString(item, useSourceMap) {
-  var content = item[1] || '';
-  var cssMapping = item[3];
+.text label {
+  width: 5rem;
+  height: 2rem;
+  padding-top: 1rem;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: 0.8rem; }
 
-  if (!cssMapping) {
-    return content;
-  }
+.input-text {
+  width: 75%;
+  margin-left: 0.3rem; }
+  @media screen and (max-width: 270px) {
+    .input-text {
+      width: 55vw; } }
 
-  if (useSourceMap && typeof btoa === 'function') {
-    var sourceMapping = toComment(cssMapping);
-    var sourceURLs = cssMapping.sources.map(function (source) {
-      return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
-    });
-    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-  }
+.input-name {
+  width: 83%; }
 
-  return [content].join('\n');
-} // Adapted from convert-source-map (MIT)
+.input-text,
+.input-phone,
+.input-email {
+  font-weight: bold;
+  background-color: #f2f2f2;
+  border: none;
+  height: 3rem; }
 
+::placeholder {
+  color: #000000;
+  opacity: 1; }
 
-function toComment(sourceMap) {
-  // eslint-disable-next-line no-undef
-  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-  var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-  return '/*# ' + data + ' */';
-}
+.input-text,
+.input-phone,
+.input-email,
+.text-describe {
+  font-family: 'PT Sans', sans-serif;
+  padding-left: 1rem; }
 
-/***/ }),
-/* 1 */,
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/*row-2*/
+.stripe,
+.heading-4 {
+  flex-basis: 32%;
+  box-sizing: border-box;
+  height: 5rem; }
 
-exports = module.exports = __webpack_require__(0)(true);
-// Imports
-var urlEscape = __webpack_require__(3);
-var ___CSS_LOADER_URL___0___ = urlEscape(__webpack_require__(4));
-var ___CSS_LOADER_URL___1___ = urlEscape(__webpack_require__(5));
-var ___CSS_LOADER_URL___2___ = urlEscape(__webpack_require__(6));
-var ___CSS_LOADER_URL___3___ = urlEscape(__webpack_require__(7));
-var ___CSS_LOADER_URL___4___ = urlEscape(__webpack_require__(8));
-var ___CSS_LOADER_URL___5___ = urlEscape(__webpack_require__(9));
-var ___CSS_LOADER_URL___6___ = urlEscape(__webpack_require__(10));
-var ___CSS_LOADER_URL___7___ = urlEscape(__webpack_require__(11));
-var ___CSS_LOADER_URL___8___ = urlEscape(__webpack_require__(12));
-var ___CSS_LOADER_URL___9___ = urlEscape(__webpack_require__(13));
-var ___CSS_LOADER_URL___10___ = urlEscape(__webpack_require__(14));
-var ___CSS_LOADER_URL___11___ = urlEscape(__webpack_require__(15));
-var ___CSS_LOADER_URL___12___ = urlEscape(__webpack_require__(16));
-var ___CSS_LOADER_URL___13___ = urlEscape(__webpack_require__(17));
+.sights-heading {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: space-between; }
+  .sights-heading .for-sights {
+    flex-basis: 30%; }
+  .sights-heading .sights {
+    flex-basis: 34%;
+    min-width: 16rem; }
 
-// Module
-exports.push([module.i, "body {\n  background-color: #f2f2f2;\n  font-family: 'PT Sans', sans-serif;\n  margin: 0;\n  padding: 0; }\n  body .wrapper {\n    width: 75rem;\n    margin: 0 auto;\n    background-color: #ffffff; }\n    body .wrapper .container {\n      margin: 0 7rem; }\n\n.header {\n  background-position: center;\n  background-repeat: no-repeat;\n  background-image: url(" + ___CSS_LOADER_URL___0___ + ");\n  background-position: bottom;\n  background-size: cover;\n  height: 360px; }\n\n[class^=\"heading\"] {\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: bold; }\n\n.logo {\n  display: block;\n  position: relative;\n  left: 12%; }\n\n.heading-1 {\n  display: flex;\n  flex-wrap: wrap; }\n  .heading-1 .main {\n    width: 100%;\n    margin-top: 0;\n    padding-top: 2.5rem;\n    font-size: 2rem; }\n  .heading-1 .secondary {\n    width: 100%;\n    font-weight: normal;\n    margin: 0;\n    padding-bottom: 1rem; }\n\n.row-1 {\n  display: flex;\n  flex-wrap: wrap; }\n  .row-1 .impression {\n    width: 50%;\n    display: flex;\n    flex-direction: column;\n    border-right: 0.15rem solid #f2f2f2; }\n  .row-1 .present {\n    padding-left: 8rem;\n    box-sizing: border-box;\n    width: 50%;\n    display: flex;\n    flex-direction: column; }\n\n.heading-2,\n.radio,\n.heading-3,\n.text {\n  flex-grow: 1;\n  height: 5rem;\n  box-sizing: border-box; }\n\n.heading-2,\n.heading-3 {\n  padding-top: 2rem; }\n\n.input-radio,\n.input-checkbox {\n  display: none; }\n\n.radio label::before {\n  width: 3rem;\n  height: 3rem;\n  content: \"\";\n  display: block;\n  border-radius: 50%;\n  background-color: #f2f2f2;\n  float: left; }\n\n.input-radio:checked + label:before {\n  width: 3rem;\n  height: 3rem;\n  display: block;\n  box-sizing: border-box;\n  background-color: #000000;\n  border: 1rem solid #f2f2f2; }\n\n.radio label p {\n  padding-left: 4rem; }\n\n.text label {\n  width: 5rem;\n  height: 2rem;\n  padding-top: 1rem;\n  box-sizing: border-box; }\n\n.text .narrow {\n  width: 3rem; }\n\n.input-text {\n  width: 12rem; }\n\n.input-name {\n  width: 14rem; }\n\n.input-text,\n.input-phone,\n.input-email {\n  font-weight: bold;\n  background-color: #f2f2f2;\n  border: none;\n  height: 3rem; }\n\n::placeholder {\n  color: #000000;\n  opacity: 1; }\n\n.input-text,\n.input-phone,\n.input-email,\n.text-describe {\n  font-family: 'PT Sans', sans-serif;\n  text-indent: 1rem; }\n\n/*row-2*/\n.row-2 {\n  display: flex; }\n  .row-2 div {\n    width: 33.33333%;\n    height: 7rem;\n    box-sizing: border-box; }\n  .row-2 .heading-4 {\n    font-size: 1rem;\n    height: 2rem;\n    padding-top: 3rem; }\n  .row-2 .stripe::before {\n    width: 100%;\n    height: 0.15rem;\n    content: \"\";\n    background-color: #f2f2f2;\n    display: block;\n    position: relative;\n    top: 50%; }\n\n/* row-3 */\n.row-3 {\n  display: flex; }\n  .row-3 .phone, .row-3 .mail {\n    width: 50%;\n    height: 4rem;\n    float: left;\n    box-sizing: border-box;\n    margin-bottom: 1rem; }\n    .row-3 .phone .error, .row-3 .mail .error {\n      width: 100%;\n      height: 1rem;\n      margin: 0;\n      font-size: 0.7rem;\n      color: #cc0000;\n      text-align: left;\n      padding-left: 5rem; }\n  .row-3 .mail {\n    padding-top: 1rem; }\n  .row-3 .phone::after, .row-3 .mail::after,\n  .row-3 .mail::after {\n    background-position: center;\n    background-repeat: no-repeat;\n    width: 3rem;\n    height: 3rem;\n    content: \"\";\n    background-color: #f2f2f2;\n    display: block;\n    margin-left: 0;\n    background-image: url(" + ___CSS_LOADER_URL___1___ + ");\n    border-radius: 0.2rem;\n    position: relative;\n    left: 50%;\n    top: -78%; }\n  .row-3 .mail::after {\n    background-image: url(" + ___CSS_LOADER_URL___2___ + ");\n    left: 65%;\n    top: -104%; }\n\n.required::after {\n  content: '*'; }\n\n/* row-4  checkbox*/\n.row-4 {\n  display: flex; }\n  .row-4 .checkbox {\n    width: 25%;\n    box-sizing: border-box; }\n\n.checkbox label:before {\n  content: \"\";\n  width: 3rem;\n  height: 3rem;\n  background-color: #f2f2f2;\n  display: block;\n  border-radius: 0.3rem;\n  margin: 0; }\n\n.checkbox label {\n  display: block;\n  margin-top: 1rem;\n  display: flex; }\n\n.input-checkbox:checked + label:before {\n  background-image: url(" + ___CSS_LOADER_URL___3___ + ");\n  background-position: center;\n  background-repeat: no-repeat; }\n\n/* textarea */\n.text-describe {\n  width: 100%;\n  height: 5rem;\n  background-color: #f2f2f2;\n  border: none;\n  display: block;\n  margin: 0 auto;\n  font-weight: bold;\n  color: #000000;\n  padding-top: 1rem; }\n\n/* row-5 button*/\n.row-5 {\n  display: flex; }\n  .row-5 div {\n    width: 50%;\n    height: 10rem; }\n\n.button-review {\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: bold;\n  width: 100%;\n  height: 4rem;\n  background-color: #90b2d0;\n  color: #ffffff;\n  margin-top: 3rem;\n  padding: 0;\n  border: none; }\n\n.obligatory-field {\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: bold;\n  text-align: end;\n  box-sizing: border-box;\n  position: relative;\n  top: 4.5rem;\n  margin: 0;\n  font-size: 0.9rem;\n  font-weight: normal; }\n\n/* footer */\n.footer {\n  display: flex; }\n\n.visit,\n.links,\n.academy {\n  width: 33.33333%; }\n\n.visit p {\n  text-transform: uppercase;\n  text-align: left;\n  position: relative;\n  top: 2rem;\n  margin: 0;\n  font-weight: bold;\n  font-size: 1.2rem; }\n\n.academy p {\n  text-transform: uppercase;\n  text-align: left;\n  position: relative;\n  top: 2rem;\n  margin: 0;\n  font-size: 0.9rem;\n  text-align: right;\n  padding-right: 1.5rem; }\n\n.twitter {\n  position: relative;\n  background-color: #90b2d0;\n  width: 2rem;\n  height: 2rem;\n  background-repeat: no-repeat;\n  background-position: center;\n  top: 1.5rem;\n  left: 7rem;\n  background-image: url(" + ___CSS_LOADER_URL___4___ + "); }\n\n.facebook {\n  position: relative;\n  background-color: #90b2d0;\n  width: 2rem;\n  height: 2rem;\n  background-repeat: no-repeat;\n  background-position: center;\n  top: -0.5rem;\n  left: 9.5rem;\n  background-image: url(" + ___CSS_LOADER_URL___5___ + "); }\n\n.youtube {\n  position: relative;\n  background-color: #90b2d0;\n  width: 2rem;\n  height: 2rem;\n  background-repeat: no-repeat;\n  background-position: center;\n  left: 12rem;\n  top: -2.5rem;\n  background-image: url(" + ___CSS_LOADER_URL___6___ + "); }\n\n.academy p::after {\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 2rem;\n  height: 2rem;\n  content: \"\";\n  background-image: url(" + ___CSS_LOADER_URL___7___ + ");\n  display: block;\n  position: relative;\n  left: 19rem;\n  bottom: 1.5rem;\n  box-sizing: border-box; }\n\n/* menu */\n.menu {\n  display: flex;\n  flex-wrap: wrap; }\n  .menu .item {\n    flex-grow: 1;\n    width: 20%;\n    height: 3rem;\n    text-transform: uppercase;\n    text-align: center;\n    font-weight: bold;\n    font-weight: normal;\n    background-color: #ffffff;\n    padding-top: 1rem;\n    box-sizing: border-box; }\n    .menu .item .subitem {\n      text-transform: uppercase;\n      text-align: center;\n      font-weight: bold;\n      font-weight: normal;\n      display: none; }\n      .menu .item .subitem div {\n        background-color: #ffffff;\n        height: 3rem;\n        padding-top: 1rem; }\n  .menu .item-3 {\n    padding-top: 0; }\n\n.item:hover .subitem {\n  display: block; }\n\n.heading-text {\n  color: #ffffff;\n  font-size: 5em;\n  font-weight: 800;\n  height: 0;\n  position: relative;\n  top: 19%; }\n\n.item a:hover,\n.subitem div a:hover {\n  color: #90b1d0;\n  cursor: pointer; }\n\n.item a:active {\n  color: #b2b2b2; }\n\n.subitem div a:active {\n  color: #d4d0cd; }\n\n/* hover, active */\n.checkbox label:hover:before,\n.input-checkbox:checked + label:hover:before,\n.input-phone:hover,\n.input-email:hover,\n.input-text:hover,\n.radio label:hover::before,\n.text-describe:hover {\n  background-color: #e4e4e4; }\n\n.radio label:active:before,\n.checkbox label:active:before {\n  background-color: #d4d4d4; }\n\n.input-checkbox:checked + label:active:before {\n  background-color: #d4d4d4;\n  background-image: url(" + ___CSS_LOADER_URL___8___ + "); }\n\n.input-radio:checked + label:hover:before {\n  border: 1rem solid #e4e4e4;\n  background-color: #000000; }\n\n.input-radio:checked + label:active:before {\n  background-color: #a4a4a4;\n  border: 1rem solid #d4d4d4; }\n\n.input-phone:focus,\n.input-text:focus,\n.input-email:focus {\n  background-color: #ffffff;\n  outline: #e4e4e4 solid 0.3rem; }\n\n.text-describe:focus {\n  outline: #e4e4e4 solid 0.3rem;\n  background-color: #ffffff; }\n\n.academy p:hover::after {\n  background-image: url(" + ___CSS_LOADER_URL___9___ + "); }\n\n.twitter:hover,\n.facebook:hover,\n.youtube:hover,\n.button-review:hover {\n  background-color: #799cbd;\n  cursor: pointer; }\n\n.twitter:active,\n.facebook:active,\n.youtube:active,\n.button-review:active {\n  background-color: #6c94ba; }\n\n.twitter:active {\n  background-image: url(" + ___CSS_LOADER_URL___10___ + "); }\n\n.facebook:active {\n  background-image: url(" + ___CSS_LOADER_URL___11___ + "); }\n\n.youtube:active {\n  background-image: url(" + ___CSS_LOADER_URL___12___ + "); }\n\n.button-review:active {\n  color: #98b4cf;\n  cursor: pointer; }\n\n.academy p:active::after {\n  background-image: url(" + ___CSS_LOADER_URL___13___ + "); }\n", "",{"version":3,"sources":["main.scss"],"names":[],"mappings":"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","file":"main.scss","sourcesContent":["body {\n  background-color: #f2f2f2;\n  font-family: 'PT Sans', sans-serif;\n  margin: 0;\n  padding: 0; }\n  body .wrapper {\n    width: 75rem;\n    margin: 0 auto;\n    background-color: #ffffff; }\n    body .wrapper .container {\n      margin: 0 7rem; }\n\n.header {\n  background-position: center;\n  background-repeat: no-repeat;\n  background-image: url(\"./img/header.png\");\n  background-position: bottom;\n  background-size: cover;\n  height: 360px; }\n\n[class^=\"heading\"] {\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: bold; }\n\n.logo {\n  display: block;\n  position: relative;\n  left: 12%; }\n\n.heading-1 {\n  display: flex;\n  flex-wrap: wrap; }\n  .heading-1 .main {\n    width: 100%;\n    margin-top: 0;\n    padding-top: 2.5rem;\n    font-size: 2rem; }\n  .heading-1 .secondary {\n    width: 100%;\n    font-weight: normal;\n    margin: 0;\n    padding-bottom: 1rem; }\n\n.row-1 {\n  display: flex;\n  flex-wrap: wrap; }\n  .row-1 .impression {\n    width: 50%;\n    display: flex;\n    flex-direction: column;\n    border-right: 0.15rem solid #f2f2f2; }\n  .row-1 .present {\n    padding-left: 8rem;\n    box-sizing: border-box;\n    width: 50%;\n    display: flex;\n    flex-direction: column; }\n\n.heading-2,\n.radio,\n.heading-3,\n.text {\n  flex-grow: 1;\n  height: 5rem;\n  box-sizing: border-box; }\n\n.heading-2,\n.heading-3 {\n  padding-top: 2rem; }\n\n.input-radio,\n.input-checkbox {\n  display: none; }\n\n.radio label::before {\n  width: 3rem;\n  height: 3rem;\n  content: \"\";\n  display: block;\n  border-radius: 50%;\n  background-color: #f2f2f2;\n  float: left; }\n\n.input-radio:checked + label:before {\n  width: 3rem;\n  height: 3rem;\n  display: block;\n  box-sizing: border-box;\n  background-color: #000000;\n  border: 1rem solid #f2f2f2; }\n\n.radio label p {\n  padding-left: 4rem; }\n\n.text label {\n  width: 5rem;\n  height: 2rem;\n  padding-top: 1rem;\n  box-sizing: border-box; }\n\n.text .narrow {\n  width: 3rem; }\n\n.input-text {\n  width: 12rem; }\n\n.input-name {\n  width: 14rem; }\n\n.input-text,\n.input-phone,\n.input-email {\n  font-weight: bold;\n  background-color: #f2f2f2;\n  border: none;\n  height: 3rem; }\n\n::placeholder {\n  color: #000000;\n  opacity: 1; }\n\n.input-text,\n.input-phone,\n.input-email,\n.text-describe {\n  font-family: 'PT Sans', sans-serif;\n  text-indent: 1rem; }\n\n/*row-2*/\n.row-2 {\n  display: flex; }\n  .row-2 div {\n    width: 33.33333%;\n    height: 7rem;\n    box-sizing: border-box; }\n  .row-2 .heading-4 {\n    font-size: 1rem;\n    height: 2rem;\n    padding-top: 3rem; }\n  .row-2 .stripe::before {\n    width: 100%;\n    height: 0.15rem;\n    content: \"\";\n    background-color: #f2f2f2;\n    display: block;\n    position: relative;\n    top: 50%; }\n\n/* row-3 */\n.row-3 {\n  display: flex; }\n  .row-3 .phone, .row-3 .mail {\n    width: 50%;\n    height: 4rem;\n    float: left;\n    box-sizing: border-box;\n    margin-bottom: 1rem; }\n    .row-3 .phone .error, .row-3 .mail .error {\n      width: 100%;\n      height: 1rem;\n      margin: 0;\n      font-size: 0.7rem;\n      color: #cc0000;\n      text-align: left;\n      padding-left: 5rem; }\n  .row-3 .mail {\n    padding-top: 1rem; }\n  .row-3 .phone::after, .row-3 .mail::after,\n  .row-3 .mail::after {\n    background-position: center;\n    background-repeat: no-repeat;\n    width: 3rem;\n    height: 3rem;\n    content: \"\";\n    background-color: #f2f2f2;\n    display: block;\n    margin-left: 0;\n    background-image: url(./img/phone.png);\n    border-radius: 0.2rem;\n    position: relative;\n    left: 50%;\n    top: -78%; }\n  .row-3 .mail::after {\n    background-image: url(./img/mail.png);\n    left: 65%;\n    top: -104%; }\n\n.required::after {\n  content: '*'; }\n\n/* row-4  checkbox*/\n.row-4 {\n  display: flex; }\n  .row-4 .checkbox {\n    width: 25%;\n    box-sizing: border-box; }\n\n.checkbox label:before {\n  content: \"\";\n  width: 3rem;\n  height: 3rem;\n  background-color: #f2f2f2;\n  display: block;\n  border-radius: 0.3rem;\n  margin: 0; }\n\n.checkbox label {\n  display: block;\n  margin-top: 1rem;\n  display: flex; }\n\n.input-checkbox:checked + label:before {\n  background-image: url(./img/tick.png);\n  background-position: center;\n  background-repeat: no-repeat; }\n\n/* textarea */\n.text-describe {\n  width: 100%;\n  height: 5rem;\n  background-color: #f2f2f2;\n  border: none;\n  display: block;\n  margin: 0 auto;\n  font-weight: bold;\n  color: #000000;\n  padding-top: 1rem; }\n\n/* row-5 button*/\n.row-5 {\n  display: flex; }\n  .row-5 div {\n    width: 50%;\n    height: 10rem; }\n\n.button-review {\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: bold;\n  width: 100%;\n  height: 4rem;\n  background-color: #90b2d0;\n  color: #ffffff;\n  margin-top: 3rem;\n  padding: 0;\n  border: none; }\n\n.obligatory-field {\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: bold;\n  text-align: end;\n  box-sizing: border-box;\n  position: relative;\n  top: 4.5rem;\n  margin: 0;\n  font-size: 0.9rem;\n  font-weight: normal; }\n\n/* footer */\n.footer {\n  display: flex; }\n\n.visit,\n.links,\n.academy {\n  width: 33.33333%; }\n\n.visit p {\n  text-transform: uppercase;\n  text-align: left;\n  position: relative;\n  top: 2rem;\n  margin: 0;\n  font-weight: bold;\n  font-size: 1.2rem; }\n\n.academy p {\n  text-transform: uppercase;\n  text-align: left;\n  position: relative;\n  top: 2rem;\n  margin: 0;\n  font-size: 0.9rem;\n  text-align: right;\n  padding-right: 1.5rem; }\n\n.twitter {\n  position: relative;\n  background-color: #90b2d0;\n  width: 2rem;\n  height: 2rem;\n  background-repeat: no-repeat;\n  background-position: center;\n  top: 1.5rem;\n  left: 7rem;\n  background-image: url(\"./img/icon-twitter.png\"); }\n\n.facebook {\n  position: relative;\n  background-color: #90b2d0;\n  width: 2rem;\n  height: 2rem;\n  background-repeat: no-repeat;\n  background-position: center;\n  top: -0.5rem;\n  left: 9.5rem;\n  background-image: url(\"./img/icon-facebook.png\"); }\n\n.youtube {\n  position: relative;\n  background-color: #90b2d0;\n  width: 2rem;\n  height: 2rem;\n  background-repeat: no-repeat;\n  background-position: center;\n  left: 12rem;\n  top: -2.5rem;\n  background-image: url(\"./img/icon-youtube.png\"); }\n\n.academy p::after {\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 2rem;\n  height: 2rem;\n  content: \"\";\n  background-image: url(./img/htmlacademy.png);\n  display: block;\n  position: relative;\n  left: 19rem;\n  bottom: 1.5rem;\n  box-sizing: border-box; }\n\n/* menu */\n.menu {\n  display: flex;\n  flex-wrap: wrap; }\n  .menu .item {\n    flex-grow: 1;\n    width: 20%;\n    height: 3rem;\n    text-transform: uppercase;\n    text-align: center;\n    font-weight: bold;\n    font-weight: normal;\n    background-color: #ffffff;\n    padding-top: 1rem;\n    box-sizing: border-box; }\n    .menu .item .subitem {\n      text-transform: uppercase;\n      text-align: center;\n      font-weight: bold;\n      font-weight: normal;\n      display: none; }\n      .menu .item .subitem div {\n        background-color: #ffffff;\n        height: 3rem;\n        padding-top: 1rem; }\n  .menu .item-3 {\n    padding-top: 0; }\n\n.item:hover .subitem {\n  display: block; }\n\n.heading-text {\n  color: #ffffff;\n  font-size: 5em;\n  font-weight: 800;\n  height: 0;\n  position: relative;\n  top: 19%; }\n\n.item a:hover,\n.subitem div a:hover {\n  color: #90b1d0;\n  cursor: pointer; }\n\n.item a:active {\n  color: #b2b2b2; }\n\n.subitem div a:active {\n  color: #d4d0cd; }\n\n/* hover, active */\n.checkbox label:hover:before,\n.input-checkbox:checked + label:hover:before,\n.input-phone:hover,\n.input-email:hover,\n.input-text:hover,\n.radio label:hover::before,\n.text-describe:hover {\n  background-color: #e4e4e4; }\n\n.radio label:active:before,\n.checkbox label:active:before {\n  background-color: #d4d4d4; }\n\n.input-checkbox:checked + label:active:before {\n  background-color: #d4d4d4;\n  background-image: url(\"./img/tick-active.png\"); }\n\n.input-radio:checked + label:hover:before {\n  border: 1rem solid #e4e4e4;\n  background-color: #000000; }\n\n.input-radio:checked + label:active:before {\n  background-color: #a4a4a4;\n  border: 1rem solid #d4d4d4; }\n\n.input-phone:focus,\n.input-text:focus,\n.input-email:focus {\n  background-color: #ffffff;\n  outline: #e4e4e4 solid 0.3rem; }\n\n.text-describe:focus {\n  outline: #e4e4e4 solid 0.3rem;\n  background-color: #ffffff; }\n\n.academy p:hover::after {\n  background-image: url(\"./img/academy-hover.png\"); }\n\n.twitter:hover,\n.facebook:hover,\n.youtube:hover,\n.button-review:hover {\n  background-color: #799cbd;\n  cursor: pointer; }\n\n.twitter:active,\n.facebook:active,\n.youtube:active,\n.button-review:active {\n  background-color: #6c94ba; }\n\n.twitter:active {\n  background-image: url(\"./img/twitter-active.png\"); }\n\n.facebook:active {\n  background-image: url(\"./img/facebook-active.png\"); }\n\n.youtube:active {\n  background-image: url(\"./img/youtube-active.png\"); }\n\n.button-review:active {\n  color: #98b4cf;\n  cursor: pointer; }\n\n.academy p:active::after {\n  background-image: url(\"./img/academy-active.png\"); }\n"]}]);
+.heading-4 {
+  margin: 0 1vw;
+  font-size: 1rem;
+  padding-top: 2rem; }
 
+.sights {
+  padding-top: 1rem;
+  margin: 0; }
+  @media screen and (max-width: 270px) {
+    .sights {
+      font-size: 0.9rem; } }
 
+.stripe::before {
+  width: 100%;
+  height: 0.15rem;
+  content: "";
+  background-color: #f2f2f2;
+  display: block;
+  position: relative;
+  top: 50%; }
 
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
+/* row-3, phone & mail */
+.phone, .mail {
+  flex-basis: 50%;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap; }
+  .phone .error, .mail .error {
+    flex-basis: 100%;
+    margin: 0;
+    font-size: 0.7rem;
+    color: #cc0000;
+    text-align: left;
+    text-transform: none;
+    padding-left: 6rem; }
+  .phone label, .mail label {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-basis: 100%; }
+    .phone label span, .mail label span {
+      flex-basis: 17%; }
 
-"use strict";
+.mail {
+  padding-top: 1rem; }
+  .mail label {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    flex-basis: 100%; }
+    .mail label .input-email {
+      width: 46%; }
+    .mail label span {
+      flex-basis: 33%; }
 
+.phone-logo:after,
+.mail-logo:after {
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3rem;
+  height: 3rem;
+  content: "";
+  background-color: #f2f2f2;
+  display: block;
+  margin-left: 0;
+  background-image: url(img/phone.png);
+  border-radius: 0.2rem; }
 
-module.exports = function escape(url, needQuotes) {
-  if (typeof url !== 'string') {
-    return url;
-  } // If url is already wrapped in quotes, remove them
+.mail::after {
+  background-image: url(img/mail.png); }
 
+.required::after {
+  content: '*'; }
 
-  if (/^['"].*['"]$/.test(url)) {
-    url = url.slice(1, -1);
-  } // Should url be wrapped?
-  // See https://drafts.csswg.org/css-values-3/#urls
+/* row-4  checkbox*/
+.row-4 {
+  display: flex;
+  flex-basis: 100%; }
+  .row-4 .checkbox {
+    flex-basis: 25%;
+    box-sizing: border-box; }
+    .row-4 .checkbox .checkbox-button {
+      display: flex; }
+      .row-4 .checkbox .checkbox-button .checkbox-label-text {
+        font-weight: bold;
+        padding-top: 1rem;
+        padding-left: 1rem; }
 
+.checkbox-button::before {
+  content: "";
+  width: 3rem;
+  height: 3rem;
+  background-color: #f2f2f2;
+  display: block;
+  border-radius: 0.3rem;
+  margin: 0; }
 
-  if (/["'() \t\n]/.test(url) || needQuotes) {
-    return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"';
-  }
+.checkbox label {
+  margin-top: 1rem;
+  display: flex; }
 
-  return url;
-};
+.input-checkbox:checked + .checkbox-button::before {
+  background-image: url(img/tick.png);
+  background-position: center;
+  background-repeat: no-repeat; }
 
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/* textarea */
+.textarea {
+  flex-basis: 100%; }
 
-module.exports = __webpack_require__.p + "img/header.png";
+.text-describe {
+  width: 97%;
+  height: 5rem;
+  background-color: #f2f2f2;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  font-weight: bold;
+  color: #000000;
+  padding-top: 1rem;
+  font-family: Arial;
+  font-size: 13px; }
 
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+/* row-5 button*/
+.row-5 {
+  display: flex;
+  flex-basis: 100%; }
+  .row-5 div {
+    width: 50%;
+    height: 10rem; }
 
-module.exports = __webpack_require__.p + "img/phone.png";
+.button-review {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+  height: 4rem;
+  background-color: #90b2d0;
+  color: #ffffff;
+  margin-top: 3rem;
+  padding: 0;
+  border: none; }
 
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
+.obligatory-field {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  text-align: right;
+  box-sizing: border-box;
+  position: relative;
+  top: 4.5rem;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: normal; }
 
-module.exports = __webpack_require__.p + "img/mail.png";
+/* footer */
+.footer {
+  display: flex;
+  flex-basis: 100%; }
+  .footer .links {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .footer .academy {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
 
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
+.visit,
+.links,
+.academy {
+  flex-basis: 33.33333%;
+  height: 5rem; }
 
-module.exports = __webpack_require__.p + "img/tick.png";
+.visit p {
+  text-transform: uppercase;
+  text-align: left;
+  position: relative;
+  top: 2rem;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2rem; }
 
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+.academy p {
+  display: flex;
+  text-transform: uppercase;
+  text-align: left;
+  position: relative;
+  top: 2rem;
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: right;
+  position: static; }
 
-module.exports = __webpack_require__.p + "img/icon-twitter.png";
+.twitter {
+  background-color: #90b2d0;
+  width: 2rem;
+  height: 2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(img/icon-twitter.png); }
 
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+.facebook {
+  background-color: #90b2d0;
+  width: 2rem;
+  height: 2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(img/icon-facebook.png);
+  margin: 0 1vw; }
 
-module.exports = __webpack_require__.p + "img/icon-facebook.png";
+.youtube {
+  background-color: #90b2d0;
+  width: 2rem;
+  height: 2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(img/icon-youtube.png); }
 
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
+.academy-logo::after {
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 2rem;
+  height: 2rem;
+  content: "";
+  background-image: url(img/htmlacademy.png);
+  display: block;
+  box-sizing: border-box; }
 
-module.exports = __webpack_require__.p + "img/icon-youtube.png";
+/* menu */
+.menu {
+  display: flex;
+  flex-wrap: wrap; }
+  .menu .item {
+    flex-grow: 1;
+    width: 20%;
+    height: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-weight: normal;
+    background-color: #ffffff;
+    padding-top: 1rem;
+    box-sizing: border-box; }
+    .menu .item .subitems {
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      font-weight: normal;
+      display: none;
+      max-width: 240px; }
+      .menu .item .subitems div {
+        background-color: #ffffff;
+        height: 3rem;
+        padding-top: 1rem; }
+  .menu .item-3 {
+    padding-top: 0; }
 
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+.item:hover .subitems {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 18%;
+  max-width: 240px; }
 
-module.exports = __webpack_require__.p + "img/htmlacademy.png";
+.heading-text {
+  width: auto;
+  color: #ffffff;
+  font-size: 5em;
+  font-weight: 800;
+  height: 360px;
+  padding-top: 7rem;
+  box-sizing: border-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(img/header.png);
+  background-position: bottom; }
 
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
+.item a:hover,
+.subitems div a:hover {
+  color: #90b1d0;
+  cursor: pointer; }
 
-module.exports = __webpack_require__.p + "img/tick-active.png";
+.item a:active {
+  color: #b2b2b2; }
 
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
+.subitems div a:active {
+  color: #d4d0cd; }
 
-module.exports = __webpack_require__.p + "img/academy-hover.png";
+/* hover, active */
+.checkbox-button:hover:before,
+.input-checkbox:checked + .checkbox-button:hover:before,
+.input-phone:hover,
+.input-email:hover,
+.input-text:hover,
+.radio-button:hover::before,
+.text-describe:hover {
+  background-color: #e4e4e4; }
 
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
+.radio-button:active:before,
+.checkbox-button:active:before {
+  background-color: #d4d4d4; }
 
-module.exports = __webpack_require__.p + "img/twitter-active.png";
+.input-checkbox:checked + .checkbox-button:active:before {
+  background-color: #d4d4d4;
+  background-image: url(img/tick-active.png); }
 
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
+.input-radio:checked + .radio-button:hover:before {
+  border: 1rem solid #e4e4e4;
+  background-color: #000000; }
 
-module.exports = __webpack_require__.p + "img/facebook-active.png";
+.input-radio:checked + .radio-button:active:before {
+  background-color: #a4a4a4;
+  border: 1rem solid #d4d4d4; }
 
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
+.input-phone:focus,
+.input-text:focus,
+.input-email:focus {
+  background-color: #ffffff;
+  outline: #e4e4e4 solid 0.3rem; }
 
-module.exports = __webpack_require__.p + "img/youtube-active.png";
+.text-describe:focus {
+  outline: #e4e4e4 solid 0.3rem;
+  background-color: #ffffff; }
 
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
+.academy-logo:hover::after {
+  background-image: url(img/academy-hover.png); }
 
-module.exports = __webpack_require__.p + "img/academy-active.png";
+.twitter:hover,
+.facebook:hover,
+.youtube:hover,
+.button-review:hover {
+  background-color: #799cbd;
+  cursor: pointer; }
 
-/***/ })
-/******/ ]);
+.twitter:active,
+.facebook:active,
+.youtube:active,
+.button-review:active {
+  background-color: #6c94ba; }
+
+.twitter:active {
+  background-image: url(img/twitter-active.png); }
+
+.facebook:active {
+  background-image: url(img/facebook-active.png); }
+
+.youtube:active {
+  background-image: url(img/youtube-active.png); }
+
+.button-review:active {
+  color: #98b4cf;
+  cursor: pointer; }
+
+.academy-logo:active::after {
+  background-image: url(img/academy-active.png); }
+
+@media screen and (min-width: 481px) and (max-width: 970px) {
+  body .wrapper {
+    width: inherit;
+    margin: 0;
+    background-color: #ffffff; }
+    body .wrapper .container {
+      margin: 0;
+      padding: 0 5vw; }
+    body .wrapper .header {
+      width: 100%;
+      height: auto; }
+      body .wrapper .header .heading-text {
+        font-size: 4rem; }
+  .menu .item {
+    font-size: 0.8rem;
+    font-weight: bold; }
+  .menu .subitem div a {
+    font-weight: bold; }
+  .menu .item-3 .logo {
+    display: none; }
+  .item-3::before {
+    content: '';
+    display: block;
+    background-image: url(img/logotyle-mobile.png);
+    flex-basis: 100%;
+    height: 5.5rem;
+    background-position-x: 50%;
+    background-repeat: no-repeat;
+    position: relative; }
+  .item:hover .subitem {
+    width: 20%; }
+  .input-text {
+    width: 19vw; }
+  .text label {
+    font-size: 0.8rem; }
+  .input-name {
+    width: 23vw; }
+  /* row-2 */
+  .stripe {
+    flex-basis: 31%; }
+  .heading-4 {
+    flex-basis: 33%; }
+  /* phone & mail */
+  .phone, .mail {
+    flex-basis: 100%; }
+    .phone label, .mail label {
+      flex-basis: 100%; }
+      .phone label span, .mail label span {
+        flex-basis: 50%;
+        order: -1;
+        padding-bottom: 1rem; }
+      .phone label .error, .mail label .error {
+        text-align: right;
+        padding-left: 0;
+        flex-basis: 41%;
+        padding-bottom: 1rem; }
+  .mail {
+    flex-basis: 100%; }
+    .mail label {
+      flex-basis: 100%; }
+      .mail label .input-email {
+        width: 73vw; }
+  .input-phone {
+    width: 73vw; }
+  .row-4 {
+    flex-wrap: wrap;
+    justify-content: space-around; }
+    .row-4 .checkbox {
+      flex-basis: 40%; }
+  .radio label,
+  .checkbox label {
+    font-weight: bold; } }
+
+@media screen and (max-width: 480px) {
+  body .wrapper {
+    width: inherit;
+    margin: 0;
+    background-color: #ffffff; }
+    body .wrapper .container {
+      margin: 0; }
+    body .wrapper .header {
+      width: 100%;
+      height: auto; }
+      body .wrapper .header .heading-text {
+        font-size: 3rem;
+        height: 190px;
+        padding-top: 3rem;
+        height: 160px; }
+  .heading-1 {
+    order: -1; }
+    .heading-1 .main {
+      font-size: 1rem; }
+  .present {
+    flex-basis: 100%;
+    padding-left: 0;
+    padding: 0 7vw;
+    border-top: 0.15rem solid #f2f2f2;
+    order: -1;
+    margin-top: 1rem; }
+  .input-text {
+    width: 48vw;
+    font-size: 1rem; }
+  .input-name {
+    width: 57vw;
+    font-size: 1rem; }
+  .impression {
+    flex-basis: 100%;
+    border: none;
+    padding: 0 7vw;
+    border-top: 0.15rem solid #f2f2f2;
+    margin-top: 1rem;
+    border-bottom: 0.15rem solid #f2f2f2; }
+  .stripe {
+    display: none; }
+  .contact-information {
+    order: -1; }
+  .heading-4 {
+    flex-basis: 100%;
+    border-top: 0.15rem solid #f2f2f2; }
+  /* row-3 */
+  .phone, .mail {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 7vw;
+    height: 7rem;
+    flex-basis: 100%;
+    order: -1; }
+    .phone label, .mail label {
+      flex-basis: 100%; }
+      .phone label span, .mail label span {
+        flex-basis: 75%;
+        padding-left: 1rem;
+        padding-bottom: 1rem; }
+    .phone .error, .mail .error {
+      flex-basis: 100%;
+      font-size: 0.8rem;
+      order: 1;
+      padding-left: 1rem;
+      padding-top: 1rem; }
+  .mail label .input-email {
+    width: 62vw; }
+  .phone::after, .mail::after,
+  .mail::after {
+    display: none; }
+  .input-phone,
+  .input-email {
+    height: 3rem;
+    width: 62vw;
+    font-size: 1rem; }
+  .sights-heading .sights {
+    padding-left: 8vw;
+    margin-top: 2rem;
+    border-top: none;
+    flex-basis: 83%; }
+  .row-4 {
+    flex-direction: column;
+    height: 20rem; }
+    .row-4 .checkbox {
+      flex-basis: 100%;
+      padding-left: 7vw;
+      padding-bottom: 3vw; }
+  .row-5 {
+    height: 10rem; }
+  .textarea {
+    padding: 0 7vw; }
+  .radio label,
+  .checkbox label {
+    font-weight: bold; }
+  .textarea .text-describe {
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 1rem;
+    line-height: 1.5;
+    height: 7rem; }
+  /* row-5 */
+  .row-5 {
+    flex-direction: column; }
+    .row-5 .button {
+      flex-basis: 100%;
+      padding-left: 9vw; }
+    .row-5 .obligatory {
+      display: none; }
+  .button-review {
+    width: 81vw;
+    height: 3.5rem;
+    font-size: 1rem; }
+  /* footer */
+  .footer {
+    flex-direction: column;
+    height: 15rem; }
+    .footer .visit,
+    .footer .links,
+    .footer .academy {
+      flex-basis: 100%; }
+    .footer .visit p {
+      text-align: center; }
+    .footer .academy {
+      justify-content: center; }
+  .links .twitter,
+  .links .facebook,
+  .links .youtube {
+    width: 3rem;
+    height: 3rem; }
+  /* menu */
+  .menu .item:hover:not(.item-3), .menu .item .subitems div:hover {
+    background-color: #799dbd; }
+  .menu .item {
+    display: none; }
+    .menu .item .subitems {
+      max-width: 100%;
+      width: 100%; }
+  .menu .visible, .menu .item .subitems div {
+    display: block;
+    flex-basis: 100%;
+    background-color: #81b3d2;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    text-align: center;
+    border-top: 0.05rem solid #9ac2db;
+    border-bottom: 0.05rem solid #678fa8;
+    padding-top: 1.2rem;
+    height: 3.5rem;
+    font-weight: bold;
+    box-sizing: border-box; }
+  .menu .item-3 {
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    order: 1; }
+    .menu .item-3 .logo {
+      display: none; }
+    .menu .item-3 .icon-menu {
+      display: block;
+      position: relative;
+      height: 1.5rem;
+      padding-top: 0.5rem;
+      padding-right: 0.5rem;
+      cursor: pointer; }
+  .item-3::before {
+    content: '';
+    display: block;
+    background-image: url(img/logotyle-mobile.png);
+    flex-basis: 100%;
+    height: 5.5rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position-y: 0%;
+    background-position-x: 58%;
+    position: relative; }
+  .item:active:not(.item-3) {
+    background-color: #6c95ba;
+    color: #98b5cf; }
+  .item:hover .subitem {
+    display: none; } }
+
+@media screen and (max-width: 270px) {
+  .present .text label {
+    margin-right: 3rem; } }
+
+@media screen and (max-width: 270px) {
+  .input-text {
+    width: 55vw; } }
+
