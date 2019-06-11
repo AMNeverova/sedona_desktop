@@ -1,4 +1,4 @@
-const mobileMenuClickActionType = 'MOBILE-MENU-CLICK';
+export const mobileMenuClickActionType = 'MOBILE-MENU-CLICK';
 
 let initialState = [
     {
@@ -50,7 +50,7 @@ let initialState = [
 ]
 
 const menuReducer = (state = initialState, action) => {
-    if (action.type == mobileMenuClickActionType) {
+    if (action.type === mobileMenuClickActionType) {
         state.map((item) => {
             if (item.itemClassName =='item') {
                 item.itemClassName = 'item visible'

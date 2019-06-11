@@ -2,7 +2,7 @@ import { buttonSendActionType, checkboxChangeActionType, inputEmailActionType,
         inputNameActionType, inputSurnameActionType, inputPatronymActionType, 
         inputPhoneActionType, radioChangeActionType, textareaActionType } from "./buttonSendReducer";
 
-import mobileMenuClickActionType from './menuReducer';
+import {mobileMenuClickActionType} from './menuReducer';
 
 
 export const buttonSendActionCreator = (state) => {
@@ -68,7 +68,7 @@ export const textareaActionCreator = (newText) => {
     }
 }
 
-export function mobileMenuActionCtreator() {
+export function mobileMenuActionCreator() {
     return {
         type: mobileMenuClickActionType
     }

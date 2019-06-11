@@ -1,6 +1,6 @@
 import React from 'react';
 import Subitem from './Subitem';
-import { mobileMenuActionCtreator } from '../../redux/actionCreators';
+import { mobileMenuActionCreator } from '../../redux/actionCreators';
 
 function Item(props) {
 
@@ -15,7 +15,7 @@ function Item(props) {
     })
 
     function handleClick() {
-       props.dispatch(mobileMenuActionCtreator())
+       props.dispatch(mobileMenuActionCreator())
     }
 
     return(

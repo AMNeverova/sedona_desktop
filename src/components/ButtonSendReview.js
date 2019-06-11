@@ -32,10 +32,10 @@ function ButtonSendReview(props) {
             "email": state.inputEmail.value,
             "emotions": state.describeEmotions.value
         }
-
+        require('es6-promise').polyfill();
         axios({
                 method: 'post',
-                url: 'https://my-json-server.typicode.com/AMNeverova/hello-world',
+                url: '',
                 data: filledForm
             })
             .then((res) => {
