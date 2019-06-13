@@ -227,6 +227,7 @@
             border-top: 0.05rem solid $mobile-menu-border-top;
             border-bottom: 0.05rem solid $mobile-menu-border-bottom;
             padding: 1.2rem 0;
+            height: auto;
             font-weight: bold;
             box-sizing: border-box;
         }
@@ -270,7 +271,7 @@
         color: $mobile-menu-active-text;
     }
 
-    .item:hover .subitem {
+    .item:hover .subitems {
         display: none;
     }
 }

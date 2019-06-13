@@ -7,13 +7,14 @@ let initialState = data.menu;
 const menuReducer = (state = initialState, action) => {
     if (action.type === mobileMenuClickActionType) {
         state.map((item) => {
-            if (item.itemClassName =='item') {
-                item.itemClassName = 'item visible'
+            if (item.itemClassName.indexOf('visible') == -1 && item.itemClassName.indexOf('3') == -1) {
+                item.itemClassName = item.itemClassName + ' visible'
             } else if (item.itemClassName.indexOf('visible') !== -1) {
-                item.itemClassName = 'item'
+                item.itemClassName = item.itemClassName.slice(0,12)
             }
         })
     }
+
     return state
 }
 

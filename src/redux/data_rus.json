@@ -3,7 +3,7 @@
         {
             "id": "1",
             "itemText": "главная",
-            "itemClassName": "item",
+            "itemClassName": "item item-1",
             "subItems": [{
                 "text": "пункт 1.1",
                 "id":"1"
@@ -20,7 +20,7 @@
         {
             "id": "2",
             "itemText": "фото и видео",
-            "itemClassName": "item",
+            "itemClassName": "item item-2",
             "subItems": [
                 {
                     "text": "пункт 2.1",
@@ -45,7 +45,7 @@
         {
             "id": "4",
             "itemText": "форма отзыва",
-            "itemClassName": "item",
+            "itemClassName": "item item-4",
             "subItems": [{
                 "text": "пункт 3.1",
                 "id":"1"
@@ -63,7 +63,7 @@
         {
             "id": "5",
             "itemText": "html academy",
-            "itemClassName": "item",
+            "itemClassName": "item item-5",
             "subItems": [{
                 "text": "пункт 4.1",
                 "id":"1"
@@ -72,7 +72,7 @@
                 "id":"2"
             },
             {
-                "text": "пункт 3.3",
+                "text": "пункт 4.3",
                 "id":"3"
             }
             

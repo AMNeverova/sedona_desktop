@@ -4,7 +4,7 @@ import Item from './Item';
 function Menu(props) {
 
     let ItemComponents = props.state.map(function(item){
-            return <Item state={props.state} className={item.itemClassName} itemText={item.itemText} key={item.id} itemId={item.id} dispatch={props.dispatch} />
+            return <Item state={props.state} submenuOpened={item.submenuOpened} className={item.itemClassName} itemText={item.itemText} key={item.id} itemId={item.id} dispatch={props.dispatch} />
     })
 
     return(

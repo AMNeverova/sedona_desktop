@@ -1,8 +1,15 @@
 import React from 'react';
 import Subitem from './Subitem';
-import { mobileMenuActionCreator } from '../../redux/actionCreators';
+import { mobileMenuActionCreator, mobileMenuItemClickActionCreator } from '../../redux/actionCreators';
 
 function Item(props) {
+    let show = {
+        height: 'auto'
+    }
+
+    let hide = {
+        display: '3.5rem'
+    }
 
 let SubitemComponents = []
 
@@ -14,23 +21,26 @@ props.state.map(function(item){
     }
 })
 
-    function showSubitems(itemId) {
-        let items = document.querySelectorAll('.item')
-        if (items[itemId-1].className.indexOf('visible') != -1) {
-            if (items[itemId-1].style.height == 'auto') {
-                items[itemId-1].style.height = '3.5rem'
-            } else {
-                items[itemId-1].style.height = 'auto'
+    function showSubitems(className) {
+        let itemClass = className.slice(5,12)
+        let item = document.querySelector(`.${itemClass}`)
+        if (document.body.clientWidth <= 480) {
+            if (itemClass.indexOf('3') == -1) {
+                if (item.querySelector('.subitems').style.display == 'block') {
+                    item.querySelector('.subitems').style.display = 'none'
+                } else {
+                    item.querySelector('.subitems').style.display = 'block'
+                }
             }
         }
-    }
+}
 
     function handleClick() {
        props.dispatch(mobileMenuActionCreator())
     }
 
     return(
-        <div onClick={() => showSubitems(props.itemId)} className={props.className}>{
+        <div onClick={() => showSubitems(props.className)} className={props.className}>{
             props.itemText? <a>{props.itemText}</a> :
             <span>
                 <img src="./img/logotype-desktop.png" alt="City of Sedona" className="logo" />
