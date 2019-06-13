@@ -1,16 +1,9 @@
-import { buttonSendActionType, checkboxChangeActionType, inputEmailActionType, 
+import { checkboxChangeActionType, inputEmailActionType, 
         inputNameActionType, inputSurnameActionType, inputPatronymActionType, 
-        inputPhoneActionType, radioChangeActionType, textareaActionType } from "./buttonSendReducer";
+        inputPhoneActionType, radioChangeActionType, textareaActionType, filledInputActionType, filledInputPhoneType, filledInputMailType } from "./buttonSendReducer";
 
 import {mobileMenuClickActionType} from './menuReducer';
 
-
-export const buttonSendActionCreator = (state) => {
-    return {
-        type: buttonSendActionType,
-        state: state
-    }
-}
 
 export const CheckboxChangeActionCreator = (id) => {
     return {
@@ -71,6 +64,25 @@ export const textareaActionCreator = (newText) => {
 export function mobileMenuActionCreator() {
     return {
         type: mobileMenuClickActionType
+    }
+}
+
+export function filledInputActionCreator(id) {
+    return {
+        type: filledInputActionType,
+        id: id
+    }
+} 
+
+export function filledInputPhoneActionCreator() {
+    return {
+        type: filledInputPhoneType
+    }
+}
+
+export function filledInputMailActionCreator() {
+    return {
+        type: filledInputMailType
     }
 }
 

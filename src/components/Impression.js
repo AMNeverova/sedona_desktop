@@ -11,7 +11,7 @@ function Impression(props) {
 
     return(
         <div className="impression">
-            <div className='heading-2'>ваше общее впечатление</div>
+            <div className='heading-2'>{props.headingText}</div>
             {RadioComponents}
         </div>
     )

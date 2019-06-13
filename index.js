@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App.js";
-import '../src/styles/main.scss';
-import store from './redux/store'
+import App from "./src/components/App";
+import './src/styles/main.scss';
+import store from './src/redux/store'
 
 function rerender() {
 

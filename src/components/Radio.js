@@ -10,7 +10,7 @@ function Radio(props) {
     return (
         <div className='radio'>
             <label onChange={() => {handleChange(props.id)}}>
-            <input className="input-radio" type="radio" name="impression"  value={props.value} checked={props.checked} />
+            <input className="input-radio" type="radio" name="impression"  onChange={() => {handleChange(props.id)}} value={props.value} checked={props.checked} />
             <div className="radio-button">
                 <div className="radio-label-text">{props.variant}</div>
             </div>

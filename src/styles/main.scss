@@ -155,7 +155,7 @@ body {
 }
 
 ::placeholder {
-	color: $black;
+	color: $placeholder;
 	opacity: 1;
 }
 
@@ -230,6 +230,7 @@ body {
 		text-align: left;
 		text-transform: none;
 		padding-left: 6rem;
+		padding-bottom: 0.3rem;
 	}
 
 	label {
@@ -274,9 +275,10 @@ body {
 	margin-left: 0;
 	background-image: $logo-phone;
 	border-radius: 0.2rem;
+	margin-left: 0.1rem;
 }
 
-.mail::after {
+.mail-logo::after {
 	background-image: $logo-mail;
 }
 
@@ -477,9 +479,9 @@ body {
 
 .item:hover .subitems {
 	display: block;
-	position: absolute;
+	position: relative;
 	z-index: 1;
-	width: 18%;
+	width: 100%;
 	max-width: 240px;
 }
 

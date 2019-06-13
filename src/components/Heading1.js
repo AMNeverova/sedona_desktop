@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Heading1() {
+function Heading1(props) {
     return (
         <div className='heading-1'>
-            <p className='main'>оставьте свой отзыв</p>
-            <p className='secondary'>Помогите нашим отелям стать лучше! Оставьте отзыв о них.</p>
-            <p className='secondary'>А также о посещенных вами достопримечательностях.</p>
+            <p className='main'>{props.headingTexts.main}</p>
+            <p className='secondary'>{props.headingTexts.secondary1}</p>
+            <p className='secondary'>{props.headingTexts.secondary2}</p>
         </div>
     )
 }

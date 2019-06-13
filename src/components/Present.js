@@ -2,10 +2,9 @@ import React from 'react';
 import InputFullName from './InputFullName';
 
 function Present(props) {
-
     let InputFullnameComponents = props.inputFullname.map((item) => {
         return (
-        <InputFullName dispatch={props.dispatch} id={item.id}
+        <InputFullName filled={item.filled} dispatch={props.dispatch} id={item.id}
             inputClassName={item.className} 
             placeholderText={item.placeholder} key={item.id} 
             labelText={item.labelText} spanClassName={item.spanClassName} 

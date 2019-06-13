@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Footer() {
+function Footer(props) {
     return(
         <div className="footer">
             <div className="visit">
-                <p>#visitsedona</p>
+                <p>{props.texts.visitSedona}</p>
             </div>
             <div className="links">
                 <div className="twitter">
@@ -18,7 +18,7 @@ function Footer() {
                 </div>
             </div>
             <div className="academy">
-                <p>разработано</p>
+                <p>{props.texts.developed}</p>
                 <div className="academy-logo"></div>
             </div>
         </div>

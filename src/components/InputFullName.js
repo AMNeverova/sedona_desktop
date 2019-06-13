@@ -3,6 +3,13 @@ import { inputNameActionCreator, inputSurnameActionCreator, inputPatronymActionC
 
 function InputFullName(props) {
 
+    let outlineGrey = {
+    }
+
+    let outlineRed = {
+        outline: "#F08080 solid 0.3rem"
+    }
+
     function handleChange(evt) {
         let newText = evt.target.value;
         if (props.id == 1) {
@@ -21,7 +28,7 @@ function InputFullName(props) {
     return(
         <div className='text'>
         <label><span className={props.spanClassName}>{props.labelText}</span>
-            <input type="text" value={props.value} onChange={handleChange} className={props.inputClassName} placeholder={props.placeholderText} required={props.inputRequired} />
+            <input type="text" style={props.filled? outlineGrey : outlineRed} value={props.value} onChange={handleChange} className={props.inputClassName} placeholder={props.placeholderText} required={props.inputRequired} />
         </label>
         </div>
     )

@@ -1,0 +1,136 @@
+{
+    "menu": [
+        {
+            "id": "1",
+            "itemText": "главная",
+            "itemClassName": "item",
+            "subItems": [{
+                "text": "пункт 1.1",
+                "id":"1"
+            }, {
+                "text": "пункт 1.2",
+                "id":"2"
+            },
+            {
+                "text": "пункт 1.3",
+                "id":"3"
+            }
+            ]
+        },
+        {
+            "id": "2",
+            "itemText": "фото и видео",
+            "itemClassName": "item",
+            "subItems": [
+                {
+                    "text": "пункт 2.1",
+                    "id":"1"
+                }, {
+                    "text": "пункт 2.2",
+                    "id":"2"
+                },
+                {
+                    "text": "пункт 2.3",
+                    "id":"3"
+                }
+                
+            ]
+        },
+        {
+            "id": "3",
+            "itemText": null,
+            "itemClassName": "item item-3",
+            "subItems": []
+        },
+        {
+            "id": "4",
+            "itemText": "форма отзыва",
+            "itemClassName": "item",
+            "subItems": [{
+                "text": "пункт 3.1",
+                "id":"1"
+            }, {
+                "text": "пункт 3.2",
+                "id":"2"
+            },
+            {
+                "text": "пункт 3.3",
+                "id":"3"
+            }
+            
+            ]
+        },
+        {
+            "id": "5",
+            "itemText": "html academy",
+            "itemClassName": "item",
+            "subItems": [{
+                "text": "пункт 4.1",
+                "id":"1"
+            }, {
+                "text": "пункт 4.2",
+                "id":"2"
+            },
+            {
+                "text": "пункт 3.3",
+                "id":"3"
+            }
+            
+            ]
+        }
+    ],
+    "headerText": "sedona",
+    "headings": {
+        "main": "оставьте свой отзыв",
+        "secondary1": "Помогите нашим отелям стать лучше! Оставьте отзыв о них.",
+        "secondary2": "А также о посещенных вами достопримечательностях.",
+        "headingForImpression": "ваше общее впечатление",
+        "headingForPresent": "представьтесь",
+        "headingForContacts": "контактная информация",
+        "headingForSights": "посещенные достопримечательности",
+        "headingForDescribeEmotions": "Опишите свои эмоции"
+    },
+    "impression": {
+        "chooseImpression1": "Скорее положительное",
+        "chooseImpression2": "Скорее отрицательное",
+        "chooseImpression3": "Затрудняюсь ответить"
+    },
+    "present": {
+        "inputName": {
+            "labelText": "Имя",
+            "placeholder": "Пётр"
+        },
+        "inputSurname": {
+            "labelText": "Фамилия",
+            "placeholder": "Иванов"
+        },
+        "inputPatronym": {
+            "labelText": "Отчество",
+            "placeholder": "Александрович"
+        }
+    },
+    "inputPhone": {
+        "labelText": "Телефон",
+        "placeholder": "Введите телефон",
+        "textForError": "Ошибка, перепроверьте номер"
+    },
+    "inputEmail": {
+        "labelText": "Электронная почта",
+        "placeholder": "Введите e-mail"
+    },
+    "checkboxes": {
+        "labelText1": "Мост Дьявола",
+        "labelText2": "Гора-Колокол",
+        "labelText3": "Слайд-парк",
+        "labelText4": "Красные скалы"
+    },
+    "describeEmotions": {
+        "placeholder": "Опишите подробно все свои восторги"
+    },
+    "buttonSendReview": "отправить отзыв",
+    "obligatoryText": "обязательные поля",
+    "footer": {
+        "visitSedona": "#visitsedona",
+        "developed": "разработано"
+    }
+}

@@ -1,14 +1,29 @@
 const path = require("path");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = {
-    entry: "./src/index.js",
+let conf = {
+    entry: "./index.js",
     output: {
         path: path.join(__dirname, "/public"),
         filename: "index_bundle.js"
     },
+    devServer: {
+      contentBase: './',
+      publicPath: '/public/'
+    },
     module: {
-        rules: [{
+        rules: [
+            {
+                test: /\.(png|jpg|gif)$/i,
+                use: [
+                  {
+                    loader: 'url-loader',
+                    options: {
+                      limit: 8192,
+                    },
+                  },
+                ],
+              },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
@@ -18,12 +33,11 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    { loader: "style-loader" },
                     {
                         loader: 'css-loader',
                         options: {
-                            sourceMap: true,
-                            url: true
+                            url: false
                         }
                     },
                     {
@@ -31,26 +45,17 @@ module.exports = {
                     },
                     {
                         loader: 'sass-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    }
+                    },
+
                 ]
             },
-            {
-                test: /\.(png|jpg|gif)$/,
-                use: [
-                  {
-                    loader: 'file-loader',
-                    options: {name: 'img/[name].[ext]'}  
-                  }
-                ]
-              },    
-
         ]
     },
-    plugins: [
-        new MiniCssExtractPlugin()
-    ],
-
 }
+
+module.exports = (env, options) => {
+    let mode = options.mode === 'production';
+    conf.devtool = mode ? false :
+        'cheap-module-source-map';
+    return conf;
+};

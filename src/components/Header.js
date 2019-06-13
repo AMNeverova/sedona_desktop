@@ -1,13 +1,14 @@
 import React from 'react';
 import Menu from './menu/Menu';
-import HeadingText from './HeadingText';
+import HeaderText from './HeaderText';
+import data from '../redux/data_rus.json';
 
 function Header(props) {
 
     return (
         <div className='header'>
             <Menu state={props.state} dispatch={props.dispatch} />
-            <HeadingText />
+            <HeaderText text={data.headerText} />
         </div>
     )
 }

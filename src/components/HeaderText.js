@@ -1,11 +1,11 @@
 import React from 'react';
 
-function HeadingText() {
+function HeaderText(props) {
     return(
         <div className='heading-text'>
-        sedona
+        {props.text}
         </div>
     )
 }
 
-export default HeadingText;
+export default HeaderText;

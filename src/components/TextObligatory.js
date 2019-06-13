@@ -1,9 +1,9 @@
 import React from 'react';
 
-function TextObligatory() {
+function TextObligatory(props) {
     return(
         <div className="obligatory">
-            <p className="obligatory-field">* &ndash; обязательные поля</p>
+            <p className="obligatory-field">* &ndash; {props.text}</p>
         </div>
     )
 }
