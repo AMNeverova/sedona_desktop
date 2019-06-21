@@ -187,6 +187,8 @@ body {
 	.sights {
 		flex-basis: 34%;
 		min-width: 16rem;
+		height: 3rem;
+		align-self: center;
 	}
 }
 
@@ -261,6 +263,7 @@ body {
 		}
 		span {
 			flex-basis: 33%;
+			text-align: end;
 		}
 	}
 }
@@ -549,6 +552,10 @@ body {
 .input-email:focus {
 	background-color: $white;
 	outline: $input-hover solid 0.3rem;
+}
+
+.input-unfilled, .input-unfilled:focus {
+	outline: #F08080 solid 0.3rem
 }
 
 .text-describe:focus {

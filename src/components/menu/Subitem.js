@@ -1,12 +1,10 @@
 import React from 'react';
 
 function Subitem(props) {
-    return(
-        
+    return (
         <div>
         <a>{props.subitemText}</a>
         </div>
-        
     )
 }
 

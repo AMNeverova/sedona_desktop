@@ -4,7 +4,7 @@ function Footer(props) {
     return(
         <div className="footer">
             <div className="visit">
-                <p>{props.texts.visitSedona}</p>
+                <p>{props.textContent.visitSedona}</p>
             </div>
             <div className="links">
                 <div className="twitter">
@@ -18,7 +18,7 @@ function Footer(props) {
                 </div>
             </div>
             <div className="academy">
-                <p>{props.texts.developed}</p>
+                <p>{props.textContent.developed}</p>
                 <div className="academy-logo"></div>
             </div>
         </div>

@@ -214,6 +214,11 @@
             .subitems {
                 max-width: 100%;
                 width: 100%;
+                display: none;
+            }
+
+            .show {
+                display: block;
             }
         }
 
@@ -269,9 +274,5 @@
     .item:active:not(.item-3) {
         background-color: $mobile-menu-active-background;
         color: $mobile-menu-active-text;
-    }
-
-    .item:hover .subitems {
-        display: none;
     }
 }

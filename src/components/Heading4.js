@@ -1,8 +1,7 @@
 import React from 'react';
-
 function Heading4(props) {
     return(
-        <div className={props.className}>{props.heading4Text}</div>
+        <div className={props.className}>{props.textContent}</div>
     )
 }
 

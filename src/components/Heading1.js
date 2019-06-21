@@ -3,9 +3,9 @@ import React from 'react';
 function Heading1(props) {
     return (
         <div className='heading-1'>
-            <p className='main'>{props.headingTexts.main}</p>
-            <p className='secondary'>{props.headingTexts.secondary1}</p>
-            <p className='secondary'>{props.headingTexts.secondary2}</p>
+            <p className='main'>{props.textContent.main}</p>
+            <p className='secondary'>{props.textContent.secondary1}</p>
+            <p className='secondary'>{props.textContent.secondary2}</p>
         </div>
     )
 }

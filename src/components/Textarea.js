@@ -10,7 +10,7 @@ function Textarea(props) {
 
     return(
     <div className="textarea">
-        <textarea rows="5" onChange={handleChange} value={props.state.value} className="text-describe" placeholder={props.state.placeholder}
+        <textarea rows="5" onChange={handleChange} value={props.state.value} className="text-describe" placeholder={props.textContent}
             name="emotions" />
     </div>
 

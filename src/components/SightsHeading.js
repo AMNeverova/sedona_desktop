@@ -6,7 +6,7 @@ function SightsHeading(props) {
     return(
         <div className='sights-heading'>
             <Stripe className='stripe for-sights'/>
-            <Heading4 className='heading-4 sights' heading4Text={props.headingText} />
+            <Heading4 className='heading-4 sights' textContent={props.textContent} />
             <Stripe className='stripe for-sights' />
         </div>
     )

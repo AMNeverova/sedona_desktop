@@ -3,11 +3,13 @@ import Checkbox from'./Checkbox'
 
 function Row4(props) {
 
-    let CheckboxComponents = props.checkboxesState.map((item) => {
-        return(
-            <Checkbox dispatch={props.dispatch} id={item.id} checkboxChecked={item.checked} checkboxText={item.checkboxText} key={item.id} checkboxValue={item.checkboxValue}  />
+    let CheckboxComponents = []
+    
+    for (let i = 0; i <= 3; i++) {
+        CheckboxComponents.push(
+            <Checkbox dispatch={props.dispatch} id={props.state[i].id} checkboxChecked={props.state[i].checked} checkboxText={props.textContent[i]} key={props.state[i].id} checkboxValue={props.state[i].checkboxValue}  />
         )
-    })
+    }
 
     return(
         <div className='row-4'>

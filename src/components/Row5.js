@@ -5,8 +5,8 @@ import TextObligatory from './TextObligatory';
 function Row5(props) {
     return(
         <div className='row-5'>
-            <ButtonSendReview buttonText={props.buttonText} state={props.state} dispatch={props.dispatch} />
-            <TextObligatory text={props.textObligatory} />
+            <ButtonSendReview buttonText={props.textContent.buttonSendReview} state={props.state} dispatch={props.dispatch} />
+            <TextObligatory text={props.textContent.obligatoryText} />
         </div>
     )
 }

@@ -3,7 +3,13 @@ import { checkboxChangeActionType, inputEmailActionType,
         inputPhoneActionType, radioChangeActionType, textareaActionType, filledInputActionType, filledInputPhoneType, filledInputMailType } from "./buttonSendReducer";
 
 import {mobileMenuClickActionType} from './menuReducer';
+import { textContentEnglishAT } from "./textContentReducer";
 
+export const textContentAC = () => {
+    return {
+        type: textContentEnglishAT
+    }
+}
 
 export const CheckboxChangeActionCreator = (id) => {
     return {
@@ -85,5 +91,3 @@ export function filledInputMailActionCreator() {
         type: filledInputMailType
     }
 }
-
-

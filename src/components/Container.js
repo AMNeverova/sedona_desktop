@@ -11,27 +11,29 @@ import Row4 from './Row4';
 import Textarea from './Textarea';
 import Row5 from './Row5';
 import Footer from './Footer';
-import data from '../redux/data_rus.json';
+import ButtonSwitchToEnglish from './ButtonSwitchToEnglish'
 
 function Container(props) {
+    console.log(props.textContent.buttonSwitchToEnglish)
     return (
         <div className='container'>
-            <Heading1 headingTexts={data.headings} />
-            <Impression headingText={data.headings.headingForImpression} state={props.state.chooseImpressionRadiobutton} dispatch={props.dispatch} />
-            <Present inputFullname={props.state.inputFullname} dispatch={props.dispatch} />
+            <ButtonSwitchToEnglish textContent={props.textContent.buttonSwitchToEnglish} dispatch={props.dispatch} />
+            <Heading1 textContent={props.textContent.headings} />
+            <Impression state={props.state.chooseImpressionRadiobutton} dispatch={props.dispatch} headingText={props.textContent.headings.headingForImpression} textContent={props.textContent.impression} />
+            <Present state={props.state.inputFullname} headingText={props.textContent.headings.headingForPresent} dispatch={props.dispatch} textContent={props.textContent.present} />
             <Stripe className='stripe' />
-            <Heading4 className="heading-4 contact-information" heading4Text={data.headings.headingForContacts}/>
+            <Heading4 className="heading-4 contact-information" textContent={props.textContent.headings.headingForContacts} />
             <Stripe className='stripe' />
-            <Phone state={props.state.inputPhone} dispatch={props.dispatch} />
-            <Mail state={props.state.inputEmail} dispatch={props.dispatch} />
-            <SightsHeading headingText={data.headings.headingForSights} /> 
-            <Row4 checkboxesState={props.state.chooseSightsCheckbox} dispatch={props.dispatch} />
+            <Phone state={props.state.inputPhone} dispatch={props.dispatch} textContent={props.textContent.inputPhone} />
+            <Mail state={props.state.inputEmail} dispatch={props.dispatch} textContent={props.textContent.inputEmail} />
+            <SightsHeading textContent={props.textContent.headings.headingForSights} /> 
+            <Row4 state={props.state.chooseSightsCheckbox} dispatch={props.dispatch} textContent={props.textContent.checkboxes} />
             <Stripe className='stripe' />
-            <Heading4 className='heading-4' heading4Text={data.headings.headingForDescribeEmotions} />
+            <Heading4 className='heading-4' textContent={props.textContent.headings.headingForDescribeEmotions} />
             <Stripe className='stripe' />
-            <Textarea dispatch={props.dispatch} state={props.state.describeEmotions} />
-            <Row5 buttonText={data.buttonSendReview} textObligatory={data.obligatoryText} state={props.state} dispatch={props.dispatch} />
-            <Footer texts={data.footer} />
+            <Textarea dispatch={props.dispatch} state={props.state.describeEmotions} textContent={props.textContent.describeEmotions.placeholder} />
+            <Row5 state={props.state} dispatch={props.dispatch} textContent={props.textContent.row5} />
+            <Footer textContent={props.textContent.footer} />
         </div>
     )
 }
