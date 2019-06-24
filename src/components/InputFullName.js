@@ -1,30 +1,23 @@
 import React from 'react';
 import { inputNameActionCreator, inputSurnameActionCreator, inputPatronymActionCreator } from '../redux/actionCreators';
+import Input from './InputClass';
 
 function InputFullName(props) {
-
     function handleChange(evt) {
         let newText = evt.target.value;
-        if (props.id == 1) {
+
+        if (props.state.id == 1) {
            props.dispatch(inputNameActionCreator(newText)) 
         }
-
-        if (props.id == 2) {
+        if (props.state.id == 2) {
             props.dispatch(inputSurnameActionCreator(newText))
         }
-
-        if (props.id == 3) {
+        if (props.state.id == 3) {
             props.dispatch(inputPatronymActionCreator(newText))
         }
     }
-
-    return(
-        <div className='text'>
-        <label><span className={props.spanClassName}>{props.labelText}</span>
-            <input type="text" value={props.value} onChange={handleChange} className={props.inputClassName} placeholder={props.placeholderText} required={props.inputRequired} />
-        </label>
-        </div>
-    )
+    let input = new Input();
+    return (input.render(props, handleChange))
 }
 
 export default InputFullName;

@@ -159,6 +159,16 @@ body {
 	opacity: 1;
 }
 
+:-ms-input-placeholder {
+	color: $placeholder;
+	opacity: 1;
+}
+
+.text-describe:-ms-input-placeholder {
+	color: $placeholder;
+	opacity: 1;
+}
+
 .input-text,
 .input-phone,
 .input-email,

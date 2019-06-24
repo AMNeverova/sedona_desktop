@@ -1,5 +1,3 @@
-import data from '../locales/data.json'
-
 export const checkboxChangeActionType = 'CHECKBOX-CHANGE';
 export const inputEmailActionType = 'INPUT-EMAIL-CHANGE';
 export const inputNameActionType = 'INPUT-NAME-CHANGE';
@@ -32,6 +30,8 @@ let initialState = {
     ],
     inputFullname: [{
             id: 1,
+            mainDivClassName: 'text',
+            inputType: 'text',
             className: 'input-text input-name',
             value: '',
             required: true,
@@ -40,6 +40,8 @@ let initialState = {
         },
         {
             id: 2,
+            mainDivClassName: 'text',
+            inputType: 'text',
             className: 'input-text',
             value: '',
             required: true,
@@ -49,6 +51,8 @@ let initialState = {
         {
             id: 3,
             className: 'input-text',
+            mainDivClassName: 'text',
+            inputType: 'text',
             value: '',
             required: false,
             spanClassName: '',
@@ -56,11 +60,19 @@ let initialState = {
         }
     ],
     inputPhone: {
+        mainDivClassName: 'phone',
+        inputType: 'tel',
+        spanClassName: 'required',
+        logoClassName: 'phone-logo',
         value: '',
         filled: true,
         className: "input-phone"
     },
     inputEmail: {
+        mainDivClassName: 'mail',
+        inputType: 'email',
+        spanClassName: 'required',
+        logoClassName: 'mail-logo',
         value: '',
         filled: true,
         className: "input-email"
@@ -100,11 +112,9 @@ function buttonSendReducer(state = initialState, action) {
             }
         })
     }
-
     if (action.type === inputEmailActionType) {
         state.inputEmail.value = action.newText;
     }
-
     if (action.type === inputNameActionType) {
         state.inputFullname.map((item) => {
             if (item.id == 1) {
@@ -124,11 +134,9 @@ function buttonSendReducer(state = initialState, action) {
             }
         })
     }
-
     if (action.type === inputPhoneActionType) {
         state.inputPhone.value = action.newText;
     }
-
     if (action.type === radioChangeActionType) {
         state.chooseImpressionRadiobutton.map((item) => {
             item.chosen = false;
@@ -137,17 +145,14 @@ function buttonSendReducer(state = initialState, action) {
             }
         })
     }
-
     if (action.type === textareaActionType) {
         state.describeEmotions.value = action.newText
     }
-
     if (action.type === filledInputActionType) {
         state.inputFullname.map((item) => {
             if (item.id == action.id) {
                 item.filled = !item.filled;
             }
-
             if (!item.filled && item.className.indexOf('unfilled') == -1) {
                 item.className = item.className + ' input-unfilled'
             }
@@ -156,23 +161,25 @@ function buttonSendReducer(state = initialState, action) {
             }
         })
     }
-
     if (action.type === filledInputPhoneType) {
         state.inputPhone.filled = !state.inputPhone.filled
-
         if (!state.inputPhone.filled && state.inputPhone.className.indexOf('unfilled') == -1) {
             state.inputPhone.className = state.inputPhone.className + ' input-unfilled'
         }
         if (state.inputPhone.filled && state.inputPhone.className.indexOf('unfilled') !== -1) {
             state.inputPhone.className = state.inputPhone.className.slice(0, -15)
         }
-
     }
-
     if (action.type === filledInputMailType) {
-        state.inputEmail.filled = !state.inputEmail.filled
-    }
+        state.inputEmail.filled = !state.inputEmail.filled;
 
+        if (!state.inputEmail.filled && state.inputEmail.className.indexOf('unfilled') == -1) {
+            state.inputEmail.className = state.inputEmail.className + ' input-unfilled'
+        }
+        if (state.inputEmail.filled && state.inputEmail.className.indexOf('unfilled') !== -1) {
+            state.inputEmail.className = state.inputEmail.className.slice(0, -15)
+        }
+    }
       return state
 }
 

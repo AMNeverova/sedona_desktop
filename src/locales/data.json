@@ -205,8 +205,8 @@
                 "placeholder": "Smith"
             },
             {
-                "labelText": "Отчество",
-                "placeholder": "Александрович"
+                "labelText": "Patronym",
+                "placeholder": "Alexandrovich"
             }
         ],
         "inputPhone": {

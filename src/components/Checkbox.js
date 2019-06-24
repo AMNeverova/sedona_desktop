@@ -1,14 +1,12 @@
 import React from 'react';
 import { CheckboxChangeActionCreator } from '../redux/actionCreators';
 
-
 function Checkbox(props) {
-
     function handleChange(id) {
         props.dispatch(CheckboxChangeActionCreator(id))
     }
 
-    return(
+    return (
         <div className='checkbox'>
             <label onChange={() => {handleChange(props.id)}}>
                 <input className="input-checkbox" type="checkbox" value={props.checkboxValue} checked={props.checkboxChecked} />
@@ -16,8 +14,7 @@ function Checkbox(props) {
                     <div className="checkbox-label-text">{props.checkboxText}</div>
                 </div>
             </label>
-    </div>
-
+        </div>
     )
 }
 

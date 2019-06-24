@@ -3,9 +3,7 @@ import Subitem from './Subitem';
 import { mobileMenuActionCreator } from '../../redux/actionCreators';
 
 function Item(props) {
-
     let SubitemComponents = []
-
 for (let i = 0; i < props.subItems.length; i++) {
        SubitemComponents.push(<Subitem subitemText={props.subItems[i].text} key={props.subitemIds[i]} />)
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 function TextObligatory(props) {
-    return(
+    return (
         <div className="obligatory">
             <p className="obligatory-field">* &ndash; {props.text}</p>
         </div>

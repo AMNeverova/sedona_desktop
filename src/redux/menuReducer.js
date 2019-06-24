@@ -38,7 +38,6 @@ const menuReducer = (state = initialState, action) => {
             }
         })
     }
-
     return state
 }
 

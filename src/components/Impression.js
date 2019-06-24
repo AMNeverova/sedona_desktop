@@ -2,7 +2,6 @@ import React from 'react';
 import Radio from './Radio';
 
 function Impression(props) {
-    
     let RadioComponents = []
     for (let i = 0; i <=2; i++) { 
         RadioComponents.push(

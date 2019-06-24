@@ -31,6 +31,10 @@
         }
     }
 
+    .button-switch-language {
+        order: -1;
+    }
+
     .present {
         flex-basis: 100%;
         padding-left: 0;
@@ -102,6 +106,10 @@
 
     .mail label .input-email {
         width: 62vw;
+    }
+
+    .mail label span {
+        text-align: start;
     }
 
     .phone::after,

@@ -2,7 +2,6 @@ import React from 'react';
 import { radioChangeActionCreator } from '../redux/actionCreators';
 
 function Radio(props) {
-
     let handleChange = (id) => {
         props.dispatch(radioChangeActionCreator(id))
     }

@@ -1,7 +1,6 @@
 import { checkboxChangeActionType, inputEmailActionType, 
         inputNameActionType, inputSurnameActionType, inputPatronymActionType, 
         inputPhoneActionType, radioChangeActionType, textareaActionType, filledInputActionType, filledInputPhoneType, filledInputMailType } from "./buttonSendReducer";
-
 import {mobileMenuClickActionType} from './menuReducer';
 import { textContentEnglishAT } from "./textContentReducer";
 

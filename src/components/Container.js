@@ -14,7 +14,6 @@ import Footer from './Footer';
 import ButtonSwitchToEnglish from './ButtonSwitchToEnglish'
 
 function Container(props) {
-    console.log(props.textContent.buttonSwitchToEnglish)
     return (
         <div className='container'>
             <ButtonSwitchToEnglish textContent={props.textContent.buttonSwitchToEnglish} dispatch={props.dispatch} />
