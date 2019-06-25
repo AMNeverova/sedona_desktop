@@ -4,5 +4,4 @@ function Heading4(props) {
         <div className={props.className}>{props.textContent}</div>
     )
 }
-
 export default Heading4;

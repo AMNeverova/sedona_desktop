@@ -32,12 +32,10 @@ function ButtonSendReview(props) {
         let service = new SedonaAPI();
         service.submitForm(state)
     }
-
     return(
-        <div className="button">
-            <button onClick={() => {handleClick(props.state)}} className="button-review">{props.buttonText}</button>
+        <div className='button'>
+            <button onClick={() => {handleClick(props.state)}} className='button-review'>{props.buttonText}</button>
         </div>
     )
 }
-
 export default ButtonSendReview;

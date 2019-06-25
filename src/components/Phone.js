@@ -7,8 +7,8 @@ function Phone(props) {
         let newText = evt.target.value
         props.dispatch(inputPhoneActionCreator(newText))
     }
-    let input = new Input();
-    return (input.render(props, handleChange))
+    return (
+        <Input state={props} handleChange={handleChange} />
+    )
 }
-
 export default Phone;

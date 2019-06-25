@@ -21,7 +21,7 @@ function Container(props) {
             <Impression state={props.state.chooseImpressionRadiobutton} dispatch={props.dispatch} headingText={props.textContent.headings.headingForImpression} textContent={props.textContent.impression} />
             <Present state={props.state.inputFullname} headingText={props.textContent.headings.headingForPresent} dispatch={props.dispatch} textContent={props.textContent.present} />
             <Stripe className='stripe' />
-            <Heading4 className="heading-4 contact-information" textContent={props.textContent.headings.headingForContacts} />
+            <Heading4 className='heading-4 contact-information' textContent={props.textContent.headings.headingForContacts} />
             <Stripe className='stripe' />
             <Phone state={props.state.inputPhone} dispatch={props.dispatch} textContent={props.textContent.inputPhone} />
             <Mail state={props.state.inputEmail} dispatch={props.dispatch} textContent={props.textContent.inputEmail} />
@@ -36,6 +36,4 @@ function Container(props) {
         </div>
     )
 }
-
 export default Container;
-

@@ -5,9 +5,7 @@ import './src/styles/main.scss';
 import store from './src/redux/store'
 
 function rerender() {
-
-   
-ReactDOM.render(<App dispatch={store.dispatch.bind(store)} state={store.getState()} />, document.querySelector(".wrapper"));
+    ReactDOM.render(<App dispatch={store.dispatch.bind(store)} state={store.getState()} />, document.querySelector(".wrapper"));
 }
 
 rerender()

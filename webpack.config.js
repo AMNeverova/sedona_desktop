@@ -16,9 +16,9 @@ let conf = {
                 test: /\.(png|jpg|gif)$/i,
                 use: [
                   {
-                    loader: 'url-loader',
+                    loader: 'file-loader',
                     options: {
-                      limit: 8192,
+                      name: '[path][name].[ext]',
                     },
                   },
                 ],
@@ -41,11 +41,12 @@ let conf = {
                         }
                     },
                     {
-                        loader: "resolve-url-loader"
-                    },
-                    {
                         loader: 'sass-loader',
                     },
+                    {
+                        loader: "resolve-url-loader"
+                    },
+
 
                 ]
             },

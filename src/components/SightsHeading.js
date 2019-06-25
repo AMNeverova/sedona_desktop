@@ -11,5 +11,4 @@ function SightsHeading(props) {
         </div>
     )
 }
-
 export default SightsHeading;

@@ -28,7 +28,6 @@ class SedonaAPI {
             "email": state.inputEmail.value,
             "emotions": state.describeEmotions.value
         }
-
         require('es6-promise').polyfill();
         if (filledForm.fullname[0] && filledForm.fullname[1] && filledForm.phoneNumber && filledForm.email) {
             axios({

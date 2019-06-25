@@ -10,7 +10,6 @@ export const filledInputActionType = 'FILLED-FULLNAME';
 export const filledInputPhoneType = 'FILLED-PHONE';
 export const filledInputMailType = 'FILLED-MAIL'
 
-
 let initialState = {
     chooseImpressionRadiobutton: [{
             id: 1,
@@ -60,6 +59,7 @@ let initialState = {
         }
     ],
     inputPhone: {
+        id: 4,
         mainDivClassName: 'phone',
         inputType: 'tel',
         spanClassName: 'required',
@@ -69,6 +69,7 @@ let initialState = {
         className: "input-phone"
     },
     inputEmail: {
+        id: 5,
         mainDivClassName: 'mail',
         inputType: 'email',
         spanClassName: 'required',
@@ -180,7 +181,6 @@ function buttonSendReducer(state = initialState, action) {
             state.inputEmail.className = state.inputEmail.className.slice(0, -15)
         }
     }
-      return state
+    return state
 }
-
 export default buttonSendReducer;

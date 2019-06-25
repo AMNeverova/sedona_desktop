@@ -5,10 +5,10 @@ function ButtonSwitchToEnglish(props) {
     let handleClick = () => {
         props.dispatch(textContentAC())
     }
-        return(
+    return(
         <div className='button-switch-language'>
             <button onClick={handleClick}>{props.textContent}</button>
-        </div>)
+        </div>
+        )
 }
-
 export default ButtonSwitchToEnglish;

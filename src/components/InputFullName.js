@@ -16,8 +16,8 @@ function InputFullName(props) {
             props.dispatch(inputPatronymActionCreator(newText))
         }
     }
-    let input = new Input();
-    return (input.render(props, handleChange))
+    return (
+        <Input state={props} handleChange={handleChange} />
+    )
 }
-
 export default InputFullName;
