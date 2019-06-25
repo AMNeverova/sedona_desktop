@@ -1,56 +1,62 @@
-const path = require("path")
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
 
-module.exports = {
-    entry: {
-        'main.js': "./src/index.js",
-        'app': './src/main.scss',
-    },
+let conf = {
+    entry: "./index.js",
     output: {
-      path: __dirname + '/public/',
-      filename: "[name]" ,
-      publicPath: ""
+        path: path.join(__dirname, "/public"),
+        filename: "index_bundle.js"
+    },
+    devServer: {
+      contentBase: './',
+      publicPath: '/public/'
     },
     module: {
-      rules: [{
-          test: /\.scss$/,
-          use: [
-            MiniCssExtractPlugin.loader,
+        rules: [
             {
-              loader: 'css-loader',
-              options: { sourceMap: true, url: true }
+                test: /\.(png|jpg|gif)$/i,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: '[path][name].[ext]',
+                    },
+                  },
+                ],
+              },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                },
             },
             {
-              loader: "resolve-url-loader"
+                test: /\.scss$/,
+                use: [
+                    { loader: "style-loader" },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            url: false
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                    },
+                    {
+                        loader: "resolve-url-loader"
+                    },
+
+
+                ]
             },
-            {
-              loader: 'sass-loader',
-              options: { sourceMap: true }
-            }
-          ]
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {name: 'img/[name].[ext]'}  
-          }
         ]
-      },
-      // {
-      //     test: /\.css$/,
-      //     use: [
-      //       MiniCssExtractPlugin.loader,
-      //       'css-loader'
-      //     ]
-      // }
-  ]
-  },
-  devServer: {
-      overlay: true
-  },
-  plugins: [
-      new MiniCssExtractPlugin
-  ],
+    },
+}
+
+module.exports = (env, options) => {
+    let mode = options.mode === 'production';
+    conf.devtool = mode ? false :
+        'cheap-module-source-map';
+    return conf;
 };

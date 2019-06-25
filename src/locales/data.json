@@ -1,0 +1,237 @@
+{
+    "dataRus": {
+        "menu": [
+            {
+                "itemText": "главная",
+                "subItems": [
+                    {
+                        "text": "пункт 1.1"
+                    },
+                    {
+                        "text": "пункт 1.2"
+                    },
+                    {
+                        "text": "пункт 1.3"
+                    }
+                ]
+            },
+            {
+                "itemText": "фото и видео",
+                "subItems": [
+                    {
+                        "text": "пункт 2.1"
+                    },
+                    {
+                        "text": "пункт 2.2"
+                    },
+                    {
+                        "text": "пункт 2.3"
+                    }
+                ]
+            },
+            {
+                "itemText": null,
+                "subItems": []
+            },
+            {
+                "itemText": "форма отзыва",
+                "subItems": [
+                    {
+                        "text": "пункт 3.1"
+                    },
+                    {
+                        "text": "пункт 3.2"
+                    },
+                    {
+                        "text": "пункт 3.3"
+                    }
+                ]
+            },
+            {
+                "itemText": "html academy",
+                "subItems": [
+                    {
+                        "text": "пункт 4.1"
+                    },
+                    {
+                        "text": "пункт 4.2"
+                    },
+                    {
+                        "text": "пункт 4.3"
+                    }
+                ]
+            }
+        ],
+        "altForImg": ["Седона", "Меню"],
+        "headerText": "sedona",
+        "headings": {
+            "main": "оставьте свой отзыв",
+            "secondary1": "Помогите нашим отелям стать лучше! Оставьте отзыв о них.",
+            "secondary2": "А также о посещенных вами достопримечательностях.",
+            "headingForImpression": "ваше общее впечатление",
+            "headingForPresent": "представьтесь",
+            "headingForContacts": "контактная информация",
+            "headingForSights": "посещенные достопримечательности",
+            "headingForDescribeEmotions": "Опишите свои эмоции"
+        },
+        "impression": [
+            "Скорее положительное",
+            "Скорее отрицательное",
+            "Затрудняюсь ответить"
+        ],
+        "present": [
+            {
+                "labelText": "Имя",
+                "placeholder": "Пётр"
+            },
+            {
+                "labelText": "Фамилия",
+                "placeholder": "Иванов"
+            },
+            {
+                "labelText": "Отчество",
+                "placeholder": "Александрович"
+            }
+        ],
+        "inputPhone": {
+            "labelText": "Телефон",
+            "placeholder": "Введите телефон",
+            "textForError": "Ошибка, перепроверьте номер"
+        },
+        "inputEmail": {
+            "labelText": "Электронная почта",
+            "placeholder": "Введите e-mail"
+        },
+        "checkboxes": ["Мост Дьявола", "Гора-Колокол", "Слайд-парк", "Красные скалы"], 
+        "describeEmotions": {
+            "placeholder": "Опишите подробно все свои восторги"
+        },
+        "row5": {
+            "buttonSendReview": "отправить отзыв",
+            "obligatoryText": "обязательные поля"
+        },
+        "footer": {
+            "visitSedona": "#visitsedona",
+            "developed": "разработано"
+        },
+        "buttonSwitchToEnglish": "Switch to English"
+    },
+    "dataEng": {
+        "menu": [
+            {
+                "itemText": "main",
+                "itemClassName": "item item-1",
+                "subItems": [
+                    {
+                        "text": "item 1.1"
+                    },
+                    {
+                        "text": "item 1.2"
+                    },
+                    {
+                        "text": "item 1.3"
+                    }
+                ]
+            },
+            {
+                "itemText": "photo & video",
+                "itemClassName": "item item-2",
+                "subItems": [
+                    {
+                        "text": "item 2.1"
+                    },
+                    {
+                        "text": "item 2.2"
+                    },
+                    {
+                        "text": "item 2.3"
+                    }
+                ]
+            },
+            {
+                "itemText": null,
+                "itemClassName": "item item-3",
+                "subItems": []
+            },
+            {
+                "itemText": "feedback form",
+                "itemClassName": "item item-4",
+                "subItems": [
+                    {
+                        "text": "item 3.1"
+                    },
+                    {
+                        "text": "item 3.2"
+                    },
+                    {
+                        "text": "item 3.3"
+                    }
+                ]
+            },
+            {
+                "itemText": "html academy",
+                "itemClassName": "item item-5",
+                "subItems": [
+                    {
+                        "text": "item 4.1"
+                    },
+                    {
+                        "text": "item 4.2"
+                    },
+                    {
+                        "text": "item 4.3"
+                    }
+                ]
+            }
+        ],
+        "altForImg": ["City of Sedona", "Menu"],
+        "headerText": "sedona",
+        "headings": {
+            "main": "leave your feedback",
+            "secondary1": "Help us to improve out hotels! Leave your feedback about them.",
+            "secondary2": "And about the sights you've visited.",
+            "headingForImpression": "your overall impression",
+            "headingForPresent": "introduce yourself",
+            "headingForContacts": "contact information",
+            "headingForSights": "visited sights",
+            "headingForDescribeEmotions": "Describe your emotions"
+        },
+        "impression": ["Rather positive", "Rather negative", "Difficult to decide"],
+        "present": [
+            {
+                "labelText": "Name",
+                "placeholder": "John"
+            },
+            {
+                "labelText": "Surname",
+                "placeholder": "Smith"
+            },
+            {
+                "labelText": "Patronym",
+                "placeholder": "Alexandrovich"
+            }
+        ],
+        "inputPhone": {
+            "labelText": "Phone number",
+            "placeholder": "Enter your phone number",
+            "textForError": "Error, check the entered phone number"
+        },
+        "inputEmail": {
+            "labelText": "E-mail",
+            "placeholder": "Enter e-mail"
+        },
+        "checkboxes": ["Devil's Bridge", "Bell Mountain", "Slide-park", "Red cliffs"],
+        "describeEmotions": {
+            "placeholder": "Decribe all of your delight in detail"
+        },
+        "row5": {
+            "buttonSendReview": "send feedback",
+            "obligatoryText": "obligatory fields"
+        },
+        "footer": {
+            "visitSedona": "#visitsedona",
+            "developed": "developed by"
+        },
+        "buttonSwitchToEnglish": "Перевести на русский"
+    }
+}
