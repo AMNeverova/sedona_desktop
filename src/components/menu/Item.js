@@ -28,8 +28,8 @@ function Item(props) {
         <div onClick={() => showSubitems(props.className)} className={props.className}>{
             props.textContent? <a>{props.textContent}</a> :
             <span>
-                <img src={logotype} alt='City of Sedona' className='logo' />
-                <img src={menuIcon} onClick={handleClick} alt='menu' className='icon-menu' />
+                <img src={logotype} alt={props.altForImg[0]} className='logo' />
+                <img src={menuIcon} onClick={handleClick} alt={props.altForImg[1]} className='icon-menu' />
             </span>}
                 {subitemComponents.length !== 0? <div className='subitems'>{subitemComponents}</div>
                 : null}

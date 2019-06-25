@@ -5,7 +5,7 @@ import HeaderText from './HeaderText';
 function Header(props) {
     return (
         <div className='header'>
-            <Menu state={props.state} textContent={props.textContent.menu} dispatch={props.dispatch} />
+            <Menu state={props.state} textContent={props.textContent.menu} altForImg={props.textContent.altForImg} dispatch={props.dispatch} />
             <HeaderText text={props.textContent.headerText} />
         </div>
     )
