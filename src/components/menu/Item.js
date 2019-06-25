@@ -5,9 +5,9 @@ import logotype from '../../../public/img/logotype-desktop.png';
 import menuIcon from '../../../public/img/icon-menu.png';
 
 function Item(props) {
-    let SubitemComponents = []
+    let subitemComponents = []
     for (let i = 0; i < props.subItems.length; i++) {
-       SubitemComponents.push(<Subitem subitemText={props.subItems[i].text} key={props.subitemIds[i]} />)
+       subitemComponents.push(<Subitem subitemText={props.subItems[i].text} key={props.subitemIds[i]} />)
     }
     function showSubitems(className) {
         let mainClassStart = 5;
@@ -31,7 +31,7 @@ function Item(props) {
                 <img src={logotype} alt='City of Sedona' className='logo' />
                 <img src={menuIcon} onClick={handleClick} alt='menu' className='icon-menu' />
             </span>}
-                {SubitemComponents.length !== 0? <div className='subitems'>{SubitemComponents}</div>
+                {subitemComponents.length !== 0? <div className='subitems'>{subitemComponents}</div>
                 : null}
         </div>
     )
